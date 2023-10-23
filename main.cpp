@@ -1,5 +1,5 @@
 #include <iostream>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 
 const int WIDTH=1920, HEIGHT=1080;
