@@ -30,7 +30,7 @@ struct gun{
     int ammo;
 };
 
-int main(void){
+void boh(void){
     player player;
     rounds round;
     
