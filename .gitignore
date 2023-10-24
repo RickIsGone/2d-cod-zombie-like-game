@@ -1,8 +1,0 @@
-/out
-bin/
-build/
-/.vs
-.idea/
-CmakeSettings.json
-/.vscode
-.gitignore
