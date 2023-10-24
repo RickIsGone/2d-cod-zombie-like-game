@@ -22,14 +22,15 @@ int main(int argc, char *argv[]){
         return EXIT_FAILURE;
     }
     SDL_Event WindowEvent;
-    
+    map(renderer);
     while (true){
         if (SDL_PollEvent(&WindowEvent))
             if (SDL_QUIT==WindowEvent.type)
                 break;
-                
+
         // codice da scrivere 
-        map(renderer);
+        
+        
     }
     SDL_DestroyWindow(window);
     SDL_Quit();
