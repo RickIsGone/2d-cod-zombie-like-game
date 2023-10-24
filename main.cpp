@@ -1,10 +1,12 @@
 #include <iostream>
+#define SDL_MAIN_HANDLED
 #include <SDL.h>
+#include <SDL_main.h>
 
 
 const int WIDTH=1920, HEIGHT=1080;
 
-int main (int argc, char *argv[]){
+int main(int argc, char *argv[]){
     SDL_Init(SDL_INIT_EVERYTHING);
 
     SDL_Window *window=SDL_CreateWindow("2d cod zombie",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,WIDTH,HEIGHT,SDL_WINDOW_ALLOW_HIGHDPI);
