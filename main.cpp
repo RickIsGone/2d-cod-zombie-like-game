@@ -1,12 +1,14 @@
-#include <iostream>
 #define SDL_MAIN_HANDLED
+#include <iostream>
 #include <SDL.h>
 #include <SDL_main.h>
-#include "hpp files/map.hpp"
+#include "hpp files/map&input.hpp"
+
 
 const int WIDTH=1920, HEIGHT=1080;
 
 int main(int argc, char *argv[]){
+    bool game_state=true;
     SDL_Init(SDL_INIT_EVERYTHING);
 
     SDL_Window *window=SDL_CreateWindow("2d cod zombie",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,WIDTH,HEIGHT,SDL_WINDOW_ALLOW_HIGHDPI);
@@ -23,15 +25,11 @@ int main(int argc, char *argv[]){
     }
     SDL_Event WindowEvent;
     map(renderer);
-    while (true){
-        if (SDL_PollEvent(&WindowEvent))
-            if (SDL_QUIT==WindowEvent.type)
-                break;
-
-        // codice da scrivere 
-        
-        
+    SDL_Event event;
+    while (game_state) {
+        input_event(event, game_state);
     }
+
     SDL_DestroyWindow(window);
     SDL_Quit();
 
