@@ -36,8 +36,11 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera,MouseState mouseState){
 
     SDL_Texture* wall_texture = IMG_LoadTexture(renderer, "texture/wall.png");
     SDL_Texture* ground_texture = IMG_LoadTexture(renderer, "texture/ground.png");
-    SDL_Texture* mouse_texture=IMG_LoadTexture(renderer,"texture/mouse.png");
-    SDL_Rect mouseRect = { mouseState.x, mouseState.y, 1920, 1080 };
+    SDL_Surface* cursorSurface = IMG_Load("texture/mouse.png");
+    int hot_x = cursorSurface->w / 2;
+    int hot_y = cursorSurface->h / 2;
+    SDL_Cursor* cursor = SDL_CreateColorCursor(cursorSurface, hot_x, hot_y);
+    SDL_SetCursor(cursor);
     
     int dimensione = 64; // dimensione di ogni tile in pixel
 
@@ -71,10 +74,10 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera,MouseState mouseState){
         x++;
     }
     SDL_Rect destrect = { mouseState.x - 64 / 2, mouseState.y - 32 / 2, 64, 32 };
-    SDL_RenderCopy(renderer, mouse_texture, NULL, &destrect);
     SDL_RenderPresent(renderer);
     
     SDL_DestroyTexture(wall_texture);
     SDL_DestroyTexture(ground_texture);
-    SDL_DestroyTexture(mouse_texture);
+    
+
 }

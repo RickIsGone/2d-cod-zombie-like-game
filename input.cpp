@@ -32,9 +32,6 @@ void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseStat
                 case SDL_BUTTON_LEFT:
                     mouseState.leftButton = true;
                     break;
-                case SDL_BUTTON_RIGHT:
-                    mouseState.rightButton = true;
-                    break;
             }
             break;
 
@@ -43,18 +40,15 @@ void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseStat
                 case SDL_BUTTON_LEFT:
                     mouseState.leftButton = false;
                     break;
-                case SDL_BUTTON_RIGHT:
-                    mouseState.rightButton = false;
-                    break;
             }
             break;
             
     }
 
-    if (keyState[SDL_SCANCODE_W]) camera.y -= 10 * delta_time;
-    if (keyState[SDL_SCANCODE_A]) camera.x -= 10 * delta_time;
-    if (keyState[SDL_SCANCODE_S]) camera.y += 10 * delta_time;
-    if (keyState[SDL_SCANCODE_D]) camera.x += 10 * delta_time;
-
+    if (keyState[SDL_SCANCODE_W]) camera.y -= 30 * delta_time;
+    if (keyState[SDL_SCANCODE_A]) camera.x -= 30 * delta_time;
+    if (keyState[SDL_SCANCODE_S]) camera.y += 30 * delta_time;
+    if (keyState[SDL_SCANCODE_D]) camera.x += 30 * delta_time;
+    if (mouseState.leftButton) std::cout<<"a";
     
 }
