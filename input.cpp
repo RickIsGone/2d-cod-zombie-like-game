@@ -4,9 +4,9 @@
 #include "hpp files/all.hpp"
 
 bool keyState[SDL_NUM_SCANCODES] = {false};
-MouseState mouseState = {0, 0, false, false};
 
-void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera){
+
+void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseState &mouseState, float delta_time){
     
     switch(event.type){  
         case SDL_QUIT:
@@ -28,24 +28,33 @@ void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera){
             break;
 
         case SDL_MOUSEBUTTONDOWN:
-            if (event.button.button == SDL_BUTTON_LEFT)
-                mouseState.leftButton = true;
-            else if (event.button.button == SDL_BUTTON_RIGHT)
-                mouseState.rightButton = true;
+            switch(event.button.button){
+                case SDL_BUTTON_LEFT:
+                    mouseState.leftButton = true;
+                    break;
+                case SDL_BUTTON_RIGHT:
+                    mouseState.rightButton = true;
+                    break;
+            }
             break;
 
         case SDL_MOUSEBUTTONUP:
-            if (event.button.button == SDL_BUTTON_LEFT)
-                mouseState.leftButton = false;
-            else if (event.button.button == SDL_BUTTON_RIGHT)
-                mouseState.rightButton = false;
+            switch(event.button.button){
+                case SDL_BUTTON_LEFT:
+                    mouseState.leftButton = false;
+                    break;
+                case SDL_BUTTON_RIGHT:
+                    mouseState.rightButton = false;
+                    break;
+            }
             break;
+            
     }
 
-    if (keyState[SDL_SCANCODE_W]) camera.y -= 10;
-    if (keyState[SDL_SCANCODE_A]) camera.x -= 10;
-    if (keyState[SDL_SCANCODE_S]) camera.y += 10;
-    if (keyState[SDL_SCANCODE_D]) camera.x += 10;
+    if (keyState[SDL_SCANCODE_W]) camera.y -= 10 * delta_time;
+    if (keyState[SDL_SCANCODE_A]) camera.x -= 10 * delta_time;
+    if (keyState[SDL_SCANCODE_S]) camera.y += 10 * delta_time;
+    if (keyState[SDL_SCANCODE_D]) camera.x += 10 * delta_time;
 
     
 }

@@ -27,21 +27,30 @@ int main(int argc, char *argv[]){
     }
 
     SDL_Event WindowEvent;
-    
+    MouseState mouseState = {0, 0, false, false};
+    SDL_Rect camera={0,0,WIDTH,HEIGHT};
+
+    Uint32 old_time, current_time;
+    float delta_time;
+
+    old_time = SDL_GetTicks();
 
     while (game_state) {
 
-        MouseState mouseState = {0, 0, false, false};
-        SDL_Rect camera={0,0,WIDTH,HEIGHT};
+        current_time = SDL_GetTicks();
+        delta_time = (current_time - old_time) / 1000.0f; // Converti in secondi
+        old_time = current_time;
+
         SDL_Event event;
 
         while (SDL_PollEvent(&event))
-            input_events(event, game_state,camera);
+            input_events(event, game_state, camera, mouseState,delta_time);
         
-        map(renderer, camera);
-        
+        map(renderer, camera, mouseState);
+
     }
 
+    SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
 
