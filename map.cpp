@@ -3,7 +3,7 @@
 #include <SDL_image.h>
 using namespace std;
 
-void map(SDL_Renderer* renderer){
+void map(SDL_Renderer* renderer,const SDL_Rect &camera){
     string map= "*************************************************************************************************\n"
                 "*                            *                                                                  *\n"
                 "*                            *                                                                  *\n"
@@ -48,7 +48,7 @@ void map(SDL_Renderer* renderer){
             continue;
         }
 
-        SDL_Rect destRect = { x * dimensione, y * dimensione, dimensione, dimensione };
+        SDL_Rect destRect = { x * dimensione - camera.x, y * dimensione - camera.y, dimensione, dimensione };
         switch(tile){
             case '*':
                 SDL_RenderCopy(renderer, wall_texture, NULL, &destRect);

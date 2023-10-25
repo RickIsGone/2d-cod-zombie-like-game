@@ -2,7 +2,8 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_main.h>
-#include "hpp files/map&input.hpp"
+#include "hpp files/all.hpp"
+
 
 
 const int WIDTH=1920, HEIGHT=1080;
@@ -19,15 +20,26 @@ int main(int argc, char *argv[]){
     }
 
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
     if (renderer == NULL) {
         std::cout<<"error"<<SDL_GetError()<<std::endl;
         return EXIT_FAILURE;
     }
+
     SDL_Event WindowEvent;
-    map(renderer);
-    SDL_Event event;
+    
+
     while (game_state) {
-        input_event(event, game_state);
+
+        MouseState mouseState = {0, 0, false, false};
+        SDL_Rect camera={0,0,WIDTH,HEIGHT};
+        SDL_Event event;
+
+        while (SDL_PollEvent(&event))
+            input_events(event, game_state,camera);
+        
+        map(renderer, camera);
+        
     }
 
     SDL_DestroyWindow(window);

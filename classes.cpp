@@ -40,3 +40,11 @@ void boh(void){
     
 
 }
+
+struct MouseState {
+    int x, y; // Posizione del mouse
+    bool leftButton, rightButton; // Stato dei pulsanti del mouse
+
+    MouseState(int x, int y, bool leftButton, bool rightButton) 
+        : x(x), y(y), leftButton(leftButton), rightButton(rightButton) {}
+};
