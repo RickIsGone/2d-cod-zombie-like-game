@@ -1,10 +1,24 @@
 #include <iostream>
 
+struct MouseState {
+    int x, y; 
+    bool leftButton; 
 
+    MouseState(int x, int y, bool leftButton) 
+        : x(x), y(y), leftButton(leftButton) {}
+};
+
+struct gun{
+    int damage;
+    int ammo;
+    float fire_rate;
+
+};
 
 struct player{
     float health;
     float speed;
+    gun weapon;
 };
 
 struct zombies{
@@ -25,26 +39,33 @@ struct rounds{
     int zombie_left;
 };
 
-struct gun{
-    int damage;
-    int ammo;
-};
 
-void boh(void){
-    player player;
-    rounds round;
-    
-    
-    player.health=150;
-    player.speed=10;
-    
+rounds round;
 
+void spawn_zombie(){
+    // spawn degli zombie
+    std::cout<<round.zombie_number;
 }
 
-struct MouseState {
-    int x, y; // Posizione del mouse
-    bool leftButton, rightButton; // Stato dei pulsanti del mouse
+void start_game(void){
 
-    MouseState(int x, int y, bool leftButton, bool rightButton) 
-        : x(x), y(y), leftButton(leftButton), rightButton(rightButton) {}
-};
+    static gun ak={35,30,0.3f};
+    static gun mp5={25,25,0.1f};
+    static gun knife{85,1,0.7f};
+
+    player player{150,10,ak};
+
+    round.round_number=1;
+    round.zombie_number=10;
+
+    spawn_zombie();
+}
+
+void won_round(void){
+    round.round_number++;
+    round.zombie_number+=3;
+    //after(10)
+        spawn_zombie();
+}
+
+

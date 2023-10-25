@@ -35,6 +35,8 @@ int main(int argc, char *argv[]){
 
     old_time = SDL_GetTicks();
 
+    start_game();
+
     while (game_state) {
 
         current_time = SDL_GetTicks();
@@ -48,6 +50,8 @@ int main(int argc, char *argv[]){
         
         map(renderer, camera, mouseState);
 
+        if (round.zombie_number==0)
+            won_round();
     }
 
     SDL_DestroyRenderer(renderer);
