@@ -3,7 +3,6 @@
 #include <iostream>
 #include "hpp files/all.hpp"
 
-bool keyState[SDL_NUM_SCANCODES] = {false};
 
 
 void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseState &mouseState, float delta_time){
@@ -14,15 +13,26 @@ void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseStat
             break;
             
         case SDL_KEYDOWN:
-            keyState[event.key.keysym.scancode] = true;
-            break;
+            switch (event.key.keysym.sym){
+                case SDLK_w:
+                    camera.y -= player.speed * delta_time;
+                    break;
 
-        case SDL_KEYUP:
-            keyState[event.key.keysym.scancode] = false;
+                case SDLK_a:
+                    camera.x -= player.speed * delta_time;
+                    break;
+
+                case SDLK_s:
+                    camera.y += player.speed * delta_time;
+                    break;
+
+                case SDLK_d:
+                    camera.x += player.speed * delta_time;
+                    break;
+            }
             break;
 
         case SDL_MOUSEMOTION:
-            // Registra la posizione del mouse, ma non la usi per aggiornare la posizione della videocamera
             mouseState.x = event.motion.x;
             mouseState.y = event.motion.y;
             break;
@@ -45,10 +55,7 @@ void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseStat
             
     }
 
-    if (keyState[SDL_SCANCODE_W]) camera.y -= 30 * delta_time;
-    if (keyState[SDL_SCANCODE_A]) camera.x -= 30 * delta_time;
-    if (keyState[SDL_SCANCODE_S]) camera.y += 30 * delta_time;
-    if (keyState[SDL_SCANCODE_D]) camera.x += 30 * delta_time;
+    
     if (mouseState.leftButton) std::cout<<"a";
     
 }

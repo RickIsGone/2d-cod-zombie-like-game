@@ -36,6 +36,7 @@ int main(int argc, char *argv[]){
     old_time = SDL_GetTicks();
 
     start_game();
+    mouse(renderer,mouseState);
 
     while (game_state) {
 
@@ -48,9 +49,9 @@ int main(int argc, char *argv[]){
         while (SDL_PollEvent(&event))
             input_events(event, game_state, camera, mouseState,delta_time);
         
-        map(renderer, camera, mouseState);
+        map(renderer, camera);
 
-        if (round.zombie_number==0)
+        if (game_round.zombie_number==0)
             won_round();
     }
 

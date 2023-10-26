@@ -15,7 +15,7 @@ struct gun{
 
 };
 
-struct player{
+struct players{
     float health;
     float speed;
     gun weapon;
@@ -40,30 +40,32 @@ struct rounds{
 };
 
 
-rounds round;
+rounds game_round;
+players player;
 
 void spawn_zombie(){
     // spawn degli zombie
-    std::cout<<round.zombie_number;
+    std::cout<<game_round.zombie_number;
 }
 
 void start_game(void){
 
-    static gun ak={35,30,0.3f};
-    static gun mp5={25,25,0.1f};
-    static gun knife{85,1,0.7f};
+    gun ak={35,30,0.3f};
+    gun mp5={25,25,0.1f};
+    gun knife{85,1,0.7f};
 
-    player player{150,10,ak};
+    player={150,10,ak};
 
-    round.round_number=1;
-    round.zombie_number=10;
+    game_round.round_number=1;
+    game_round.zombie_number=10;
 
     spawn_zombie();
 }
 
 void won_round(void){
-    round.round_number++;
-    round.zombie_number+=3;
+    game_round.round_number++;
+    game_round.zombie_number+=3;
+    
     //after(10)
         spawn_zombie();
 }
