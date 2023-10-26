@@ -16,7 +16,7 @@ int main(int argc, char *argv[]){
 
     SDL_Event WindowEvent;
     MouseState mouseState = {0, 0, false, false};
-    SDL_Rect camera={0,0,WIDTH,HEIGHT};
+    SDL_Rect camera={500,300,WIDTH,HEIGHT};
 
     start_game();
     mouse(renderer,mouseState);

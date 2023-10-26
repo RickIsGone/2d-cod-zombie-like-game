@@ -50,3 +50,4 @@ void input_events(SDL_Event event, bool &game_state,SDL_Rect &camera, MouseState
 void niga(SDL_Renderer* renderer,MouseState mouseState);
 void mouse(SDL_Renderer* renderer,MouseState mouseState);
 
+void menu();

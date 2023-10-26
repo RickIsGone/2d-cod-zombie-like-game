@@ -15,7 +15,7 @@ void start_game(void){
     gun mp5={"mp5",25,25,0.2f};
     gun knife{"knife",85,1,0.7f};
     gun glock18{"glock18",20,20,0.3};
-    player={150,5,glock18,0};
+    player={150,10,glock18,0};
 
     game_round.round_number=1;
     game_round.zombie_number=10;

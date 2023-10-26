@@ -5,40 +5,48 @@
 using namespace std;
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera){
-    string map= "*************************************************************************************************\n"
-                "*                            *                                                                  *\n"
-                "*                            *                                                                  *\n"
-                "*                            *                                                                  *\n"
-                "*                 *****      *                          *        *                              *\n"
-                "*                 *   *      ****************      ******        *                              *\n"
-                "*                 *   *                     *      *             *                              *\n"
-                "*                 *   *                     *      *             *                              *\n"                  
-                "*                 *   *                     *      *             *********        ***************\n"
-                "************      *   ***********           *      *                                            *\n"
-                "*                               *           *      *                                            *\n"
-                "*                               *           *                                                   *\n"
-                "*                               *           *                                                   *\n"
-                "*                               *           *                                                   *\n"
-                "*                                                  *         *****         ***********          *\n"
-                "*                                                  *                                 *          *\n"
-                "*                                                  *                                 *          *\n"
-                "*      ******************       *           *      *                                 *          *\n"
-                "*                               *           *      *         *                                  *\n"
-                "*                               *           *      *         *                                  *\n"
-                "*                               *           *      *         *                                  *\n"
-                "*                       *       ***       ***      *         *************************          *\n"
-                "*                       *                                                                       *\n"
-                "*                       *                                                                       *\n"
-                "*                       *                                                                       *\n"
-                "*************************************************************************************************\n";
+    string map= "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "oooooooo*************************************************************************************************oooooooo\n"
+                "oooooooo*                            *                                                                  *oooooooo\n"
+                "oooooooo*                            *                                                                  *oooooooo\n"
+                "oooooooo*                            *                                                                  *oooooooo\n"
+                "oooooooo*                 *****      *                          *        *                              *oooooooo\n"
+                "oooooooo*                 *   *      ****************      ******        *                              *oooooooo\n"
+                "oooooooo*                 *   *                     *      *             *                              *oooooooo\n"
+                "oooooooo*                 *   *                     *      *             *                              *oooooooo\n"                  
+                "oooooooo*                 *   *                     *      *             **********     *****************oooooooo\n"
+                "oooooooo*************     *   ***********           *      *                                            *oooooooo\n"
+                "oooooooo*                               *           *      *                                            *oooooooo\n"
+                "oooooooo*                               *           *                                                   *oooooooo\n"
+                "oooooooo*                               *           *                                                   *oooooooo\n"
+                "oooooooo*                               *           *                                                   *oooooooo\n"
+                "oooooooo*                                                  *         *******     *************          *oooooooo\n"
+                "oooooooo*                                                  *                                 *          *oooooooo\n"
+                "oooooooo*                                                  *                                 *          *oooooooo\n"
+                "oooooooo*      ******************       *           *      *                                 *          *oooooooo\n"
+                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
+                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
+                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
+                "oooooooo*                       *       ****     ****      *         *************************          *oooooooo\n"
+                "oooooooo*                       *                                                                       *oooooooo\n"
+                "oooooooo*                       *                                                                       *oooooooo\n"
+                "oooooooo*                       *                                                                       *oooooooo\n"
+                "oooooooo*************************************************************************************************oooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
 
 
 
     SDL_Texture* wall_texture = IMG_LoadTexture(renderer, "../texture/wall.png");
     SDL_Texture* ground_texture = IMG_LoadTexture(renderer, "../texture/ground.png");
+    SDL_Texture* outside_texture=IMG_LoadTexture(renderer,"../texture/outside.png");
     
-    
-    int dimensione = 64; // dimensione di ogni tile in pixel
+    int dimensione = 101; // dimensione di ogni tile in pixel
 
     int startTileX = camera.x / dimensione;
     int startTileY = camera.y / dimensione;
@@ -65,6 +73,9 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
                     break;
                 case ' ':
                     SDL_RenderCopy(renderer, ground_texture, NULL, &destRect);
+                    break;
+                case 'o':
+                    SDL_RenderCopy(renderer,outside_texture,NULL,&destRect);
                     break;
             }
         }
