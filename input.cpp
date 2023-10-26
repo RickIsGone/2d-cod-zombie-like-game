@@ -15,19 +15,23 @@ void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseStat
         case SDL_KEYDOWN:
             switch (event.key.keysym.sym){
                 case SDLK_w:
-                    camera.y -= player.speed * delta_time;
+                    camera.y -= player.speed; //* delta_time;
+                    std::cout<<"su";
                     break;
 
                 case SDLK_a:
-                    camera.x -= player.speed * delta_time;
+                    camera.x -= player.speed; //* delta_time;
+                    std::cout<<"sinistra";
                     break;
 
                 case SDLK_s:
-                    camera.y += player.speed * delta_time;
+                    camera.y += player.speed; //* delta_time;
+                    std::cout<<"giu";
                     break;
 
                 case SDLK_d:
-                    camera.x += player.speed * delta_time;
+                    camera.x += player.speed; //* delta_time;
+                    std::cout<<"destra";
                     break;
             }
             break;

@@ -6,6 +6,7 @@ struct MouseState {
 
     MouseState(int x, int y, bool leftButton) 
         : x(x), y(y), leftButton(leftButton) {}
+
 };
 
 struct gun{
@@ -19,6 +20,7 @@ struct players{
     float health;
     float speed;
     gun weapon;
+
 };
 
 struct zombies{
@@ -37,6 +39,7 @@ struct rounds{
     int round_number;
     int zombie_number;
     int zombie_left;
+
 };
 
 
@@ -46,6 +49,7 @@ players player;
 void spawn_zombie(){
     // spawn degli zombie
     std::cout<<game_round.zombie_number;
+
 }
 
 void start_game(void){

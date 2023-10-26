@@ -48,6 +48,8 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
     int x = 0;
     int y = 0;
 
+    SDL_RenderClear(renderer);
+    
     for (char tile : map) {
         if (tile == '\n') {
             y++;
