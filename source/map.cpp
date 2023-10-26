@@ -1,7 +1,7 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
-#include "hpp files/all.hpp"
+#include "../hpp files/all.hpp"
 using namespace std;
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera){
@@ -23,7 +23,7 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
                 "*                                                  *                                 *          *\n"
                 "*                                                  *                                 *          *\n"
                 "*      ******************       *           *      *                                 *          *\n"
-                "*                               *           *      *         *                       *          *\n"
+                "*                               *           *      *         *                                  *\n"
                 "*                               *           *      *         *                                  *\n"
                 "*                               *           *      *         *                                  *\n"
                 "*                       *       ***       ***      *         *************************          *\n"
@@ -34,8 +34,8 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
 
 
 
-    SDL_Texture* wall_texture = IMG_LoadTexture(renderer, "texture/wall.png");
-    SDL_Texture* ground_texture = IMG_LoadTexture(renderer, "texture/ground.png");
+    SDL_Texture* wall_texture = IMG_LoadTexture(renderer, "../texture/wall.png");
+    SDL_Texture* ground_texture = IMG_LoadTexture(renderer, "../texture/ground.png");
     
     
     int dimensione = 64; // dimensione di ogni tile in pixel

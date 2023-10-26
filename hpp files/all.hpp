@@ -42,7 +42,7 @@ void spawn_zombie();
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
 
-void input_events(SDL_Event event, bool &game_state,SDL_Rect &camera, MouseState &mouseState, float delta_time);
+void input_events(SDL_Event event, bool &game_state,SDL_Rect &camera, MouseState &mouseState);
 
 void mouse(SDL_Renderer* renderer,MouseState mouseState);
 

@@ -2,9 +2,7 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_main.h>
-#include "hpp files/all.hpp"
-
-
+#include "../hpp files/all.hpp"
 
 const int WIDTH=1920, HEIGHT=1080;
 
@@ -30,31 +28,19 @@ int main(int argc, char *argv[]){
     MouseState mouseState = {0, 0, false, false};
     SDL_Rect camera={0,0,WIDTH,HEIGHT};
 
-    Uint32 old_time, current_time;
-    float delta_time;
-
-    old_time = SDL_GetTicks();
-
     start_game();
     mouse(renderer,mouseState);
 
     SDL_Event event;
 
     while (game_state) {
-
-        // current_time = SDL_GetTicks();
-        // delta_time = (current_time - old_time) / 1000.0f; // Converti in secondi
-        // old_time = current_time;
-
-        
         while (SDL_PollEvent(&event))
-            input_events(event, game_state, camera, mouseState,delta_time);
+            input_events(event, game_state, camera, mouseState);
         
         map(renderer, camera);
 
         if (game_round.zombie_number==0)
             won_round();
-            
     }
 
     SDL_DestroyRenderer(renderer);

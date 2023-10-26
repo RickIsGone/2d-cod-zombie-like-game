@@ -2,7 +2,7 @@
 #include <SDL.h>
 #include <cassert>
 #include <iostream>
-#include "hpp files/all.hpp"
+#include "../hpp files/all.hpp"
 
 int main() {
     // Creare un oggetto camera
