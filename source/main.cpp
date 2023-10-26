@@ -24,16 +24,18 @@ int main(int argc, char *argv[]){
     SDL_Event event;
 
     while (game_state) {
-        niga(renderer,mouseState);
         
+
         while (SDL_PollEvent(&event))
             input_events(event, game_state, camera, mouseState);
         
         map(renderer, camera);
-        
+        niga(renderer,mouseState);
 
         if (game_round.zombie_number==0)
             won_round();
+        
+        SDL_Delay(1000/240);
 
     }
 
