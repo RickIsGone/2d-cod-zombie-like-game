@@ -1,3 +1,5 @@
+#include <string>
+
 #ifndef ALL_HPP
 #define ALL_HPP
 
@@ -11,6 +13,7 @@ struct MouseState {
 
 
 struct gun {
+    std::string name;
     int damage;
     int ammo;
     float fire_rate;
@@ -20,6 +23,7 @@ struct players {
     float health;
     float speed;
     gun weapon;
+    int money;
 };
 
 struct rounds {
@@ -43,6 +47,6 @@ void spawn_zombie();
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
 
 void input_events(SDL_Event event, bool &game_state,SDL_Rect &camera, MouseState &mouseState);
-
+void niga(SDL_Renderer* renderer,MouseState mouseState);
 void mouse(SDL_Renderer* renderer,MouseState mouseState);
 

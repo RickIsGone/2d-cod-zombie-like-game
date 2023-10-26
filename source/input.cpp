@@ -50,6 +50,7 @@ void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseStat
         camera.x += player.speed;
     }
     
-    if (mouseState.leftButton) std::cout<<"a";
+    if (mouseState.leftButton) 
+        ;
     
 }

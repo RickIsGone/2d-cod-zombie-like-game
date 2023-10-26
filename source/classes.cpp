@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 struct MouseState {
     int x, y; 
@@ -10,6 +11,7 @@ struct MouseState {
 };
 
 struct gun{
+    std::string name;
     int damage;
     int ammo;
     float fire_rate;
@@ -20,6 +22,7 @@ struct players{
     float health;
     float speed;
     gun weapon;
+    int money;
 
 };
 

@@ -14,8 +14,7 @@ int main() {
     // Verificare che la camera si sia mossa
     assert(camera.x == 10);
 
-    // Stampare un messaggio se il test passa
-    std::cout << "Test passed!\n";
+   
 
     return 0;
 }
