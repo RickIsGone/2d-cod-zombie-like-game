@@ -19,7 +19,7 @@ void round_display(SDL_Renderer* renderer) {
     int text_height = surface->h;
     SDL_FreeSurface(surface); 
 
-    SDL_Rect dstrect = { (1920 - text_width) / 2, 540, text_width, text_height }; 
+    SDL_Rect dstrect = { (1920 - text_width) / 2, 1000, text_width, text_height }; 
     SDL_RenderCopy(renderer, texture, NULL, &dstrect);
 
     SDL_RenderPresent(renderer);
