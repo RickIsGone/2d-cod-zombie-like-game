@@ -34,7 +34,7 @@ int main(int argc, char *argv[]){
         mnk_events(camera,mouseState);
         map(renderer, camera);
         niga(renderer,mouseState);
-        round_display(renderer,camera);
+        // round_display(renderer,camera);
 
         if (game_round.zombie_number==0) won_round();
         
