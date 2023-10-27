@@ -30,18 +30,16 @@ int main(int argc, char *argv[]){
 
     while (game_state) {
         
-
         while (SDL_PollEvent(&event))
-            input_events(event, game_state, camera, mouseState);
-        
+                events(event, game_state);
+
+        mnk_events(camera,mouseState);
         map(renderer, camera);
         niga(renderer,mouseState);
 
         if (game_round.zombie_number==0)
-            won_round();
+                won_round();
         
-        SDL_Delay(1000/240);
-
     }
 
     SDL_DestroyRenderer(renderer);

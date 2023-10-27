@@ -5,9 +5,22 @@
 
 
 
-void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseState &mouseState){
-    
+void events(SDL_Event event, bool &game_state){
+ 
+    switch(event.type){  
+        case SDL_QUIT:
+            game_state=false;
+            break;
+    }
+}
+
+void mnk_events(SDL_Rect &camera, MouseState &mouseState){
+    int x, y;
+
     const Uint8* state = SDL_GetKeyboardState(NULL);
+    Uint32 buttons = SDL_GetMouseState(&x, &y);
+
+    bool leftButton = (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0;
 
     if (state[SDL_SCANCODE_W]) 
         camera.y -= player.speed;
@@ -24,35 +37,13 @@ void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseStat
     if (state[SDL_SCANCODE_R])
         ;
     
-    if (mouseState.leftButton) 
-        ;
-
-    switch(event.type){  
-        case SDL_QUIT:
-            game_state=false;
-            break;
-            
-        case SDL_MOUSEMOTION:
-            mouseState.x = event.motion.x;
-            mouseState.y = event.motion.y;
-            break;
-
-        case SDL_MOUSEBUTTONDOWN:
-            switch(event.button.button){
-                case SDL_BUTTON_LEFT:
-                    mouseState.leftButton = true;
-                    break;
-            }
-            break;
-
-        case SDL_MOUSEBUTTONUP:
-            switch(event.button.button){
-                case SDL_BUTTON_LEFT:
-                    mouseState.leftButton = false;
-                    break;
-            }
-            break;
-            
+    if (leftButton && !mouseState.leftButton) {
+        // Il pulsante sinistro del mouse è stato appena premuto
+        // Esegui un'azione qui...
     }
- 
+
+    mouseState.x = x;
+    mouseState.y = y;
+    mouseState.leftButton = leftButton;
+
 }

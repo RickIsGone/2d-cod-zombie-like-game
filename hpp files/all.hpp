@@ -4,8 +4,8 @@
 #define ALL_HPP
 
 struct MouseState {
-    int x, y; // Posizione del mouse
-    bool leftButton, rightButton; // Stato dei pulsanti del mouse
+    int x, y; 
+    bool leftButton, rightButton; 
 
     MouseState(int x, int y, bool leftButton, bool rightButton) 
         : x(x), y(y), leftButton(leftButton), rightButton(rightButton) {}
@@ -45,8 +45,8 @@ void won_round();
 void spawn_zombie();
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
-
-void input_events(SDL_Event event, bool &game_state,SDL_Rect &camera, MouseState &mouseState);
+void mnk_events(SDL_Rect &camera, MouseState &mouseState);
+void events(SDL_Event event, bool &game_state);
 void niga(SDL_Renderer* renderer,MouseState mouseState);
 void mouse(SDL_Renderer* renderer,MouseState mouseState);
 
