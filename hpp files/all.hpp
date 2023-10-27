@@ -52,4 +52,4 @@ void mouse(SDL_Renderer* renderer,MouseState mouseState);
 
 void menu();
 
-void round_display(SDL_Renderer* renderer);
+void round_display(SDL_Renderer* renderer,SDL_Rect camera);
