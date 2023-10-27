@@ -22,24 +22,18 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState){
 
     bool leftButton = (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0;
 
-    if (state[SDL_SCANCODE_W]) 
-        camera.y -= player.speed;
+    if (state[SDL_SCANCODE_W]) camera.y -= player.speed;
     
-    if (state[SDL_SCANCODE_A]) 
-        camera.x -= player.speed;
+    if (state[SDL_SCANCODE_A]) camera.x -= player.speed;
     
-    if (state[SDL_SCANCODE_S]) 
-        camera.y += player.speed;
+    if (state[SDL_SCANCODE_S]) camera.y += player.speed;
     
-    if (state[SDL_SCANCODE_D]) 
-        camera.x += player.speed;
+    if (state[SDL_SCANCODE_D]) camera.x += player.speed;
     
-    if (state[SDL_SCANCODE_R])
-        ;
+    if (state[SDL_SCANCODE_R]) ;
     
     if (leftButton && !mouseState.leftButton) {
-        // Il pulsante sinistro del mouse è stato appena premuto
-        // Esegui un'azione qui...
+        // shoot
     }
 
     mouseState.x = x;

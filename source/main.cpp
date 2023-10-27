@@ -24,21 +24,19 @@ int main(int argc, char *argv[]){
 
     start_game();
     mouse(renderer,mouseState);
-    round_display(renderer,camera);
-
+    
     SDL_Event event;
 
     while (game_state) {
         
-        while (SDL_PollEvent(&event))
-                events(event, game_state);
+        while (SDL_PollEvent(&event)) events(event, game_state);
 
         mnk_events(camera,mouseState);
         map(renderer, camera);
         niga(renderer,mouseState);
+        round_display(renderer,camera);
 
-        if (game_round.zombie_number==0)
-                won_round();
+        if (game_round.zombie_number==0) won_round();
         
     }
 
