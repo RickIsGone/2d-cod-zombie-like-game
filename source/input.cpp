@@ -7,6 +7,26 @@
 
 void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseState &mouseState){
     
+    const Uint8* state = SDL_GetKeyboardState(NULL);
+
+    if (state[SDL_SCANCODE_W]) 
+        camera.y -= player.speed;
+    
+    if (state[SDL_SCANCODE_A]) 
+        camera.x -= player.speed;
+    
+    if (state[SDL_SCANCODE_S]) 
+        camera.y += player.speed;
+    
+    if (state[SDL_SCANCODE_D]) 
+        camera.x += player.speed;
+    
+    if (state[SDL_SCANCODE_R])
+        ;
+    
+    if (mouseState.leftButton) 
+        ;
+
     switch(event.type){  
         case SDL_QUIT:
             game_state=false;
@@ -34,23 +54,5 @@ void input_events(SDL_Event event, bool &game_state, SDL_Rect &camera, MouseStat
             break;
             
     }
-
-    const Uint8* state = SDL_GetKeyboardState(NULL);
-
-    if (state[SDL_SCANCODE_W]) {
-        camera.y -= player.speed;
-    }
-    if (state[SDL_SCANCODE_A]) {
-        camera.x -= player.speed;
-    }
-    if (state[SDL_SCANCODE_S]) {
-        camera.y += player.speed;
-    }
-    if (state[SDL_SCANCODE_D]) {
-        camera.x += player.speed;
-    }
-    
-    if (mouseState.leftButton) 
-        ;
-    
+ 
 }

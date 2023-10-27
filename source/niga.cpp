@@ -7,22 +7,18 @@
 
 void niga(SDL_Renderer* renderer,MouseState mouseState){
 
-    SDL_Texture* ak47_texture = IMG_LoadTexture(renderer, "../texture/ak47.png");
-    SDL_Texture* mp5_texture = IMG_LoadTexture(renderer, "../texture/mp5.png");
-    SDL_Texture* glock18_texture = IMG_LoadTexture(renderer, "../texture/glock.png");
-    SDL_Texture* knife_texture = IMG_LoadTexture(renderer, "../texture/knife.png");
     SDL_Texture* loaded_texture;
     
     if(player.weapon.name=="ak47")
-        loaded_texture=ak47_texture;
+        loaded_texture=IMG_LoadTexture(renderer, "../texture/ak47.png");
 
     else if(player.weapon.name=="mp5")
-        loaded_texture=mp5_texture;
+        loaded_texture=IMG_LoadTexture(renderer, "../texture/mp5.png");
 
     else if(player.weapon.name=="glock18")
-        loaded_texture=glock18_texture;
+        loaded_texture= IMG_LoadTexture(renderer, "../texture/glock.png");
 
-    else loaded_texture=knife_texture;
+    else loaded_texture=IMG_LoadTexture(renderer, "../texture/knife.png");
 
     
     int centerX = 1920 / 2; 
@@ -43,5 +39,6 @@ void niga(SDL_Renderer* renderer,MouseState mouseState){
 
     SDL_RenderPresent(renderer);
     
-    SDL_DestroyTexture(loaded_texture);
+    SDL_DestroyTexture(loaded_texture); 
+    
 }

@@ -51,3 +51,5 @@ void niga(SDL_Renderer* renderer,MouseState mouseState);
 void mouse(SDL_Renderer* renderer,MouseState mouseState);
 
 void menu();
+
+void round_display(SDL_Renderer* renderer);
