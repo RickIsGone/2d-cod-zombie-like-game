@@ -17,6 +17,9 @@ struct gun {
     int damage;
     int ammo;
     float fire_rate;
+    static void shoot(){
+
+    };
 };
 
 struct players {
@@ -50,6 +53,6 @@ void events(SDL_Event event, bool &game_state);
 void niga(SDL_Renderer* renderer,MouseState mouseState);
 void mouse(SDL_Renderer* renderer,MouseState mouseState);
 
-void menu();
+void menu(bool &game_state);
 
 void round_display(SDL_Renderer* renderer,SDL_Rect camera);

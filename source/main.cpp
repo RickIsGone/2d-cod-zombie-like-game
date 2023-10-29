@@ -18,14 +18,17 @@ int main(int argc, char *argv[]){
 
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
+    SDL_Event event;
     SDL_Event WindowEvent;
     MouseState mouseState = {0, 0, false, false};
     SDL_Rect camera={500,300,WIDTH,HEIGHT};
 
+    // while(!game_state) menu(game_state);  finche SDL_ttf non è sistemato 
+
     start_game();
     mouse(renderer,mouseState);
     
-    SDL_Event event;
+    
 
     while (game_state) {
         
@@ -38,6 +41,7 @@ int main(int argc, char *argv[]){
 
         if (game_round.zombie_number==0) won_round();
         
+        // SDL_Delay(1000/240); 
     }
 
     SDL_DestroyRenderer(renderer);

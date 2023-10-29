@@ -33,7 +33,8 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState){
     if (state[SDL_SCANCODE_R]) ;
     
     if (leftButton && !mouseState.leftButton) {
-        // shoot
+        // if(player.weapon.ammo>0) gun::shoot();
+        ;
     }
 
     mouseState.x = x;

@@ -15,7 +15,7 @@ struct gun{
     int damage;
     int ammo;
     float fire_rate;
-
+    void shoot();
 };
 
 struct players{
