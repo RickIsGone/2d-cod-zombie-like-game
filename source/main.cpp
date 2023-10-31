@@ -35,7 +35,7 @@ int main(int argc, char *argv[]){
     }
 
     start=false;
-    
+
     start_game();
     mouse(renderer,mouseState);
     
@@ -53,8 +53,6 @@ int main(int argc, char *argv[]){
 
         if (game_round.zombie_number==0) won_round();
 
-        
-        
     }
 
     SDL_DestroyRenderer(renderer);

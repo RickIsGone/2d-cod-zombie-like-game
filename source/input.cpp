@@ -13,11 +13,15 @@ void events(SDL_Event event, std::string &game_state){
     }
 }
 
+Uint32 reloadStartTime = 0;
+const Uint32 reloadDelay = 1500;
+
 void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer){
     int x, y;
 
     const Uint8* state = SDL_GetKeyboardState(NULL);
     Uint32 buttons = SDL_GetMouseState(&x, &y);
+    
 
     bool leftButton = (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0;
 
@@ -29,7 +33,12 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
     
     if (state[SDL_SCANCODE_D]) camera.x += player.speed;
     
-    if (state[SDL_SCANCODE_R]) ;
+    if (state[SDL_SCANCODE_R]) reloadStartTime=SDL_GetTicks();
+    
+    if(reloadStartTime!=0&&SDL_GetTicks()-reloadStartTime>=reloadDelay){
+        player.weapon.ammo=player.weapon.ammo_max;
+        reloadStartTime=0;
+    }
 
     if(state[SDL_SCANCODE_ESCAPE]){
 
