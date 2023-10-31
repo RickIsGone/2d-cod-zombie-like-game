@@ -26,26 +26,18 @@ int main(int argc, char *argv[]){
 
     
     while(game_state=="pause"){
-        while (SDL_PollEvent(&event)) 
-            switch(event.type){
-                case SDL_MOUSEBUTTONDOWN: 
-                    if (event.button.button == SDL_BUTTON_LEFT) 
-                    game_state = "true";
-                    break;
-                case SDL_QUIT:
-                    game_state="false";
-                    break;
-            }
+
+        while (SDL_PollEvent(&event)) pause(game_state,event);
         map(renderer, camera);
         menu(renderer);  
         SDL_RenderPresent(renderer);
+
     }
 
     start_game();
     mouse(renderer,mouseState);
     
     
-
     while (game_state=="true") {
         
         while (SDL_PollEvent(&event)) events(event, game_state);

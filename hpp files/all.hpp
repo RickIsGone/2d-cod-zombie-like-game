@@ -55,6 +55,7 @@ void niga(SDL_Renderer* renderer,MouseState mouseState);
 void mouse(SDL_Renderer* renderer,MouseState mouseState);
 
 void menu(SDL_Renderer* renderer);
+void pause(std::string &game_state,SDL_Event event);
 
 void round_display(SDL_Renderer* renderer,SDL_Rect camera);
 void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);
