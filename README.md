@@ -21,3 +21,6 @@ This software includes the following open source libraries:
 
 - [CMake](https://cmake.org/)
   - License: BSD 3-Clause License
+
+- [SDL_mixer](https://www.libsdl.org/projects/SDL_mixer/)
+  - License: zlib License

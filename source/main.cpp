@@ -4,6 +4,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h> 
 #include <SDL2/SDL_main.h>
+#include <SDL2/SDL_mixer.h>
 #include "../hpp files/all.hpp"
 
 const int WIDTH=1920, HEIGHT=1080;
@@ -14,6 +15,8 @@ int main(int argc, char *argv[]){
 
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
+    Mix_Init(MIX_INIT_MP3 | MIX_INIT_OGG);
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 
     SDL_Window *window=SDL_CreateWindow("2d cod zombie",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,WIDTH,HEIGHT,SDL_WINDOW_ALLOW_HIGHDPI);
 
@@ -59,6 +62,7 @@ int main(int argc, char *argv[]){
     SDL_DestroyWindow(window);
     SDL_Quit();
     TTF_Quit();
+    Mix_Quit();
     return EXIT_SUCCESS;
 
 }
