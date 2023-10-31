@@ -25,7 +25,7 @@ void start_game(void){
 
 void won_round(void){
     game_round.round_number++;
-    game_round.zombie_number+=3;
+    game_round.zombie_number+=2;
     
     //after(10)
         spawn_zombie();

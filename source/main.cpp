@@ -23,7 +23,7 @@ int main(int argc, char *argv[]){
     MouseState mouseState = {0, 0, false, false};
     SDL_Rect camera={500,300,WIDTH,HEIGHT};
 
-    // while(!game_state) menu(game_state);  finche SDL_ttf non è sistemato 
+    // while(!game_state) menu(game_state);  
 
     start_game();
     mouse(renderer,mouseState);
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]){
         mnk_events(camera,mouseState);
         map(renderer, camera);
         niga(renderer,mouseState);
-        // round_display(renderer,camera);
+        hud_display(renderer,camera);
 
         if (game_round.zombie_number==0) won_round();
         

@@ -56,3 +56,8 @@ void mouse(SDL_Renderer* renderer,MouseState mouseState);
 void menu(bool &game_state);
 
 void round_display(SDL_Renderer* renderer,SDL_Rect camera);
+void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);
+void health_display(SDL_Renderer* renderer,SDL_Rect camera);
+void hud_display(SDL_Renderer* renderer,SDL_Rect camera);
+
+void shoot();
