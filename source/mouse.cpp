@@ -4,6 +4,7 @@
 #include "../hpp files/all.hpp"
 
 void mouse(SDL_Renderer* renderer,MouseState mouseState){
+    
     SDL_Surface* cursorSurface = IMG_Load("../texture/mouse.png");
     int hot_x = cursorSurface->w / 2;
     int hot_y = cursorSurface->h / 2;

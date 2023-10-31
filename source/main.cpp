@@ -10,7 +10,7 @@ const int WIDTH=1920, HEIGHT=1080;
 
 
 int main(int argc, char *argv[]){
-    bool game_state=true;
+    bool game_state=false;
 
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
@@ -23,7 +23,9 @@ int main(int argc, char *argv[]){
     MouseState mouseState = {0, 0, false, false};
     SDL_Rect camera={500,300,WIDTH,HEIGHT};
 
-    // while(!game_state) menu(game_state);  
+    map(renderer, camera);
+    SDL_RenderPresent(renderer);
+    while(!game_state) menu(game_state);  
 
     start_game();
     mouse(renderer,mouseState);
@@ -43,7 +45,6 @@ int main(int argc, char *argv[]){
 
         if (game_round.zombie_number==0) won_round();
         
-        // SDL_Delay(1000/240); 
     }
 
     SDL_DestroyRenderer(renderer);

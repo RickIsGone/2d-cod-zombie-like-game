@@ -5,6 +5,7 @@
 #include "../hpp files/all.hpp"
 
 void menu(bool &game_state){
+    
     int x,y;
     Uint32 buttons = SDL_GetMouseState(&x, &y);
     bool leftButton = (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0;

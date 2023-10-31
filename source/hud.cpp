@@ -4,6 +4,7 @@
 #include"../hpp files/all.hpp"
 
 void round_display(SDL_Renderer* renderer,SDL_Rect camera) {
+
     TTF_Font* font = TTF_OpenFont("../texture/round_font.ttf", 60);
     
     std::string round_str = std::to_string(game_round.round_number);
@@ -20,9 +21,11 @@ void round_display(SDL_Renderer* renderer,SDL_Rect camera) {
 
     SDL_DestroyTexture(texture);
     TTF_CloseFont(font);
+
 }
 
 void health_display(SDL_Renderer* renderer,SDL_Rect camera){
+
     TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 60);
     
     std::string round_str = std::to_string(player.health)+" HP";
@@ -39,9 +42,11 @@ void health_display(SDL_Renderer* renderer,SDL_Rect camera){
 
     SDL_DestroyTexture(texture);
     TTF_CloseFont(font);
+
 }
 
 void ammo_display(SDL_Renderer* renderer,SDL_Rect camera){
+
     TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 60);
     
     std::string round_str = std::to_string(player.weapon.ammo)+"/"+std::to_string(player.weapon.ammo_max);
@@ -58,6 +63,7 @@ void ammo_display(SDL_Renderer* renderer,SDL_Rect camera){
 
     SDL_DestroyTexture(texture);
     TTF_CloseFont(font);
+    
 }
 
 void hud_display(SDL_Renderer* renderer,SDL_Rect camera){
