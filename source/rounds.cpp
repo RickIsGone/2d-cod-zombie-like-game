@@ -11,10 +11,10 @@ void spawn_zombie(){
 
 void start_game(void){
 
-    gun ak47={"ak47",35,20,30,0.35f};
-    gun mp5={"mp5",25,25,25,0.2f};
-    gun knife{"knife",85,1,1,0.7f};
-    gun glock18{"glock18",20,20,20,0.3f};
+    gun ak47={"ak47",35,30,30,350};
+    gun mp5={"mp5",25,25,25,200};
+    gun knife{"knife",85,1,1,700};
+    gun glock18{"glock18",20,20,20,0};
     player={150,10,ak47,0};
 
     game_round.round_number=1;

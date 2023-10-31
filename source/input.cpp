@@ -15,6 +15,8 @@ void events(SDL_Event event, std::string &game_state){
 
 Uint32 reloadStartTime = 0;
 const Uint32 reloadDelay = 1500;
+Uint32 FireRate = 0;
+const Uint32 FireRateDelay =player.weapon.fire_rate;
 
 void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer){
     int x, y;
@@ -52,9 +54,15 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
         
     }
     
-    if (leftButton && !mouseState.leftButton) {
-        // if(player.weapon.ammo>0) gun::shoot();
-        ;
+    if (leftButton && reloadStartTime == 0 && player.weapon.name != "glock18" && player.weapon.name != "knife") {
+        if (FireRate == 0 || SDL_GetTicks() - FireRate >= FireRateDelay) {
+            // Spara un colpo e reimposta il timer
+            player.weapon.ammo--;
+            FireRate = SDL_GetTicks();
+        }
+    }
+    else if (leftButton && !mouseState.leftButton && reloadStartTime==0) {
+        if(player.weapon.name=="glock18") player.weapon.ammo--;
     }
 
     mouseState.x = x;

@@ -17,7 +17,7 @@ struct gun {
     int damage;
     int ammo;
     int ammo_max;
-    float fire_rate;
+    int fire_rate;
     static void shoot(){
 
     };
