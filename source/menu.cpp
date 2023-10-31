@@ -4,12 +4,9 @@
 #include <SDL_ttf.h> 
 #include "../hpp files/all.hpp"
 
-void menu(bool &game_state, SDL_Renderer* renderer){
-
-    int x,y;
-    Uint32 buttons = SDL_GetMouseState(&x, &y);
-    bool leftButton = (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0;
-
+int opacity=255;
+bool down=true;
+void menu(SDL_Renderer* renderer){
 
     TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 60);
     
@@ -21,14 +18,27 @@ void menu(bool &game_state, SDL_Renderer* renderer){
     SDL_FreeSurface(surface); 
 
     SDL_Rect dstrect = { (1920 - text_width) / 2, (1080 - text_height) / 2.5f, text_width, text_height };
-    
-    SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+
+
+    if (opacity==0){
+        SDL_SetTextureAlphaMod(texture,opacity);
+        SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+        down=false;
+    }
+    if(down==true){
+        SDL_SetTextureAlphaMod(texture,opacity);
+        SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+        opacity-=3;
+    }
+    else{
+        SDL_SetTextureAlphaMod(texture,opacity);
+        SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+        opacity+=3;
+        if(opacity==255) down=true;
+    }
     
 
     SDL_DestroyTexture(texture);
     TTF_CloseFont(font);
 
-
-    if (leftButton) game_state=true;
-    
 }

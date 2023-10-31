@@ -10,7 +10,7 @@ const int WIDTH=1920, HEIGHT=1080;
 
 
 int main(int argc, char *argv[]){
-    bool game_state=false;
+    std::string game_state="pause";
 
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
@@ -25,9 +25,19 @@ int main(int argc, char *argv[]){
     SDL_Rect camera={500,300,WIDTH,HEIGHT};
 
     
-    while(!game_state){
+    while(game_state=="pause"){
+        while (SDL_PollEvent(&event)) 
+            switch(event.type){
+                case SDL_MOUSEBUTTONDOWN: 
+                    if (event.button.button == SDL_BUTTON_LEFT) 
+                    game_state = "true";
+                    break;
+                case SDL_QUIT:
+                    game_state="false";
+                    break;
+            }
         map(renderer, camera);
-        menu(game_state, renderer);  
+        menu(renderer);  
         SDL_RenderPresent(renderer);
     }
 
@@ -36,7 +46,7 @@ int main(int argc, char *argv[]){
     
     
 
-    while (game_state) {
+    while (game_state=="true") {
         
         while (SDL_PollEvent(&event)) events(event, game_state);
 
@@ -56,5 +66,5 @@ int main(int argc, char *argv[]){
     SDL_Quit();
     TTF_Quit();
     return EXIT_SUCCESS;
-    
+
 }

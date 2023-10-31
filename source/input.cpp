@@ -5,11 +5,11 @@
 
 
 
-void events(SDL_Event event, bool &game_state){
+void events(SDL_Event event, std::string &game_state){
  
     switch(event.type){  
         case SDL_QUIT:
-            game_state=false;
+            game_state="false";
             break;
     }
 }

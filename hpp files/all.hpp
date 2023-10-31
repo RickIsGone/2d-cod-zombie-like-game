@@ -50,11 +50,11 @@ void spawn_zombie();
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
 void mnk_events(SDL_Rect &camera, MouseState &mouseState);
-void events(SDL_Event event, bool &game_state);
+void events(SDL_Event event, std::string &game_state);
 void niga(SDL_Renderer* renderer,MouseState mouseState);
 void mouse(SDL_Renderer* renderer,MouseState mouseState);
 
-void menu(bool &game_state, SDL_Renderer* renderer);
+void menu(SDL_Renderer* renderer);
 
 void round_display(SDL_Renderer* renderer,SDL_Rect camera);
 void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);
