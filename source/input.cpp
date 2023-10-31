@@ -4,7 +4,6 @@
 #include "../hpp files/all.hpp"
 
 
-
 void events(SDL_Event event, std::string &game_state){
  
     switch(event.type){  
@@ -14,7 +13,7 @@ void events(SDL_Event event, std::string &game_state){
     }
 }
 
-void mnk_events(SDL_Rect &camera, MouseState &mouseState){
+void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer){
     int x, y;
 
     const Uint8* state = SDL_GetKeyboardState(NULL);
@@ -31,6 +30,18 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState){
     if (state[SDL_SCANCODE_D]) camera.x += player.speed;
     
     if (state[SDL_SCANCODE_R]) ;
+
+    if(state[SDL_SCANCODE_ESCAPE]){
+
+        game_state="pause";
+        
+        while(game_state=="pause"){
+            while (SDL_PollEvent(&event)) pause(game_state,event);
+            menu(renderer);  
+            SDL_RenderPresent(renderer);
+        }
+        
+    }
     
     if (leftButton && !mouseState.leftButton) {
         // if(player.weapon.ammo>0) gun::shoot();

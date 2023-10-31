@@ -7,7 +7,7 @@
 #include "../hpp files/all.hpp"
 
 const int WIDTH=1920, HEIGHT=1080;
-
+bool start=true;
 
 int main(int argc, char *argv[]){
     std::string game_state="pause";
@@ -31,9 +31,11 @@ int main(int argc, char *argv[]){
         map(renderer, camera);
         menu(renderer);  
         SDL_RenderPresent(renderer);
-
+        
     }
 
+    start=false;
+    
     start_game();
     mouse(renderer,mouseState);
     
@@ -42,7 +44,7 @@ int main(int argc, char *argv[]){
         
         while (SDL_PollEvent(&event)) events(event, game_state);
 
-        mnk_events(camera,mouseState);
+        mnk_events(camera,mouseState,game_state,event,renderer);
         map(renderer, camera);
         niga(renderer,mouseState);
         hud_display(renderer,camera);
@@ -50,6 +52,8 @@ int main(int argc, char *argv[]){
         SDL_RenderPresent(renderer);
 
         if (game_round.zombie_number==0) won_round();
+
+        
         
     }
 

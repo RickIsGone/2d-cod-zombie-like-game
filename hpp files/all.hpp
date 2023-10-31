@@ -49,7 +49,7 @@ void won_round();
 void spawn_zombie();
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
-void mnk_events(SDL_Rect &camera, MouseState &mouseState);
+void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer);
 void events(SDL_Event event, std::string &game_state);
 void niga(SDL_Renderer* renderer,MouseState mouseState);
 void mouse(SDL_Renderer* renderer,MouseState mouseState);

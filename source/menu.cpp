@@ -4,13 +4,20 @@
 #include <SDL2/SDL_ttf.h> 
 #include "../hpp files/all.hpp"
 
+extern bool start;
 int opacity=255;
 bool down=true;
+
 void menu(SDL_Renderer* renderer){
 
     TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 60);
+    std::string round_str;
+
+    if(start){
+        round_str = "press LMB to start";
+    } 
+    else round_str = "press LMB to resume";
     
-    std::string round_str = "press LMB to start";
     SDL_Surface* surface = TTF_RenderText_Solid(font, round_str.c_str(), {0, 0, 0}); 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
     int text_width = surface->w;
