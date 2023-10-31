@@ -11,18 +11,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This software includes the following open source libraries:
 
-- SDL (Simple DirectMedia Layer)
-  - Website: https://www.libsdl.org/
+- [SDL (Simple DirectMedia Layer)](https://www.libsdl.org/)
   - License: zlib License
 
-- SDL_ttf
-  - Website: https://www.libsdl.org/projects/SDL_ttf/
+- [SDL_ttf](https://www.libsdl.org/projects/SDL_ttf/)
   - License: zlib License
 
-- SDL_image
-  - Website: https://www.libsdl.org/projects/SDL_image/
+- [SDL_image](https://www.libsdl.org/projects/SDL_image/)
   - License: zlib License
 
-- CMake
-  - Website: https://cmake.org/
+- [CMake](https://cmake.org/)
   - License: BSD 3-Clause License
