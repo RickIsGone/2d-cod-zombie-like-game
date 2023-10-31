@@ -1,9 +1,9 @@
 #define SDL_MAIN_HANDLED
 #include <iostream>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h> 
-#include <SDL_main.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h> 
+#include <SDL2/SDL_main.h>
 #include "../hpp files/all.hpp"
 
 const int WIDTH=1920, HEIGHT=1080;

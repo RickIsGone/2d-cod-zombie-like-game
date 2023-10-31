@@ -1,6 +1,6 @@
 #include <iostream>
-#include <SDL.h>
-#include <SDL_ttf.h> 
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h> 
 #include"../hpp files/all.hpp"
 
 void round_display(SDL_Renderer* renderer,SDL_Rect camera) {
