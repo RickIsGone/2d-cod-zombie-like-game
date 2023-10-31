@@ -14,6 +14,7 @@ int main(int argc, char *argv[]){
 
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
+
     SDL_Window *window=SDL_CreateWindow("2d cod zombie",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,WIDTH,HEIGHT,SDL_WINDOW_ALLOW_HIGHDPI);
 
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
@@ -23,9 +24,12 @@ int main(int argc, char *argv[]){
     MouseState mouseState = {0, 0, false, false};
     SDL_Rect camera={500,300,WIDTH,HEIGHT};
 
-    map(renderer, camera);
-    SDL_RenderPresent(renderer);
-    while(!game_state) menu(game_state);  
+    
+    while(!game_state){
+        map(renderer, camera);
+        menu(game_state, renderer);  
+        SDL_RenderPresent(renderer);
+    }
 
     start_game();
     mouse(renderer,mouseState);
@@ -52,4 +56,5 @@ int main(int argc, char *argv[]){
     SDL_Quit();
     TTF_Quit();
     return EXIT_SUCCESS;
+    
 }
