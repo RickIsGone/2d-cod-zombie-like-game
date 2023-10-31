@@ -34,7 +34,7 @@ void niga(SDL_Renderer* renderer,MouseState mouseState){
     
     SDL_RenderCopyEx(renderer, loaded_texture, NULL, &spriteRect, angle, NULL, SDL_FLIP_NONE);
 
-    SDL_RenderPresent(renderer);
+    
     
     SDL_DestroyTexture(loaded_texture); 
     

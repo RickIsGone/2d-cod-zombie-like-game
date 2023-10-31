@@ -14,12 +14,13 @@ struct gun{
     std::string name;
     int damage;
     int ammo;
+    int ammo_max;
     float fire_rate;
     void shoot();
 };
 
 struct players{
-    float health;
+    int health;
     float speed;
     gun weapon;
     int money;

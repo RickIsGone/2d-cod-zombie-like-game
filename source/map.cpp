@@ -76,7 +76,7 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
         x++;
     }
 
-    SDL_RenderPresent(renderer);
+    
 
     SDL_DestroyTexture(wall_texture);
     SDL_DestroyTexture(ground_texture);

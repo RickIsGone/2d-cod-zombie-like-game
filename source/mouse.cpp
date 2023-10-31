@@ -11,5 +11,5 @@ void mouse(SDL_Renderer* renderer,MouseState mouseState){
     SDL_SetCursor(cursor);
     
     SDL_Rect destrect = { mouseState.x - 64 / 2, mouseState.y - 32 / 2, 64, 32 };
-    SDL_RenderPresent(renderer);
+    
 }

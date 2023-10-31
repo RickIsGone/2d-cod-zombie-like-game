@@ -7,7 +7,7 @@
 #include "../hpp files/all.hpp"
 
 const int WIDTH=1920, HEIGHT=1080;
-SDL_Renderer* renderer;
+
 
 int main(int argc, char *argv[]){
     bool game_state=true;
@@ -38,6 +38,8 @@ int main(int argc, char *argv[]){
         map(renderer, camera);
         niga(renderer,mouseState);
         hud_display(renderer,camera);
+
+        SDL_RenderPresent(renderer);
 
         if (game_round.zombie_number==0) won_round();
         
