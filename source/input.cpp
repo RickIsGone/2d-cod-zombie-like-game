@@ -28,14 +28,12 @@ Uint32 lastStepTime = 0;
 Uint32 stepDelay = 300;
 
 
-void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip){
+void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip,Mix_Chunk *step,Mix_Chunk *reload,Mix_Chunk *ak47_fire,Mix_Chunk *mp5_fire,Mix_Chunk *glock18_fire,Mix_Chunk *empty_mag){
     int x, y;
     bool automatic=false;
     const Uint8* state = SDL_GetKeyboardState(NULL);
     Uint32 buttons = SDL_GetMouseState(&x, &y);
     Mix_Chunk *sound;
-    Mix_Chunk *step;
-    step = Mix_LoadWAV("../texture/step.wav");
     bool leftButton = (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0;
 
     if (state[SDL_SCANCODE_W]) {
@@ -75,8 +73,7 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
     }
     
     if (state[SDL_SCANCODE_R]&&player.weapon.ammo!=player.weapon.ammo_max&&reloadStartTime==0){
-        sound = Mix_LoadWAV("../texture/reload.wav");
-        Mix_PlayChannel(-1, sound, 0);
+        Mix_PlayChannel(-1, reload, 0);
         reloadStartTime=SDL_GetTicks();
     } 
     
@@ -101,9 +98,9 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
     
     if (leftButton && reloadStartTime == 0 && player.weapon.name != "glock18" && player.weapon.name != "knife"&&player.weapon.ammo>0) {
         automatic=true;
-        player.weapon.shoot(automatic,sound);
+        player.weapon.shoot(automatic,ak47_fire,mp5_fire,glock18_fire,empty_mag);
     }
-    else if (leftButton && !mouseState.leftButton && reloadStartTime==0) player.weapon.shoot(automatic,sound);
+    else if (leftButton && !mouseState.leftButton && reloadStartTime==0) player.weapon.shoot(automatic,ak47_fire,mp5_fire,glock18_fire,empty_mag);
 
     mouseState.x = x;
     mouseState.y = y;

@@ -26,8 +26,15 @@ int main(int argc, char *argv[]){
     SDL_Event WindowEvent;
     MouseState mouseState = {0, 0, false, false};
     SDL_Rect camera={500,300,WIDTH,HEIGHT};
-
     
+    Mix_Chunk *step,*ak47_fire,*mp5_fire,*glock18_fire,*reload,*empty_mag;
+    step = Mix_LoadWAV("../texture/step.wav");
+    ak47_fire = Mix_LoadWAV("../texture/ak47_fire.wav");
+    mp5_fire= Mix_LoadWAV("../texture/mp5_fire.wav");
+    glock18_fire= Mix_LoadWAV("../texture/glock18_fire.wav");
+    reload= Mix_LoadWAV("../texture/reload.wav");
+    empty_mag= Mix_LoadWAV("../texture/empty_mag.wav");
+
     while(game_state=="pause"){
 
         while (SDL_PollEvent(&event)) pause(game_state,event);
@@ -47,7 +54,7 @@ int main(int argc, char *argv[]){
         
         while (SDL_PollEvent(&event)) events(event, game_state);
 
-        mnk_events(camera,mouseState,game_state,event,renderer,no_clip);
+        mnk_events(camera,mouseState,game_state,event,renderer,no_clip,step,reload,ak47_fire,mp5_fire,glock18_fire,empty_mag);
         map(renderer, camera);
         niga(renderer,mouseState);
         hud_display(renderer,camera);
