@@ -36,9 +36,11 @@ struct rounds {
     int zombie_left;
 };
 
-extern gun ak;
+extern gun ak47;
 extern gun mp5;
 extern gun knife;
+extern gun glock18;
+
 
 extern rounds game_round;
 extern players player;
@@ -60,6 +62,9 @@ void pause(std::string &game_state,SDL_Event event);
 void round_display(SDL_Renderer* renderer,SDL_Rect camera);
 void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);
 void health_display(SDL_Renderer* renderer,SDL_Rect camera);
+void money_display(SDL_Renderer* renderer,SDL_Rect camera);
 void hud_display(SDL_Renderer* renderer,SDL_Rect camera);
+void consolle();
+void consolle_events(SDL_Event consolle_events, bool &consolle_state);
 
 void shoot();

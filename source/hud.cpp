@@ -66,10 +66,33 @@ void ammo_display(SDL_Renderer* renderer,SDL_Rect camera){
     
 }
 
+void money_display(SDL_Renderer* renderer,SDL_Rect camera){
+    
+    TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 30);
+    
+    std::string round_str = "$"+std::to_string(player.money);
+    SDL_Surface* surface = TTF_RenderText_Solid(font, round_str.c_str(), {0, 0, 0}); 
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+    int text_width = surface->w;
+    int text_height = surface->h;
+    SDL_FreeSurface(surface); 
+
+    SDL_Rect dstrect = { 50, 960, text_width, text_height };
+    
+    SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+    
+
+    SDL_DestroyTexture(texture);
+    TTF_CloseFont(font);
+    
+}
+
+
 void hud_display(SDL_Renderer* renderer,SDL_Rect camera){
 
     round_display(renderer,camera);
     health_display(renderer,camera);
+    money_display(renderer,camera);
     ammo_display(renderer,camera);
 
 }

@@ -14,6 +14,14 @@ void events(SDL_Event event, std::string &game_state){
     }
 }
 
+void consolle_events(SDL_Event consolle_event, bool &consolle_state){
+    switch(consolle_event.type){  
+        case SDL_QUIT:
+            consolle_state=false;
+            break;
+    }
+}
+
 Uint32 reloadStartTime = 0;
 const Uint32 reloadDelay = 1500;
 Uint32 FireRate = 0;
@@ -48,6 +56,8 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
         reloadStartTime=0;
     }
 
+    if (state[SDL_SCANCODE_P]) consolle();
+
     if(state[SDL_SCANCODE_ESCAPE]){
 
         game_state="pause";
@@ -77,7 +87,7 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
     else if (leftButton && !mouseState.leftButton && reloadStartTime==0) {
         if(player.weapon.name=="glock18"&&player.weapon.ammo>0){
             player.weapon.ammo--;
-            sound = Mix_LoadWAV("../texture/ak47_fire.wav");
+            sound = Mix_LoadWAV("../texture/glock18_fire.wav");
             Mix_PlayChannel(-1, sound, 0);
         }
         else{

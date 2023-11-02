@@ -48,4 +48,4 @@ struct rounds{
 
 
 rounds game_round;
-players player;
+
