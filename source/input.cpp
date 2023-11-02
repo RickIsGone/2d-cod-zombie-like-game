@@ -24,28 +24,57 @@ void consolle_events(SDL_Event consolle_event, bool &consolle_state){
 
 Uint32 reloadStartTime = 0;
 const Uint32 reloadDelay = 1500;
-Uint32 FireRate = 0;
+Uint32 lastStepTime = 0;
+Uint32 stepDelay = 300;
 
 
-void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer){
+void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip){
     int x, y;
-
-    const Uint32 FireRateDelay =player.weapon.fire_rate;
+    bool automatic=false;
     const Uint8* state = SDL_GetKeyboardState(NULL);
     Uint32 buttons = SDL_GetMouseState(&x, &y);
     Mix_Chunk *sound;
-
+    Mix_Chunk *step;
+    step = Mix_LoadWAV("../texture/step.wav");
     bool leftButton = (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0;
 
-    if (state[SDL_SCANCODE_W]) camera.y -= player.speed;
+    if (state[SDL_SCANCODE_W]) {
+        camera.y -= player.speed;
+        if (SDL_GetTicks() - lastStepTime > stepDelay) {
+            Mix_VolumeChunk(step, MIX_MAX_VOLUME / 2);
+            Mix_PlayChannel(-1, step, 0);
+            lastStepTime = SDL_GetTicks();
+        }
+    }
     
-    if (state[SDL_SCANCODE_A]) camera.x -= player.speed;
+    if (state[SDL_SCANCODE_A]){
+        camera.x -= player.speed;
+        if (SDL_GetTicks() - lastStepTime > stepDelay) {
+            Mix_VolumeChunk(step, MIX_MAX_VOLUME / 2);
+            Mix_PlayChannel(-1, step, 0);
+            lastStepTime = SDL_GetTicks();
+        }
+    }
     
-    if (state[SDL_SCANCODE_S]) camera.y += player.speed;
+    if (state[SDL_SCANCODE_S]) {
+        camera.y += player.speed;
+        if (SDL_GetTicks() - lastStepTime > stepDelay) {
+            Mix_VolumeChunk(step, MIX_MAX_VOLUME / 2);
+            Mix_PlayChannel(-1, step, 0);
+            lastStepTime = SDL_GetTicks();
+        }
+    }
     
-    if (state[SDL_SCANCODE_D]) camera.x += player.speed;
+    if (state[SDL_SCANCODE_D]) {
+        camera.x += player.speed;
+        if (SDL_GetTicks() - lastStepTime > stepDelay) {
+            Mix_VolumeChunk(step, MIX_MAX_VOLUME / 2);
+            Mix_PlayChannel(-1, step, 0);
+            lastStepTime = SDL_GetTicks();
+        }
+    }
     
-    if (state[SDL_SCANCODE_R]&&player.weapon.ammo!=player.weapon.ammo_max){
+    if (state[SDL_SCANCODE_R]&&player.weapon.ammo!=player.weapon.ammo_max&&reloadStartTime==0){
         sound = Mix_LoadWAV("../texture/reload.wav");
         Mix_PlayChannel(-1, sound, 0);
         reloadStartTime=SDL_GetTicks();
@@ -56,7 +85,7 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
         reloadStartTime=0;
     }
 
-    if (state[SDL_SCANCODE_P]) consolle();
+    if (state[SDL_SCANCODE_P]) consolle(no_clip);
 
     if(state[SDL_SCANCODE_ESCAPE]){
 
@@ -71,30 +100,10 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
     }
     
     if (leftButton && reloadStartTime == 0 && player.weapon.name != "glock18" && player.weapon.name != "knife"&&player.weapon.ammo>0) {
-        if (FireRate == 0 || SDL_GetTicks() - FireRate >= FireRateDelay) {
-            player.weapon.ammo--;
-            FireRate = SDL_GetTicks();
-            if(player.weapon.name=="ak47"){
-                sound = Mix_LoadWAV("../texture/ak47_fire.wav");
-                Mix_PlayChannel(-1, sound, 0);
-            }
-            else{
-                sound = Mix_LoadWAV("../texture/mp5_fire.wav");
-                Mix_PlayChannel(-1, sound, 0);
-            }
-        }
+        automatic=true;
+        player.weapon.shoot(automatic,sound);
     }
-    else if (leftButton && !mouseState.leftButton && reloadStartTime==0) {
-        if(player.weapon.name=="glock18"&&player.weapon.ammo>0){
-            player.weapon.ammo--;
-            sound = Mix_LoadWAV("../texture/glock18_fire.wav");
-            Mix_PlayChannel(-1, sound, 0);
-        }
-        else{
-            ;
-        }
-        
-    }
+    else if (leftButton && !mouseState.leftButton && reloadStartTime==0) player.weapon.shoot(automatic,sound);
 
     mouseState.x = x;
     mouseState.y = y;

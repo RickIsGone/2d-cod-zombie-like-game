@@ -1,4 +1,5 @@
 #include <string>
+#include <SDL2/SDL_mixer.h>
 
 #ifndef ALL_HPP
 #define ALL_HPP
@@ -18,9 +19,7 @@ struct gun {
     int ammo;
     int ammo_max;
     int fire_rate;
-    static void shoot(){
-
-    };
+    void shoot(bool automatic,Mix_Chunk *sound);
 };
 
 struct players {
@@ -51,7 +50,7 @@ void won_round();
 void spawn_zombie();
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
-void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer);
+void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip);
 void events(SDL_Event event, std::string &game_state);
 void niga(SDL_Renderer* renderer,MouseState mouseState);
 void mouse(SDL_Renderer* renderer,MouseState mouseState);
@@ -64,7 +63,6 @@ void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);
 void health_display(SDL_Renderer* renderer,SDL_Rect camera);
 void money_display(SDL_Renderer* renderer,SDL_Rect camera);
 void hud_display(SDL_Renderer* renderer,SDL_Rect camera);
-void consolle();
+void consolle(bool &no_clip);
 void consolle_events(SDL_Event consolle_events, bool &consolle_state);
 
-void shoot();

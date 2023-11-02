@@ -12,7 +12,7 @@ bool start=true;
 
 int main(int argc, char *argv[]){
     std::string game_state="pause";
-
+    bool no_clip=false;
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
     Mix_Init(MIX_INIT_MP3 | MIX_INIT_OGG);
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]){
         
         while (SDL_PollEvent(&event)) events(event, game_state);
 
-        mnk_events(camera,mouseState,game_state,event,renderer);
+        mnk_events(camera,mouseState,game_state,event,renderer,no_clip);
         map(renderer, camera);
         niga(renderer,mouseState);
         hud_display(renderer,camera);
