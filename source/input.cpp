@@ -25,7 +25,7 @@ void consolle_events(SDL_Event consolle_event, bool &consolle_state){
 Uint32 reloadStartTime = 0;
 const Uint32 reloadDelay = 1500;
 Uint32 lastStepTime = 0;
-Uint32 stepDelay = 300;
+Uint32 stepDelay = 325;
 
 
 void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip,Mix_Chunk *step,Mix_Chunk *reload,Mix_Chunk *ak47_fire,Mix_Chunk *mp5_fire,Mix_Chunk *glock18_fire,Mix_Chunk *empty_mag){
