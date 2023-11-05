@@ -11,12 +11,18 @@ void events(SDL_Event event, std::string &game_state){
         case SDL_QUIT:
             game_state="false";
             break;
-            
+
         case SDL_KEYDOWN:       // weapon switch controll
             switch(event.key.keysym.sym) {
                 case SDLK_q:
-                    if (player.InHand == &player.weapon2) player.InHand=&player.weapon1;
-                    else player.InHand=&player.weapon2;
+                    if (player.InHand == &player.weapon2){
+                        player.weapon2=*player.InHand;
+                        player.InHand=&player.weapon1;
+                    }
+                    else{
+                        player.weapon1=*player.InHand;
+                        player.InHand=&player.weapon2;
+                    }
                     break;
             }
             break;
