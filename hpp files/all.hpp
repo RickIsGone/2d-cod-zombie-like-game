@@ -18,14 +18,18 @@ struct gun {
     int damage;
     int ammo;
     int ammo_max;
+    int ammo_left;
     int fire_rate;
     void shoot(bool automatic,Mix_Chunk *ak47_fire,Mix_Chunk *mp5_fire,Mix_Chunk *glock18_fire,Mix_Chunk *empty_mag);
 };
 
 struct players {
     int health;
+    int health_max;
     float speed;
-    gun weapon;
+    gun weapon1;
+    gun weapon2;
+    gun* InHand;
     int money;
 };
 
@@ -62,6 +66,7 @@ void round_display(SDL_Renderer* renderer,SDL_Rect camera);
 void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);
 void health_display(SDL_Renderer* renderer,SDL_Rect camera);
 void money_display(SDL_Renderer* renderer,SDL_Rect camera);
+void health_check();
 void hud_display(SDL_Renderer* renderer,SDL_Rect camera);
 void consolle(bool &no_clip);
 void consolle_events(SDL_Event consolle_events, bool &consolle_state);

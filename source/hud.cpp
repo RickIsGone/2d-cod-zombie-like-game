@@ -49,7 +49,7 @@ void ammo_display(SDL_Renderer* renderer,SDL_Rect camera){
 
     TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 60);
     
-    std::string round_str = std::to_string(player.weapon.ammo)+"/"+std::to_string(player.weapon.ammo_max);
+    std::string round_str = std::to_string(player.InHand->ammo)+"/"+std::to_string(player.InHand->ammo_left);
     SDL_Surface* surface = TTF_RenderText_Solid(font, round_str.c_str(), {0, 0, 0}); 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
     int text_width = surface->w;

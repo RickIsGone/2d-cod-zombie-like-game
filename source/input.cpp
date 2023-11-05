@@ -72,15 +72,25 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
         }
     }
     
-    if (state[SDL_SCANCODE_R]&&player.weapon.ammo!=player.weapon.ammo_max&&reloadStartTime==0){
+    if (state[SDL_SCANCODE_R]&&player.InHand->ammo!=player.InHand->ammo_max&&player.InHand->ammo_left>0&&reloadStartTime==0){
         Mix_PlayChannel(-1, reload, 0);
         reloadStartTime=SDL_GetTicks();
     } 
-    
-    if(reloadStartTime!=0&&SDL_GetTicks()-reloadStartTime>=reloadDelay){
-        player.weapon.ammo=player.weapon.ammo_max;
+
+    if(reloadStartTime!=0&&SDL_GetTicks()-reloadStartTime>=reloadDelay){ 
+        if(player.InHand->ammo_left<player.InHand->ammo_max){
+            player.InHand->ammo+=player.InHand->ammo_left;
+            player.InHand->ammo_left=0;
+        }
+        else{
+            player.InHand->ammo_left-=player.InHand->ammo_max-player.InHand->ammo;
+            player.InHand->ammo=player.InHand->ammo_max;
+        }
         reloadStartTime=0;
     }
+
+    if (state[SDL_SCANCODE_1]&&player.InHand == &player.weapon2) player.InHand=&player.weapon1;
+    if (state[SDL_SCANCODE_2]&&player.InHand == &player.weapon1) player.InHand=&player.weapon2;
 
     if (state[SDL_SCANCODE_P]) consolle(no_clip);
 
@@ -96,11 +106,11 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
         
     }
     
-    if (leftButton && reloadStartTime == 0 && player.weapon.name != "glock18" && player.weapon.name != "knife"&&player.weapon.ammo>0) {
+    if (leftButton && reloadStartTime == 0 && player.InHand->name != "glock18" && player.InHand->name != "knife"&&player.InHand->ammo>0) {
         automatic=true;
-        player.weapon.shoot(automatic,ak47_fire,mp5_fire,glock18_fire,empty_mag);
+        player.InHand->shoot(automatic,ak47_fire,mp5_fire,glock18_fire,empty_mag);
     }
-    else if (leftButton && !mouseState.leftButton && reloadStartTime==0) player.weapon.shoot(automatic,ak47_fire,mp5_fire,glock18_fire,empty_mag);
+    else if (leftButton && !mouseState.leftButton && reloadStartTime==0) player.InHand->shoot(automatic,ak47_fire,mp5_fire,glock18_fire,empty_mag);
 
     mouseState.x = x;
     mouseState.y = y;

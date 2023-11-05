@@ -57,6 +57,7 @@ int main(int argc, char *argv[]){
         mnk_events(camera,mouseState,game_state,event,renderer,no_clip,step,reload,ak47_fire,mp5_fire,glock18_fire,empty_mag);
         map(renderer, camera);
         niga(renderer,mouseState);
+        health_check();
         hud_display(renderer,camera);
 
         SDL_RenderPresent(renderer);

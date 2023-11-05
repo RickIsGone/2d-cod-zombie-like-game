@@ -15,14 +15,19 @@ struct gun{
     int damage;
     int ammo;
     int ammo_max;
+    int ammo_left;
     int fire_rate;
     void shoot();
+    
 };
 
 struct players{
     int health;
+    int health_max;
     float speed;
-    gun weapon;
+    gun weapon1;
+    gun weapon2;
+    gun* InHand;
     int money;
 
 };

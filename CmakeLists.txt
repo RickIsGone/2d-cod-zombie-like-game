@@ -4,7 +4,7 @@ project(2d_cod_zombie VERSION 0.1.0 LANGUAGES C CXX)
 include(CTest)
 enable_testing()
 
-add_executable(2d_cod_zombie  source/main.cpp source/map.cpp source/input.cpp source/classes.cpp source/mouse.cpp source/rounds.cpp source/niga.cpp source/menu.cpp source/hud.cpp source/consolle.cpp source/fire.cpp)
+add_executable(2d_cod_zombie  source/main.cpp source/map.cpp source/input.cpp source/classes.cpp source/mouse.cpp source/rounds.cpp source/niga.cpp source/menu.cpp source/hud.cpp source/consolle.cpp source/fire.cpp source/health_check.cpp)
 
 add_executable(my_test source/test.cpp)
 add_test(NAME MyTest COMMAND my_test)
