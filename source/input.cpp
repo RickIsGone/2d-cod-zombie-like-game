@@ -11,6 +11,15 @@ void events(SDL_Event event, std::string &game_state){
         case SDL_QUIT:
             game_state="false";
             break;
+            
+        case SDL_KEYDOWN:       // weapon switch controll
+            switch(event.key.keysym.sym) {
+                case SDLK_q:
+                    if (player.InHand == &player.weapon2) player.InHand=&player.weapon1;
+                    else player.InHand=&player.weapon2;
+                    break;
+            }
+            break;
     }
 }
 
@@ -89,11 +98,8 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
         reloadStartTime=0;
     }
 
-    if (state[SDL_SCANCODE_1]&&player.InHand == &player.weapon2) player.InHand=&player.weapon1;
-    if (state[SDL_SCANCODE_2]&&player.InHand == &player.weapon1) player.InHand=&player.weapon2;
-
     if (state[SDL_SCANCODE_P]) consolle(no_clip);
-
+    
     if(state[SDL_SCANCODE_ESCAPE]){
 
         game_state="pause";
