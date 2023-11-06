@@ -16,12 +16,12 @@ void events(SDL_Event event, std::string &game_state){
             switch(event.key.keysym.sym) {
                 case SDLK_q:
                     if (player.InHand == &player.weapon2){
-                        player.weapon2=*player.InHand;
-                        player.InHand=&player.weapon1;
+                        player.weapon2 = *player.InHand;
+                        player.InHand = &player.weapon1;
                     }
                     else{
-                        player.weapon1=*player.InHand;
-                        player.InHand=&player.weapon2;
+                        player.weapon1 = *player.InHand;
+                        player.InHand = &player.weapon2;
                     }
                     break;
             }

@@ -45,6 +45,7 @@ void consolle(bool &no_clip){
                         break;
                     default:
                         player.InHand=&knife;
+                        break;
                 }
         }
     }

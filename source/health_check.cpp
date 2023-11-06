@@ -3,7 +3,7 @@
 #include "../hpp files/all.hpp"
 
 Uint32 last_hit = 0;
-Uint32 heal_delay = 5000;
+Uint32 heal_delay = 7500;
 int last_check;
 int last_health = player.health;
 
