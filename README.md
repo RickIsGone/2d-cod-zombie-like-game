@@ -1,6 +1,6 @@
 # 2d-cod-zombie-like-game
 
-To compile use mingw gcc and set monitor resoolution to 1920x1080 if you intend to play full screen 
+To compile use mingw gcc and set monitor resolution to 1920x1080 if you intend to play full screen 
 
 ## License
 
