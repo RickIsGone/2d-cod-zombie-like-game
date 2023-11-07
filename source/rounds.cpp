@@ -13,7 +13,7 @@ gun ak47={"ak47",35,30,30,240,150};
 gun mp5={"mp5",25,25,25,200,100};
 gun knife{"knife",85,1,1,1,200};
 gun glock18{"glock18",20,20,20,160,0};
-players player={150,150,10,glock18,knife,&glock18,0};
+players player={150,150,10,glock18,knife,0};
 
 void start_game(void){
 

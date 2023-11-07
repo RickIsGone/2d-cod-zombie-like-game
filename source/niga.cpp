@@ -9,11 +9,11 @@ void niga(SDL_Renderer* renderer,MouseState mouseState){
 
     SDL_Texture* loaded_texture;
     
-    if(player.InHand->name=="ak47") loaded_texture=IMG_LoadTexture(renderer, "../texture/ak47.png");
+    if(player.WeaponInHand.name=="ak47") loaded_texture=IMG_LoadTexture(renderer, "../texture/ak47.png");
 
-    else if(player.InHand->name=="mp5") loaded_texture=IMG_LoadTexture(renderer, "../texture/mp5.png");
+    else if(player.WeaponInHand.name=="mp5") loaded_texture=IMG_LoadTexture(renderer, "../texture/mp5.png");
 
-    else if(player.InHand->name=="glock18") loaded_texture= IMG_LoadTexture(renderer, "../texture/glock.png");
+    else if(player.WeaponInHand.name=="glock18") loaded_texture= IMG_LoadTexture(renderer, "../texture/glock.png");
 
     else loaded_texture=IMG_LoadTexture(renderer, "../texture/knife.png");
 

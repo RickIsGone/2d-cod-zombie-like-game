@@ -24,9 +24,8 @@ struct players{
     int health;
     int health_max;
     float speed;
-    gun weapon1;
-    gun weapon2;
-    gun* InHand;
+    gun WeaponInHand;
+    gun WeaponInInventory;
     int money;
 };
 

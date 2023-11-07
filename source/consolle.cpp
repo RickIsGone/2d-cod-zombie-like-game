@@ -17,8 +17,8 @@ void consolle(bool &no_clip){
         std::cout<<"comands:\nplayer_money (value)\nplayer_health (value)\nplayer_speed (value)\ngun_ammo (value)\nexit\nplayer_weapon (value)\ngun_damage\nfire_rate\nno_clip\nammo_left (value)\n\n";
         std::cin>>comand;
         if(comand=="exit") goto exit;
-        else if(comand=="gun_damage") cout<<player.InHand->damage<<"\n";
-        else if (comand=="fire_rate") cout<<player.InHand->fire_rate<<"\n";
+        else if(comand=="gun_damage") cout<<player.WeaponInHand.damage<<"\n";
+        else if (comand=="fire_rate") cout<<player.WeaponInHand.fire_rate<<"\n";
         else if (comand=="no_clip"){
             if(!no_clip) no_clip=true;
             else no_clip=false;
@@ -30,21 +30,21 @@ void consolle(bool &no_clip){
             if(comand=="player_money") player.money=value;
             else if(comand=="player_health") player.health=value;
             else if(comand=="player_speed") player.speed=value;
-            else if(comand=="gun_ammo") player.InHand->ammo=value;
-            else if(comand=="ammo_left") player.InHand->ammo_left=value;
+            else if(comand=="gun_ammo") player.WeaponInHand.ammo=value;
+            else if(comand=="ammo_left") player.WeaponInHand.ammo_left=value;
             else if (comand=="player_weapon")
                 switch (value){
                     case 1:
-                        player.InHand=&ak47;
+                        player.WeaponInHand=ak47;
                         break;
                     case 2:
-                        player.InHand=&mp5;
+                        player.WeaponInHand=mp5;
                         break;
                     case 3:
-                        player.InHand=&glock18;
+                        player.WeaponInHand=glock18;
                         break;
                     default:
-                        player.InHand=&knife;
+                        player.WeaponInHand=knife;
                         break;
                 }
         }

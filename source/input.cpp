@@ -15,15 +15,7 @@ void events(SDL_Event event, std::string &game_state){
         case SDL_KEYDOWN:       // weapon switch controll
             switch(event.key.keysym.sym) {
                 case SDLK_q:
-                    if (player.InHand == &player.weapon2){
-                        player.weapon2 = *player.InHand;
-                        player.InHand = &player.weapon1;
-                    }
-                    else{
-                        player.weapon1 = *player.InHand;
-                        player.InHand = &player.weapon2;
-                    }
-                    break;
+                    std::swap(player.WeaponInHand,player.WeaponInInventory);
             }
             break;
     }
@@ -87,19 +79,19 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
         }
     }
     
-    if (state[SDL_SCANCODE_R]&&player.InHand->ammo!=player.InHand->ammo_max&&player.InHand->ammo_left>0&&s_reloadStartTime==0){
+    if (state[SDL_SCANCODE_R]&&player.WeaponInHand.ammo!=player.WeaponInHand.ammo_max&&player.WeaponInHand.ammo_left>0&&s_reloadStartTime==0){
         Mix_PlayChannel(-1, reload, 0);
         s_reloadStartTime=SDL_GetTicks();
     } 
 
     if(s_reloadStartTime!=0&&SDL_GetTicks()-s_reloadStartTime>=s_reloadDelay){ 
-        if(player.InHand->ammo_left<player.InHand->ammo_max){
-            player.InHand->ammo+=player.InHand->ammo_left;
-            player.InHand->ammo_left=0;
+        if(player.WeaponInHand.ammo_left<player.WeaponInHand.ammo_max){
+            player.WeaponInHand.ammo+=player.WeaponInHand.ammo_left;
+            player.WeaponInHand.ammo_left=0;
         }
         else{
-            player.InHand->ammo_left-=player.InHand->ammo_max-player.InHand->ammo;
-            player.InHand->ammo=player.InHand->ammo_max;
+            player.WeaponInHand.ammo_left-=player.WeaponInHand.ammo_max-player.WeaponInHand.ammo;
+            player.WeaponInHand.ammo=player.WeaponInHand.ammo_max;
         }
         s_reloadStartTime=0;
     }
@@ -118,11 +110,11 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
         
     }
     
-    if (leftButton && s_reloadStartTime == 0 && player.InHand->name != "glock18" && player.InHand->name != "knife"&&player.InHand->ammo>0) {
+    if (leftButton && s_reloadStartTime == 0 && player.WeaponInHand.name != "glock18" && player.WeaponInHand.name != "knife"&&player.WeaponInHand.ammo>0) {
         automatic=true;
-        player.InHand->shoot(automatic,ak47_fire,mp5_fire,glock18_fire,empty_mag);
+        player.WeaponInHand.shoot(automatic,ak47_fire,mp5_fire,glock18_fire,empty_mag);
     }
-    else if (leftButton && !mouseState.leftButton && s_reloadStartTime==0) player.InHand->shoot(automatic,ak47_fire,mp5_fire,glock18_fire,empty_mag);
+    else if (leftButton && !mouseState.leftButton && s_reloadStartTime==0) player.WeaponInHand.shoot(automatic,ak47_fire,mp5_fire,glock18_fire,empty_mag);
 
     mouseState.x = x;
     mouseState.y = y;
