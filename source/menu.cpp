@@ -36,12 +36,12 @@ void menu(SDL_Renderer* renderer){
     if(s_down==true){
         SDL_SetTextureAlphaMod(texture,s_opacity);
         SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-        s_opacity-=3;
+        s_opacity-=1;
     }
     else{
         SDL_SetTextureAlphaMod(texture,s_opacity);
         SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-        s_opacity+=3;
+        s_opacity+=1;
         if(s_opacity==255) s_down=true;
     }
     
