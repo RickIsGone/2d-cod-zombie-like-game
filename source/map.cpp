@@ -43,19 +43,13 @@ const string game_map=  "ooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera){
 
-    SDL_Texture* wall_texture = IMG_LoadTexture(renderer, "../texture/wall.png");
-    SDL_Texture* ground_texture = IMG_LoadTexture(renderer, "../texture/ground.png");
-    SDL_Texture* outside_texture=IMG_LoadTexture(renderer,"../texture/outside.png");
-    SDL_Texture* glock18_outline_texture=IMG_LoadTexture(renderer,"../texture/glock18_outline.png");
-    SDL_Texture* ak_outline_texture=IMG_LoadTexture(renderer,"../texture/ak_outline.png");
-    SDL_Texture* mp5_outline_texture=IMG_LoadTexture(renderer,"../texture/mp5_outline.jpg");
+    extern SDL_Texture * wall_texture,*ground_texture,*outside_texture,*glock18_outline_texture,*ak_outline_texture,*mp5_outline_texture;
     
     int dimensione = 101; 
 
     int x = 0;
     int y = 0;
 
-    SDL_RenderClear(renderer);
     
     for (char tile : game_map) {
         if (tile == '\n') {
@@ -90,11 +84,6 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
 
     
 
-    SDL_DestroyTexture(wall_texture);
-    SDL_DestroyTexture(ground_texture);
-    SDL_DestroyTexture(outside_texture);
-    SDL_DestroyTexture(ak_outline_texture);
-    SDL_DestroyTexture(glock18_outline_texture);
-    SDL_DestroyTexture(mp5_outline_texture);
+    
 
 }

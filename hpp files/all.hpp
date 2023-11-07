@@ -20,7 +20,7 @@ struct gun {
     int ammo_max;
     int ammo_left;
     int fire_rate;
-    void shoot(bool automatic,Mix_Chunk *ak47_fire,Mix_Chunk *mp5_fire,Mix_Chunk *glock18_fire,Mix_Chunk *empty_mag);
+    void shoot(bool automatic);
 };
 
 struct players {
@@ -51,9 +51,10 @@ extern players player;
 void start_game();
 void won_round();
 void spawn_zombie();
+void texturensound_initiation(SDL_Renderer* renderer);
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
-void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip,Mix_Chunk *step,Mix_Chunk *reload,Mix_Chunk *ak47_fire,Mix_Chunk *mp5_fire,Mix_Chunk *glock18_fire,Mix_Chunk *empty_mag);
+void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip);
 void events(SDL_Event event, std::string &game_state);
 void niga(SDL_Renderer* renderer,MouseState mouseState);
 void mouse(SDL_Renderer* renderer,MouseState mouseState);
