@@ -5,11 +5,11 @@
 #include "../hpp files/all.hpp"
 
 
-void events(SDL_Event event, std::string &game_state){
+void events(SDL_Event event, int &game_state){
  
     switch(event.type){  
         case SDL_QUIT:
-            game_state="false";
+            game_state=CLOSED;
             break;
 
         case SDL_KEYDOWN:       // weapon switch controll
@@ -35,7 +35,7 @@ static Uint32 s_lastStepTime = 0;
 static Uint32 s_stepDelay = 325;
 
 
-void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip){
+void mnk_events(SDL_Rect &camera, MouseState &mouseState, int &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip){
     int x, y;
     bool automatic=false;
     extern Mix_Chunk *step,*reload;
@@ -101,9 +101,9 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state
     
     if(state[SDL_SCANCODE_ESCAPE]){
 
-        game_state="pause";
+        game_state=PAUSED;
         
-        while(game_state=="pause"){
+        while(game_state==PAUSED){
             while (SDL_PollEvent(&event)) pause(game_state,event);
             SDL_RenderClear(renderer);
             map(renderer, camera);

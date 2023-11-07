@@ -48,19 +48,25 @@ extern rounds game_round;
 extern players player;
 #endif // ALL_HPP
 
+enum GameState {
+    RUNNING,
+    PAUSED,
+    CLOSED
+};
+
 void start_game();
 void won_round();
 void spawn_zombie();
 void texturensound_initiation(SDL_Renderer* renderer);
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
-void mnk_events(SDL_Rect &camera, MouseState &mouseState,std::string &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip);
-void events(SDL_Event event, std::string &game_state);
+void mnk_events(SDL_Rect &camera, MouseState &mouseState, int &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip);
+void events(SDL_Event event, int &game_state);
 void niga(SDL_Renderer* renderer,MouseState mouseState);
 void mouse(SDL_Renderer* renderer,MouseState mouseState);
 
 void menu(SDL_Renderer* renderer);
-void pause(std::string &game_state,SDL_Event event);
+void pause(int &game_state,SDL_Event event);
 
 void round_display(SDL_Renderer* renderer,SDL_Rect camera);
 void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);

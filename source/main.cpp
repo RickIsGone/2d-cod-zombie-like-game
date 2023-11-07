@@ -11,7 +11,12 @@ static const int WIDTH=1920, HEIGHT=1080;
 bool start=true;
 
 int main(int argc, char *argv[]){
-    std::string game_state="pause";
+    enum GameState{
+        RUNNING,
+        PAUSED,
+        CLOSED
+    };
+    int game_state=PAUSED;
     bool no_clip=false;
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
@@ -28,7 +33,7 @@ int main(int argc, char *argv[]){
     
     texturensound_initiation(renderer);
     
-    while(game_state=="pause"){
+    while(game_state==PAUSED){
 
         while (SDL_PollEvent(&event)) pause(game_state,event);
         SDL_RenderClear(renderer);
@@ -44,7 +49,7 @@ int main(int argc, char *argv[]){
     start_game();
     mouse(renderer,mouseState);
     
-    while (game_state=="true") {
+    while (game_state==RUNNING) {
         
         while (SDL_PollEvent(&event)) events(event, game_state);
 

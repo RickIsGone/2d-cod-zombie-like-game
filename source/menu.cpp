@@ -51,14 +51,14 @@ void menu(SDL_Renderer* renderer){
 
 }
 
-void pause(std::string &game_state,SDL_Event event){
+void pause( int &game_state,SDL_Event event){
     switch(event.type){
         case SDL_MOUSEBUTTONDOWN: 
             if (event.button.button == SDL_BUTTON_LEFT) 
-                game_state = "true";
+                game_state = RUNNING;
             break;
         case SDL_QUIT:
-            game_state="false";
+            game_state=CLOSED;
             break;
     }
 }
