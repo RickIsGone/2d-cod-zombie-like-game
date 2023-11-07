@@ -50,7 +50,7 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
     SDL_Texture* ak_outline_texture=IMG_LoadTexture(renderer,"../texture/ak_outline.png");
     SDL_Texture* mp5_outline_texture=IMG_LoadTexture(renderer,"../texture/mp5_outline.jpg");
     
-    int dimensione = 101; // dimensione di ogni tile in pixel
+    int dimensione = 101; 
 
     int x = 0;
     int y = 0;
