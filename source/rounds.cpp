@@ -23,14 +23,14 @@ void start_game(void){
     spawn_zombie();
 }
 
-Uint32 RoundWon = 0;
-const Uint32 ZombieDelay = 10000;
+static Uint32 s_RoundWon = 0;
+static const Uint32 s_ZombieDelay = 10000;
 
 void won_round(void){
     game_round.round_number++;
     game_round.zombie_number+=2;
     
-    RoundWon=SDL_GetTicks();
-    if(RoundWon!=0&&SDL_GetTicks()-RoundWon>=ZombieDelay) spawn_zombie();
+    s_RoundWon=SDL_GetTicks();
+    if(s_RoundWon!=0&&SDL_GetTicks()-s_RoundWon>=s_ZombieDelay) spawn_zombie();
     
 }

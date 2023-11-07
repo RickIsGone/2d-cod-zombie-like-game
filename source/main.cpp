@@ -7,7 +7,7 @@
 #include <SDL2/SDL_mixer.h>
 #include "../hpp files/all.hpp"
 
-const int WIDTH=1920, HEIGHT=1080;
+static const int WIDTH=1920, HEIGHT=1080;
 bool start=true;
 
 int main(int argc, char *argv[]){
@@ -46,9 +46,9 @@ int main(int argc, char *argv[]){
 
     start=false;
 
+
     start_game();
     mouse(renderer,mouseState);
-    
     
     while (game_state=="true") {
         

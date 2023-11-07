@@ -6,8 +6,8 @@
 #include "../hpp files/all.hpp"
 
 extern bool start;
-int opacity=255;
-bool down=true;
+static int s_opacity=255;
+static bool s_down=true;
 
 void menu(SDL_Renderer* renderer){
 
@@ -28,21 +28,21 @@ void menu(SDL_Renderer* renderer){
     SDL_Rect dstrect = { (1920 - text_width) / 2, (1080 - text_height) / 3, text_width, text_height };
 
 
-    if (opacity==0){
-        SDL_SetTextureAlphaMod(texture,opacity);
+    if (s_opacity==0){
+        SDL_SetTextureAlphaMod(texture,s_opacity);
         SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-        down=false;
+        s_down=false;
     }
-    if(down==true){
-        SDL_SetTextureAlphaMod(texture,opacity);
+    if(s_down==true){
+        SDL_SetTextureAlphaMod(texture,s_opacity);
         SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-        opacity-=3;
+        s_opacity-=3;
     }
     else{
-        SDL_SetTextureAlphaMod(texture,opacity);
+        SDL_SetTextureAlphaMod(texture,s_opacity);
         SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-        opacity+=3;
-        if(opacity==255) down=true;
+        s_opacity+=3;
+        if(s_opacity==255) s_down=true;
     }
     
 

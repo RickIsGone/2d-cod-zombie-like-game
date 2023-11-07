@@ -18,7 +18,6 @@ struct gun{
     int ammo_left;
     int fire_rate;
     void shoot();
-    
 };
 
 struct players{
@@ -29,7 +28,6 @@ struct players{
     gun weapon2;
     gun* InHand;
     int money;
-
 };
 
 struct zombies{
