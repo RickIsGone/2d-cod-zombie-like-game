@@ -8,13 +8,13 @@ const string game_map=  "ooooooooooooooooooooooooooooooooooooooooooooooooooooooo
                         "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                         "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                         "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                        "oooooooo*************************************************************************************************oooooooo\n"
+                        "oooooooo*******************************************************************************a*****************oooooooo\n"
                         "oooooooo*                            *                                                                  *oooooooo\n"
                         "oooooooo*                            *                                                                  *oooooooo\n"
                         "oooooooo*                            *                                                                  *oooooooo\n"
                         "oooooooo*                 *****      *                          *        *                              *oooooooo\n"
                         "oooooooo*                 *   *      ****************      ******        *                              *oooooooo\n"
-                        "oooooooo*                 *   *                     *      *             *                              *oooooooo\n"
+                        "oooooooo*                 g   *                     *      *             *                              *oooooooo\n"
                         "oooooooo*                 *   *                     *      *             *                              *oooooooo\n"                  
                         "oooooooo*                 *   *                     *      *             **********     *****************oooooooo\n"
                         "oooooooo*************     *   ***********           *      *                                            *oooooooo\n"
@@ -29,7 +29,7 @@ const string game_map=  "ooooooooooooooooooooooooooooooooooooooooooooooooooooooo
                         "oooooooo*                               *           *      *         *                                  *oooooooo\n"
                         "oooooooo*                               *           *      *         *                                  *oooooooo\n"
                         "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                        "oooooooo*                       *       ****     ****      *         *************************          *oooooooo\n"
+                        "oooooooo*                       *       ****     ****      *         ***************m*********          *oooooooo\n"
                         "oooooooo*                       *                                                                       *oooooooo\n"
                         "oooooooo*                       *                                                                       *oooooooo\n"
                         "oooooooo*                       *                                                                       *oooooooo\n"
@@ -46,6 +46,9 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
     SDL_Texture* wall_texture = IMG_LoadTexture(renderer, "../texture/wall.png");
     SDL_Texture* ground_texture = IMG_LoadTexture(renderer, "../texture/ground.png");
     SDL_Texture* outside_texture=IMG_LoadTexture(renderer,"../texture/outside.png");
+    SDL_Texture* glock18_outline_texture=IMG_LoadTexture(renderer,"../texture/glock18_outline.png");
+    SDL_Texture* ak_outline_texture=IMG_LoadTexture(renderer,"../texture/ak_outline.png");
+    SDL_Texture* mp5_outline_texture=IMG_LoadTexture(renderer,"../texture/mp5_outline.jpg");
     
     int dimensione = 101; // dimensione di ogni tile in pixel
 
@@ -72,6 +75,15 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
             case 'o':
                 SDL_RenderCopy(renderer,outside_texture,NULL,&destRect);
                 break;
+            case 'a':
+                SDL_RenderCopy(renderer,ak_outline_texture,NULL,&destRect);
+                break;
+            case 'm':
+                SDL_RenderCopy(renderer,mp5_outline_texture,NULL,&destRect);
+                break;
+            case 'g':
+                SDL_RenderCopy(renderer,glock18_outline_texture,NULL,&destRect);
+                break;
         }
         x++;
     }
@@ -81,5 +93,8 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
     SDL_DestroyTexture(wall_texture);
     SDL_DestroyTexture(ground_texture);
     SDL_DestroyTexture(outside_texture);
+    SDL_DestroyTexture(ak_outline_texture);
+    SDL_DestroyTexture(glock18_outline_texture);
+    SDL_DestroyTexture(mp5_outline_texture);
 
 }

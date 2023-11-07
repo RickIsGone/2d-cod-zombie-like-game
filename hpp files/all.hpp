@@ -67,6 +67,7 @@ void health_display(SDL_Renderer* renderer,SDL_Rect camera);
 void money_display(SDL_Renderer* renderer,SDL_Rect camera);
 void health_check();
 void hud_display(SDL_Renderer* renderer,SDL_Rect camera);
+
 void consolle(bool &no_clip);
 void consolle_events(SDL_Event consolle_events, bool &consolle_state);
 
