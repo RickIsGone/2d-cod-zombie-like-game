@@ -13,11 +13,14 @@ void events(SDL_Event event, int &game_state){
             break;
 
         case SDL_KEYDOWN:       // weapon switch controll
-            switch(event.key.keysym.sym) {
-                case SDLK_q:
-                    std::swap(player.WeaponInHand,player.WeaponInInventory);
+            if(game_state==RUNNING){
+                switch(event.key.keysym.sym) {
+                    case SDLK_q:
+                        std::swap(player.WeaponInHand,player.WeaponInInventory);
+                        break;
+                }
             }
-            break;
+        break;
     }
 }
 

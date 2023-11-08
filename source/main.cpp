@@ -11,11 +11,6 @@ static const int WIDTH=1920, HEIGHT=1080;
 bool start=true;
 
 int main(int argc, char *argv[]){
-    enum GameState{
-        RUNNING,
-        PAUSED,
-        CLOSED
-    };
     int game_state=PAUSED;
     bool no_clip=false;
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -42,7 +37,6 @@ int main(int argc, char *argv[]){
         SDL_RenderPresent(renderer);
         
     }
-
     start=false;
 
 

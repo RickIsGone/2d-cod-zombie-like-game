@@ -1,5 +1,6 @@
 #include <string>
 #include <SDL2/SDL_mixer.h>
+#pragma once
 
 #ifndef ALL_HPP
 #define ALL_HPP
@@ -49,9 +50,9 @@ extern players player;
 #endif // ALL_HPP
 
 enum GameState {
-    RUNNING,
-    PAUSED,
-    CLOSED
+    RUNNING=2,
+    PAUSED=4,
+    CLOSED=7
 };
 
 void start_game();
