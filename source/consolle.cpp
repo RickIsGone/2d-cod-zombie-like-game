@@ -11,12 +11,13 @@ using namespace std;
 void consolle(bool &no_clip,SDL_Rect camera,SDL_Renderer* renderer){
     string comand;
     int value;
+    bool loop=true;
     
-    while(true){
+    while(loop){
         
         std::cout<<"comands:\nplayer_money (value)\nplayer_health (value)\nplayer_speed (value)\ngun_ammo (value)\nexit\nplayer_weapon (value)\ngun_damage\nfire_rate\nno_clip\nammo_left (value)\n\n";
         std::cin>>comand;
-        if(comand=="exit") goto exit;
+        if(comand=="exit") loop=0;
         else if(comand=="gun_damage") cout<<player.WeaponInHand.damage<<"\n";
         else if (comand=="fire_rate") cout<<player.WeaponInHand.fire_rate<<"\n";
         else if (comand=="no_clip"){
@@ -49,5 +50,4 @@ void consolle(bool &no_clip,SDL_Rect camera,SDL_Renderer* renderer){
                 }
         }
     }
-    exit:
 }
