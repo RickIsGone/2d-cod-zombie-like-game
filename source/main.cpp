@@ -11,7 +11,6 @@ static const int WIDTH=1920, HEIGHT=1080;
 bool start=true;
 
 int main(int argc, char *argv[]){
-    int a;
     int game_state=PAUSED;
     bool no_clip=false;
     SDL_Init(SDL_INIT_EVERYTHING);
