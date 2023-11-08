@@ -39,11 +39,9 @@ const string game_map=  "ooooooooooooooooooooooooooooooooooooooooooooooooooooooo
                         "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                         "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
 
-
+extern SDL_Texture * wall_texture,*ground_texture,*outside_texture,*glock18_outline_texture,*ak_outline_texture,*mp5_outline_texture;
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera){
-
-    extern SDL_Texture * wall_texture,*ground_texture,*outside_texture,*glock18_outline_texture,*ak_outline_texture,*mp5_outline_texture;
     
     int dimensione = 101; 
 

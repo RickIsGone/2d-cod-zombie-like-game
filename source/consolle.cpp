@@ -8,7 +8,7 @@
 using namespace std;
 // to use the consolle remove WIN32 from the CmakeLists and always use exit to stop consolle execution
 
-void consolle(bool &no_clip){
+void consolle(bool &no_clip,SDL_Rect camera,SDL_Renderer* renderer){
     string comand;
     int value;
     

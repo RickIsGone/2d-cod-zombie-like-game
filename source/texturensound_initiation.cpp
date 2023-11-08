@@ -7,7 +7,7 @@
 
 
 Mix_Chunk *step,*ak47_fire,*mp5_fire,*glock18_fire,*reload,*empty_mag;
-SDL_Texture* wall_texture,*ground_texture,*outside_texture,*glock18_outline_texture,*ak_outline_texture,*mp5_outline_texture;
+SDL_Texture* wall_texture,*ground_texture,*outside_texture,*glock18_outline_texture,*ak_outline_texture,*mp5_outline_texture,*zombie_texture;
 
 void texturensound_initiation(SDL_Renderer* renderer){
     step = Mix_LoadWAV("../texture/step.wav");
@@ -23,4 +23,5 @@ void texturensound_initiation(SDL_Renderer* renderer){
     glock18_outline_texture=IMG_LoadTexture(renderer,"../texture/glock18_outline.png");
     ak_outline_texture=IMG_LoadTexture(renderer,"../texture/ak_outline.png");
     mp5_outline_texture=IMG_LoadTexture(renderer,"../texture/mp5_outline.png");
+    zombie_texture=IMG_LoadTexture(renderer,"../texture/zombie.png");
 } 

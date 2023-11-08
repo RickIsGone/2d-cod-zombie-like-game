@@ -4,11 +4,6 @@
 #include "../hpp files/all.hpp"
 
 
-void spawn_zombie(){
-    // spawn degli zombie
-    
-}
-
 gun ak47={"ak47",35,30,30,240,150};
 gun mp5={"mp5",25,25,25,200,100};
 gun knife{"knife",85,1,1,1,200};
