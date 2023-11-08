@@ -48,10 +48,10 @@ extern rounds game_round;
 extern players player;
 #endif // ALL_HPP
 
-enum GameState {
-    RUNNING,
-    PAUSED,
-    CLOSED
+ enum GameState{
+    RUNNING=2,
+    PAUSED=4,
+    CLOSED=7
 };
 
 void start_game();
