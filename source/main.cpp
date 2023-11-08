@@ -12,9 +12,9 @@ bool start=true;
 
 int main(int argc, char *argv[]){
     enum GameState{
-        RUNNING,
-        PAUSED,
-        CLOSED
+        RUNNING=2,
+        PAUSED=4,
+        CLOSED=7
     };
     int game_state=PAUSED;
     bool no_clip=false;
