@@ -28,15 +28,8 @@ int main(int argc, char *argv[]){
     
     texturensound_initiation(renderer);
     
-    while(game_state==PAUSED){
-
-        while (SDL_PollEvent(&event)) pause(game_state,event);
-        SDL_RenderClear(renderer);
-        map(renderer, camera);
-        menu(renderer);  
-        SDL_RenderPresent(renderer);
+    while(game_state==PAUSED) pause_menu(camera, game_state,event,renderer);
         
-    }
     start=false;
 
 

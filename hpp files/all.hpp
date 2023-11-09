@@ -22,6 +22,15 @@ struct gun {
     int ammo_left;
     int fire_rate;
     void shoot(bool automatic);
+    
+        gun(std::string name,int damage,int ammo,int ammo_max, int ammo_left,int fire_rate){
+            this->name=name;
+            this->damage=damage;
+            this->ammo=ammo;
+            this->ammo_max=ammo_max;
+            this->ammo_left=ammo_left;
+            this->fire_rate=fire_rate;
+        }
 };
 
 struct players {
@@ -68,6 +77,7 @@ void mouse(SDL_Renderer* renderer,MouseState mouseState);
 
 void menu(SDL_Renderer* renderer);
 void pause(int &game_state,SDL_Event event);
+void pause_menu(SDL_Rect &camera, int &game_state,SDL_Event event,SDL_Renderer* renderer);
 
 void round_display(SDL_Renderer* renderer,SDL_Rect camera);
 void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);

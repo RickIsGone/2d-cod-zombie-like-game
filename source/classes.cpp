@@ -17,7 +17,8 @@ struct gun{
     int ammo_max;
     int ammo_left;
     int fire_rate;
-    void shoot();
+    void shoot(bool automatic);
+    
 };
 
 struct players{

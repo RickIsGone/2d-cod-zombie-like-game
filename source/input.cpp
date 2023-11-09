@@ -106,13 +106,7 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState, int &game_state,SDL_Ev
 
         game_state=PAUSED;
         
-        while(game_state==PAUSED){
-            while (SDL_PollEvent(&event)) pause(game_state,event);
-            SDL_RenderClear(renderer);
-            map(renderer, camera);
-            menu(renderer);  
-            SDL_RenderPresent(renderer);
-        }
+        while(game_state==PAUSED) pause_menu(camera, game_state,event,renderer);
         
     }
     

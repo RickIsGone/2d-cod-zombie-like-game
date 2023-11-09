@@ -62,3 +62,11 @@ void pause( int &game_state,SDL_Event event){
             break;
     }
 }
+
+void pause_menu(SDL_Rect &camera, int &game_state,SDL_Event event,SDL_Renderer* renderer){
+    while (SDL_PollEvent(&event)) pause(game_state,event);
+        SDL_RenderClear(renderer);
+        map(renderer, camera);
+        menu(renderer);  
+        SDL_RenderPresent(renderer);
+}
