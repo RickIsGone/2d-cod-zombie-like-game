@@ -1,5 +1,5 @@
 # introduction 
-This is my first project using SDL so it might be written badly. I'm still actively working on it trying to improve it. 
+This is my first project using SDL so it might be written badly. I'm still actively working on it trying to improve it.  
 The game is currently in a very raw state and only has some features, but it'll be completed over time.
 
 # compiling and running 
