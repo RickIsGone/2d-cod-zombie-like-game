@@ -1,6 +1,8 @@
-# 2d-cod-zombie-like-game
+# introduction 
+this is my first project using sdl and im still working on it to finish it and try and make it better 
 
-To compile use mingw gcc and set monitor resolution to 1920x1080 if you intend to play full screen 
+# compiling and running 
+To compile use mingw gcc. If you intend to play in full screen set the monitor resolution to 1920x1080. After compiling go to the build folder and open the .exe
 
 ## License
 
