@@ -61,6 +61,7 @@ extern players player;
 enum GameState{
     RUNNING=2,
     PAUSED=4,
+    RESTART=0,
     CLOSED=7
 };
 
@@ -68,6 +69,7 @@ void start_game();
 void won_round();
 void spawn_zombie();
 void texturensound_initiation(SDL_Renderer* renderer);
+void death(int &game_state,SDL_Rect &camera,MouseState &mouseState);
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
 void mnk_events(SDL_Rect &camera, MouseState &mouseState, int &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip);
@@ -85,7 +87,8 @@ void health_display(SDL_Renderer* renderer,SDL_Rect camera);
 void money_display(SDL_Renderer* renderer,SDL_Rect camera);
 void health_check();
 void hud_display(SDL_Renderer* renderer,SDL_Rect camera);
+void death_menu(SDL_Renderer* renderer);
 
-void consolle(bool &no_clip,SDL_Rect camera,SDL_Renderer* renderer);
+void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer,MouseState mouseState,int &game_state);
 void consolle_events(SDL_Event consolle_events, bool &consolle_state);
-
+void death_events(SDL_Event event,int &game_state);

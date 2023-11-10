@@ -32,6 +32,22 @@ void consolle_events(SDL_Event consolle_event, bool &consolle_state){
     }
 }
 
+void death_events(SDL_Event event,int &game_state){
+    switch(event.type){
+        case SDL_KEYDOWN:
+            switch(event.key.keysym.sym) {
+                case SDLK_r:
+                    game_state=RESTART;
+                    break;
+                
+            }
+            break;
+        case SDL_QUIT:
+            game_state=CLOSED;
+            break;
+    }
+}
+
 static Uint32 s_reloadStartTime = 0;
 static const Uint32 s_reloadDelay = 1500;
 static Uint32 s_lastStepTime = 0;
@@ -100,7 +116,7 @@ void mnk_events(SDL_Rect &camera, MouseState &mouseState, int &game_state,SDL_Ev
         s_reloadStartTime=0;
     }
 
-    if (state[SDL_SCANCODE_P]) consolle(no_clip,camera,renderer);
+    if (state[SDL_SCANCODE_P]) consolle(no_clip,camera,renderer,mouseState,game_state);
     
     if(state[SDL_SCANCODE_ESCAPE]){
 

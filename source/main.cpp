@@ -29,29 +29,38 @@ int main(int argc, char *argv[]){
     texturensound_initiation(renderer);
     
     while(game_state==PAUSED) pause_menu(camera, game_state,event,renderer);
-        
+
     start=false;
 
-
-    start_game();
-    mouse(renderer,mouseState);
-    
-    while (game_state==RUNNING) {
+    do{
+        if(game_state==RESTART) game_state=RUNNING;
+        start_game();
+        mouse(renderer,mouseState);
         
-        while (SDL_PollEvent(&event)) events(event, game_state);
+        while (game_state==RUNNING){
+            
+            while (SDL_PollEvent(&event)) events(event, game_state);
 
-        mnk_events(camera,mouseState,game_state,event,renderer,no_clip);
-        SDL_RenderClear(renderer);
-        map(renderer, camera);
-        niga(renderer,mouseState);
-        health_check();
-        hud_display(renderer,camera);
+            mnk_events(camera,mouseState,game_state,event,renderer,no_clip);
+            SDL_RenderClear(renderer);
+            map(renderer, camera);
+            niga(renderer,mouseState);
+            health_check();
+            hud_display(renderer,camera);
 
-        SDL_RenderPresent(renderer);
+            SDL_RenderPresent(renderer);
 
-        if (game_round.zombie_number==0) won_round();
+            if (game_round.zombie_number==0) won_round();
 
-    }
+            while (player.health<=0){
+                // kill zombie
+                while (SDL_PollEvent(&event)) death_events(event,game_state);
+                death_menu(renderer);
+                if(game_state==RESTART) death(game_state,camera,mouseState);
+            }
+        }
+        
+    }while (game_state==RESTART);
 
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);

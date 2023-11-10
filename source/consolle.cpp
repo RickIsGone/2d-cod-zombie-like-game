@@ -8,18 +8,19 @@
 using namespace std;
 // to use the consolle remove WIN32 from the CmakeLists and always use exit to stop consolle execution
 
-void consolle(bool &no_clip,SDL_Rect camera,SDL_Renderer* renderer){
+void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer,MouseState mouseState,int &game_state){
     string comand;
     int value;
     bool loop=true;
     
     while(loop){
         
-        std::cout<<"comands:\nplayer_money (value)\nplayer_health (value)\nplayer_speed (value)\ngun_ammo (value)\nexit\nplayer_weapon (value)\ngun_damage\nfire_rate\nno_clip\nammo_left (value)\n\n";
+        std::cout<<"comands:\nplayer_money (value)\nplayer_health (value)\nplayer_speed (value)\ngun_ammo (value)\nexit\nplayer_weapon (value)\ngun_damage\nfire_rate\nno_clip\nammo_left (value)\nrestart\n\n";
         std::cin>>comand;
         if(comand=="exit") loop=0;
         else if(comand=="gun_damage") cout<<player.WeaponInHand.damage<<"\n";
         else if (comand=="fire_rate") cout<<player.WeaponInHand.fire_rate<<"\n";
+        else if(comand=="restart") death(game_state,camera,mouseState);
         else if (comand=="no_clip"){
             if(!no_clip) no_clip=true;
             else no_clip=false;
