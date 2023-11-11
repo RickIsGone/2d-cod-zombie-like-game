@@ -1,8 +1,8 @@
-#include <string>
-#include <SDL2/SDL_mixer.h>
-
 #ifndef ALL_HPP
 #define ALL_HPP
+
+#include <string>
+#include <SDL2/SDL_mixer.h>
 
 struct MouseState {
     int x, y; 
