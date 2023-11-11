@@ -1,6 +1,5 @@
 #include <string>
 #include <SDL2/SDL_mixer.h>
-#pragma once
 
 #ifndef ALL_HPP
 #define ALL_HPP
