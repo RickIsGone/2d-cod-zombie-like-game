@@ -55,7 +55,6 @@ extern gun glock18;
 
 extern rounds game_round;
 extern players player;
-#endif // ALL_HPP
 
 enum GameState{
     RUNNING=2,
@@ -91,3 +90,5 @@ void death_menu(SDL_Renderer* renderer);
 void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer,MouseState mouseState,int &game_state);
 void consolle_events(SDL_Event consolle_events, bool &consolle_state);
 void death_events(SDL_Event event,int &game_state);
+
+#endif // ALL_HPP
