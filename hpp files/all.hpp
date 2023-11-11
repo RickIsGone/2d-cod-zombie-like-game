@@ -22,14 +22,6 @@ struct gun {
     int fire_rate;
     void shoot(bool automatic);
     
-        gun(std::string name,int damage,int ammo,int ammo_max, int ammo_left,int fire_rate){
-            this->name=name;
-            this->damage=damage;
-            this->ammo=ammo;
-            this->ammo_max=ammo_max;
-            this->ammo_left=ammo_left;
-            this->fire_rate=fire_rate;
-        }
 };
 
 struct players {
