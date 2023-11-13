@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
 
     SDL_Event event;
     SDL_Event WindowEvent;
-    MouseState mouseState = {0, 0, false, false};
+    
     SDL_Rect camera={500,300,WIDTH,HEIGHT};
     
     game::texturensound_initiation(renderer);
@@ -36,17 +36,17 @@ int main(int argc, char *argv[]){
 
     do{
         if(game_state==RESTART) game_state=RUNNING;
-        game::start_game();
-        mouse(renderer,mouseState);
+        game::start();
+        mouse(renderer);
         
         while (game_state==RUNNING){
             
             while (SDL_PollEvent(&event)) events(event, game_state);
 
-            mnk_events(camera,mouseState,game_state,event,renderer,no_clip);
+            mnk_events(camera,game_state,event,renderer,no_clip);
             SDL_RenderClear(renderer);
             map(renderer, camera);
-            niga(renderer,mouseState);
+            niga(renderer);
             game::health_check();
             hud_display(renderer,camera);
 
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]){
                 // kill zombie
                 while (SDL_PollEvent(&event)) death_events(event,game_state);
                 death_menu(renderer);
-                if(game_state==RESTART) game::death(game_state,camera,mouseState);
+                if(game_state==RESTART) game::death(game_state,camera);
             }
         }
         

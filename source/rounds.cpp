@@ -11,7 +11,7 @@ gun mp5={"mp5",25,25,25,200,100};
 gun knife{"knife",85,1,1,1,200};
 gun glock18{"glock18",20,20,20,160,0};
 players player={150,150,4,glock18,knife,0};
-
+MouseState mouseState = {0, 0, false, false};
 void game::start(){
 
     game_round.round_number=1;

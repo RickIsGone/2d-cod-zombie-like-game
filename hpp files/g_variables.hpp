@@ -1,7 +1,13 @@
-#ifndef G_VARIABLES
-#define G_VARIABLES
+#ifndef G_VARIABLES_HPP
+#define G_VARIABLES_HPP
 
 #include <iostream>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h> 
+#include <SDL2/SDL_main.h>
+#include <SDL2/SDL_mixer.h>
+
 
 enum GameState{
     RUNNING=2,

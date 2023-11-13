@@ -56,7 +56,7 @@ static Uint32 s_lastStepTime = 0;
 static Uint32 s_stepDelay = 325;
 
 
-void mnk_events(SDL_Rect &camera, MouseState &mouseState, int &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip){
+void mnk_events(SDL_Rect &camera, int &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip){
     int x, y;
     bool automatic=false;
     extern Mix_Chunk *step,*reload;

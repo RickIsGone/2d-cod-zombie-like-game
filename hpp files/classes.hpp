@@ -1,5 +1,5 @@
-#ifndef CLASSES
-#define CLASSES
+#ifndef CLASSES_HPP
+#define CLASSES_HPP
 
 #include <iostream>
 
@@ -46,5 +46,6 @@ extern gun glock18;
 
 extern rounds game_round;
 extern players player;
+extern MouseState mouseState;
 
 #endif

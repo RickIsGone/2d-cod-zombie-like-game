@@ -7,7 +7,7 @@
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
 
-void niga(SDL_Renderer* renderer,MouseState mouseState){
+void niga(SDL_Renderer* renderer){
 
     SDL_Texture* loaded_texture;
     
