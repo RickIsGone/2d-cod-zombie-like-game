@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
             SDL_RenderClear(renderer);
             map(renderer, camera);
             niga(renderer,mouseState);
-            health_check();
+            game::health_check();
             hud_display(renderer,camera);
 
             SDL_RenderPresent(renderer);
