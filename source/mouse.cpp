@@ -1,7 +1,9 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include "../hpp files/all.hpp"
+#include "../hpp files/classes.hpp"
+#include "../hpp files/functions.hpp"
+#include "../hpp files/g_variables.hpp"
 
 void mouse(SDL_Renderer* renderer,MouseState mouseState){
     

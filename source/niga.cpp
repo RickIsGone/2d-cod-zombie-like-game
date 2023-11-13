@@ -3,7 +3,9 @@
 #include <iostream>
 #include <string>
 #include <cmath> 
-#include "../hpp files/all.hpp"
+#include "../hpp files/classes.hpp"
+#include "../hpp files/functions.hpp"
+#include "../hpp files/g_variables.hpp"
 
 void niga(SDL_Renderer* renderer,MouseState mouseState){
 

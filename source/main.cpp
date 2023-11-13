@@ -5,10 +5,12 @@
 #include <SDL2/SDL_ttf.h> 
 #include <SDL2/SDL_main.h>
 #include <SDL2/SDL_mixer.h>
-#include "../hpp files/all.hpp"
+#include "../hpp files/classes.hpp"
+#include "../hpp files/functions.hpp"
+#include "../hpp files/g_variables.hpp"
 
 static const int WIDTH=1920, HEIGHT=1080;
-bool start=true;
+extern start=true;
 
 int main(int argc, char *argv[]){
     int game_state=PAUSED;
@@ -26,7 +28,7 @@ int main(int argc, char *argv[]){
     MouseState mouseState = {0, 0, false, false};
     SDL_Rect camera={500,300,WIDTH,HEIGHT};
     
-    texturensound_initiation(renderer);
+    game::texturensound_initiation(renderer);
     
     while(game_state==PAUSED) pause_menu(camera, game_state,event,renderer);
 
@@ -34,7 +36,7 @@ int main(int argc, char *argv[]){
 
     do{
         if(game_state==RESTART) game_state=RUNNING;
-        start_game();
+        game::start_game();
         mouse(renderer,mouseState);
         
         while (game_state==RUNNING){
@@ -45,18 +47,18 @@ int main(int argc, char *argv[]){
             SDL_RenderClear(renderer);
             map(renderer, camera);
             niga(renderer,mouseState);
-            health_check();
+            game::health_check();
             hud_display(renderer,camera);
 
             SDL_RenderPresent(renderer);
 
-            if (game_round.zombie_number==0) won_round();
+            if (game_round.zombie_number==0) game::won_round();
 
             while (player.health<=0){
                 // kill zombie
                 while (SDL_PollEvent(&event)) death_events(event,game_state);
                 death_menu(renderer);
-                if(game_state==RESTART) death(game_state,camera,mouseState);
+                if(game_state==RESTART) game::death(game_state,camera,mouseState);
             }
         }
         
