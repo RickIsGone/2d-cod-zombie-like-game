@@ -7,7 +7,7 @@
 
 extern SDL_Texture *zombie_texture;
 
-void spawn_zombie(){
+void game::spawn_zombie(){
     // spawn degli zombie
     
 }
