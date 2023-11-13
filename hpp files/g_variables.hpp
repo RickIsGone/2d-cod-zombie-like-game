@@ -19,6 +19,7 @@ extern int game_state;
 
 extern Mix_Chunk *step,*ak47_fire,*mp5_fire,*glock18_fire,*reload,*empty_mag;
 extern SDL_Texture* wall_texture,*ground_texture,*outside_texture,*glock18_outline_texture,*ak_outline_texture,*mp5_outline_texture,*zombie_texture;
+
 extern std::string game_map;
 
 #endif
