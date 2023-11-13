@@ -9,5 +9,6 @@ enum GameState{
 };
 
 bool start;
+const string game_map;
 
 #endif
