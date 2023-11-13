@@ -10,7 +10,7 @@
 #include "../hpp files/g_variables.hpp"
 
 static const int WIDTH=1920, HEIGHT=1080;
-extern start=true;
+bool start=true;
 
 int main(int argc, char *argv[]){
     int game_state=PAUSED;

@@ -22,7 +22,7 @@ void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer,int &game_st
         if(comand=="exit") loop=0;
         else if(comand=="gun_damage") cout<<player.WeaponInHand.damage<<"\n";
         else if (comand=="fire_rate") cout<<player.WeaponInHand.fire_rate<<"\n";
-        else if(comand=="restart") death(game_state,camera,mouseState);
+        else if(comand=="restart") game::death(game_state,camera);
         else if (comand=="no_clip"){
             if(!no_clip) no_clip=true;
             else no_clip=false;

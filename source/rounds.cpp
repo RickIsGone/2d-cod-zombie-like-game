@@ -12,6 +12,8 @@ gun knife{"knife",85,1,1,1,200};
 gun glock18{"glock18",20,20,20,160,0};
 players player={150,150,4,glock18,knife,0};
 MouseState mouseState = {0, 0, false, false};
+rounds game_round;
+
 void game::start(){
 
     game_round.round_number=1;
@@ -32,7 +34,7 @@ void game::won_round(){
     
 }
 
-void game::death(int &game_state,SDL_Rect &camera,MouseState &mouseState){
+void game::death(int &game_state,SDL_Rect &camera){
     camera={500,300,1920,1080};     
     mouseState = {0, 0, false, false};
     player={150,150,4,glock18,knife,0};

@@ -118,7 +118,7 @@ void mnk_events(SDL_Rect &camera, int &game_state,SDL_Event event,SDL_Renderer* 
         s_reloadStartTime=0;
     }
 
-    if (state[SDL_SCANCODE_P]) consolle(no_clip,camera,renderer,mouseState,game_state);
+    if (state[SDL_SCANCODE_P]) consolle(no_clip,camera,renderer,game_state);
     
     if(state[SDL_SCANCODE_ESCAPE]){
 

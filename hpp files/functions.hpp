@@ -6,7 +6,7 @@ namespace game{
     void won_round();
     void spawn_zombie();
     void texturensound_initiation(SDL_Renderer* renderer);
-    void death(int &game_state,SDL_Rect &camera,MouseState &mouseState);
+    void death(int &game_state,SDL_Rect &camera);
     void health_check();
 }
 

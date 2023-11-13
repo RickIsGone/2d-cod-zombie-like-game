@@ -9,7 +9,7 @@
 static Uint32 s_FireRate = 0;
 
 extern Mix_Chunk *ak47_fire,*mp5_fire,*glock18_fire,*empty_mag;
-extern Uint32 FireRateDelay =player.WeaponInHand.fire_rate;
+Uint32 FireRateDelay =player.WeaponInHand.fire_rate;
 extern Mix_Chunk *sound;
 
 void gun::shoot(bool automatic){
