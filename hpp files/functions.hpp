@@ -1,6 +1,15 @@
 #ifndef FUNCTIONS
 #define FUNCTIONS
 
+namespace game{
+    void start();
+    void won_round();
+    void spawn_zombie();
+    void texturensound_initiation(SDL_Renderer* renderer);
+    void death(int &game_state,SDL_Rect &camera,MouseState &mouseState);
+    void health_check();
+}
+
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
 void mnk_events(SDL_Rect &camera, MouseState &mouseState, int &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip);
 void events(SDL_Event event, int &game_state);
