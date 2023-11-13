@@ -11,9 +11,10 @@
 
 static const int WIDTH=1920, HEIGHT=1080;
 bool start=true;
+int game_state=PAUSED;
 
 int main(int argc, char *argv[]){
-    int game_state=PAUSED;
+    
     bool no_clip=false;
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
@@ -30,7 +31,7 @@ int main(int argc, char *argv[]){
     
     game::texturensound_initiation(renderer);
     
-    while(game_state==PAUSED) pause_menu(camera, game_state,event,renderer);
+    while(game_state==PAUSED) pause_menu(camera,event,renderer);
 
     start=false;
 
@@ -41,9 +42,9 @@ int main(int argc, char *argv[]){
         
         while (game_state==RUNNING){
             
-            while (SDL_PollEvent(&event)) events(event, game_state);
+            while (SDL_PollEvent(&event)) events(event);
 
-            mnk_events(camera,game_state,event,renderer,no_clip);
+            mnk_events(camera,event,renderer,no_clip);
             SDL_RenderClear(renderer);
             map(renderer, camera);
             niga(renderer);
@@ -56,9 +57,9 @@ int main(int argc, char *argv[]){
 
             while (player.health<=0){
                 // kill zombie
-                while (SDL_PollEvent(&event)) death_events(event,game_state);
+                while (SDL_PollEvent(&event)) death_events(event);
                 death_menu(renderer);
-                if(game_state==RESTART) game::death(game_state,camera);
+                if(game_state==RESTART) game::death(camera);
             }
         }
         

@@ -7,7 +7,7 @@
 #include "../hpp files/g_variables.hpp"
 
 
-void events(SDL_Event event, int &game_state){
+void events(SDL_Event event){
  
     switch(event.type){  
         case SDL_QUIT:
@@ -34,7 +34,7 @@ void consolle_events(SDL_Event consolle_event, bool &consolle_state){
     }
 }
 
-void death_events(SDL_Event event,int &game_state){
+void death_events(SDL_Event event){
     switch(event.type){
         case SDL_KEYDOWN:
             switch(event.key.keysym.sym) {
@@ -56,7 +56,7 @@ static Uint32 s_lastStepTime = 0;
 static Uint32 s_stepDelay = 325;
 
 
-void mnk_events(SDL_Rect &camera, int &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip){
+void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no_clip){
     int x, y;
     bool automatic=false;
     extern Mix_Chunk *step,*reload;
@@ -118,13 +118,13 @@ void mnk_events(SDL_Rect &camera, int &game_state,SDL_Event event,SDL_Renderer* 
         s_reloadStartTime=0;
     }
 
-    if (state[SDL_SCANCODE_P]) consolle(no_clip,camera,renderer,game_state);
+    if (state[SDL_SCANCODE_P]) consolle(no_clip,camera,renderer);
     
     if(state[SDL_SCANCODE_ESCAPE]){
 
         game_state=PAUSED;
         
-        while(game_state==PAUSED) pause_menu(camera, game_state,event,renderer);
+        while(game_state==PAUSED) pause_menu(camera,event,renderer);
         
     }
     

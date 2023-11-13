@@ -34,7 +34,7 @@ void game::won_round(){
     
 }
 
-void game::death(int &game_state,SDL_Rect &camera){
+void game::death(SDL_Rect &camera){
     camera={500,300,1920,1080};     
     mouseState = {0, 0, false, false};
     player={150,150,4,glock18,knife,0};
