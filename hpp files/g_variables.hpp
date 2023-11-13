@@ -8,4 +8,6 @@ enum GameState{
     CLOSED=7
 };
 
+bool start;
+
 #endif
