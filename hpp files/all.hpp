@@ -54,12 +54,14 @@ enum GameState{
     RESTART=0,
     CLOSED=7
 };
-
-void start_game();
-void won_round();
-void spawn_zombie();
-void texturensound_initiation(SDL_Renderer* renderer);
-void death(int &game_state,SDL_Rect &camera,MouseState &mouseState);
+namespace game{
+    void start();
+    void won_round();
+    void spawn_zombie();
+    void texturensound_initiation(SDL_Renderer* renderer);
+    void death(int &game_state,SDL_Rect &camera,MouseState &mouseState);
+    void health_check();
+}
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
 void mnk_events(SDL_Rect &camera, MouseState &mouseState, int &game_state,SDL_Event event,SDL_Renderer* renderer,bool &no_clip);
@@ -75,7 +77,6 @@ void round_display(SDL_Renderer* renderer,SDL_Rect camera);
 void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);
 void health_display(SDL_Renderer* renderer,SDL_Rect camera);
 void money_display(SDL_Renderer* renderer,SDL_Rect camera);
-void health_check();
 void hud_display(SDL_Renderer* renderer,SDL_Rect camera);
 void death_menu(SDL_Renderer* renderer);
 
