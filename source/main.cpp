@@ -8,7 +8,7 @@
 #include "../hpp files/all.hpp"
 
 static const int WIDTH=1920, HEIGHT=1080;
-bool start=true;
+extern start=true;
 
 int main(int argc, char *argv[]){
     int game_state=PAUSED;
