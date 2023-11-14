@@ -9,7 +9,7 @@
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
 
-static const int WIDTH=1920, HEIGHT=1080;
+
 bool start=true;
 int game_state=PAUSED;
 
@@ -21,13 +21,13 @@ int main(int argc, char *argv[]){
     Mix_Init(MIX_INIT_MP3 | MIX_INIT_OGG);
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 
-    SDL_Window *window=SDL_CreateWindow("2d cod zombie",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,WIDTH,HEIGHT,SDL_WINDOW_ALLOW_HIGHDPI);
+    SDL_Window *window=SDL_CreateWindow("2d cod zombie",SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,1920,1080,SDL_WINDOW_ALLOW_HIGHDPI);
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     SDL_Event event;
     SDL_Event WindowEvent;
     
-    SDL_Rect camera={500,300,WIDTH,HEIGHT};
+    SDL_Rect camera={500,300,1920,1080};
     
     game::texturensound_initiation(renderer);
     
@@ -54,6 +54,8 @@ int main(int argc, char *argv[]){
             SDL_RenderPresent(renderer);
 
             if (game_round.zombie_number==0) game::won_round();
+            
+            while((player.x==95&&player.y==73)||(player.x==95&&player.y==74)) std::cout<<"won\n";
 
             while (player.health<=0){
                 // kill zombie

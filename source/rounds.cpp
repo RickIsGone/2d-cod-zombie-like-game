@@ -10,7 +10,7 @@ gun ak47={"ak47",35,30,30,240,150};
 gun mp5={"mp5",25,25,25,200,100};
 gun knife{"knife",85,1,1,1,200};
 gun glock18{"glock18",20,20,20,160,0};
-players player={150,150,4,glock18,knife,0};
+players player={15,9,150,150,4,glock18,knife,0,0};
 MouseState mouseState = {0, 0, false, false};
 rounds game_round;
 
@@ -37,6 +37,6 @@ void game::won_round(){
 void game::restart(SDL_Rect &camera){
     camera={500,300,1920,1080};     
     mouseState = {0, 0, false, false};
-    player={150,150,4,glock18,knife,0};
+    player={15,9,150,150,4,glock18,knife,0,0};
     game::start();
 }

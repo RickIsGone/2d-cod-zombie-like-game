@@ -120,6 +120,8 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
 
     if (state[SDL_SCANCODE_P]) consolle(no_clip,camera,renderer);
     
+    if(state[SDL_SCANCODE_E]) interactions();
+    
     if(state[SDL_SCANCODE_ESCAPE]){
 
         game_state=PAUSED;

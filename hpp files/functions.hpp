@@ -14,6 +14,7 @@ namespace game{
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
 void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no_clip);
+void interactions();
 void events(SDL_Event event);
 void niga(SDL_Renderer* renderer);
 void mouse(SDL_Renderer* renderer);
@@ -22,6 +23,7 @@ void menu(SDL_Renderer* renderer);
 void pause(SDL_Event event);
 void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer);
 void death_menu(SDL_Renderer* renderer);
+void win_menu(SDL_Renderer*renderer);
 
 void round_display(SDL_Renderer* renderer,SDL_Rect camera);
 void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);

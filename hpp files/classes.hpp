@@ -24,12 +24,15 @@ struct gun {
 };
 
 struct players {
+    int x;
+    int y;
     int health;
     int health_max;
     float speed;
     gun WeaponInHand;
     gun WeaponInInventory;
     int money;
+    bool has_cutters;
 };
 
 struct rounds {
