@@ -8,5 +8,7 @@
 
 void interactions(){
     // fence
-    if((player.x==94&&player.y==22)||(player.x==94&&player.y==23)) game::open_fence(); // aggiungere controllo delle tronchesi finita fase test 
+    if((player.x==94||player.x==93)&&(player.y==22||player.y==21||player.y==23)&&player.has_cutters==1) game::open_fence(); 
+
+    // 
 }

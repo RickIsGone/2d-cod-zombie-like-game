@@ -6,11 +6,11 @@ namespace game{
     void won_round();
     void spawn_zombie();
     void texturensound_initiation(SDL_Renderer* renderer);
+    void death(SDL_Event event,SDL_Renderer*renderer,SDL_Rect &camera);
+    void win(SDL_Event event,SDL_Renderer*renderer,SDL_Rect &camera);
     void restart(SDL_Rect &camera);
     void health_check();
     void open_fence();
-    void death(SDL_Event event,SDL_Renderer*renderer,SDL_Rect &camera);
-    void win(SDL_Event event,SDL_Renderer*renderer,SDL_Rect &camera);
 }
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
