@@ -29,18 +29,18 @@ void game::open_fence(){
                 "oooooooo*                                                  *                                 *          *oooooooo\n"
                 "oooooooo*                                                  *                                 *          *oooooooo\n"
                 "oooooooo*      ******************       *           *      *                                 *          *oooooooo\n"
-                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                "oooooooo*                               *           *      *         *                                  *oooooooo********\n"
-                "oooooooo*                       *       ****     ****      *         ***************m*********          *oooooooo*      *\n"
-                "oooooooo*                       *                                                                       **********      *\n"
-                "oooooooo*                       *                                                                                       *\n"
-                "oooooooo*                       *                                                                                       *\n"
-                "oooooooo**********************************************************************************************************      *\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo*      *\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo********\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
+                "oooooooo*                               *           *      *         *                                  *oooooooooooo\n"
+                "oooooooo*                               *           *      *         *                                  *oooooooooooo\n"
+                "oooooooo*                               *           *      *         *                                  *oooooooooooo\n"
+                "oooooooo*                       *       ****     ****      *         ***************m*********          *oooooooooooo\n"
+                "oooooooo*                       *                                                                       *************\n"
+                "oooooooo*                       *                                                                                    \n" // al quarto asterisco vinci e si apre menu
+                "oooooooo*                       *                                                                                    \n"
+                "oooooooo*************************************************************************************************************\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
 }
 
 void game::win(){
