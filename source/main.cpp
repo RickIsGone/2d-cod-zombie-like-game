@@ -55,14 +55,9 @@ int main(int argc, char *argv[]){
 
             if (game_round.zombie_number==0) game::won_round();
             
-            while((player.x==95&&player.y==73)||(player.x==95&&player.y==74)) std::cout<<"won\n";
+            while((player.x==98&&player.y==22)||(player.x==102&&player.y==23)) game::win(event,renderer,camera);
 
-            while (player.health<=0){
-                // kill zombie
-                while (SDL_PollEvent(&event)) death_events(event);
-                death_menu(renderer);
-                if(game_state==RESTART) game::restart(camera);
-            }
+            while (player.health<=0) game::death(event,renderer,camera);
         }
         
     }while (game_state==RESTART);

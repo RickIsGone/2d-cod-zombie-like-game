@@ -20,11 +20,11 @@ void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer){
         std::cout<<"comands:\nplayer_money (value)\nplayer_health (value)\nplayer_speed (value)\ngun_ammo (value)\nexit\nplayer_weapon (value)\ngun_damage\nfire_rate\nno_clip\nammo_left (value)\nrestart\nopen\ncoord\n";
         std::cin>>comand;
         if(comand=="exit") loop=0;
-        else if(comand=="gun_damage") cout<<player.WeaponInHand.damage<<"\n";
-        else if (comand=="fire_rate") cout<<player.WeaponInHand.fire_rate<<"\n";
+        else if(comand=="gun_damage") cout<<player.WeaponInHand.damage<<"\n\n";
+        else if (comand=="fire_rate") cout<<player.WeaponInHand.fire_rate<<"\n\n";
         else if(comand=="restart") game::restart(camera);
         else if(comand=="open") game::open_fence();
-        else if(comand=="coord") cout<<player.x<<";"<<player.y<<"\n";
+        else if(comand=="coord") cout<<player.x<<";"<<player.y<<"\n\n";
         else if (comand=="no_clip"){
             if(!no_clip) no_clip=true;
             else no_clip=false;

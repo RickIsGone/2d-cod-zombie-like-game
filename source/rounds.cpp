@@ -38,5 +38,40 @@ void game::restart(SDL_Rect &camera){
     camera={500,300,1920,1080};     
     mouseState = {0, 0, false, false};
     player={15,9,150,150,4,glock18,knife,0,0};
+    game_map=   "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "oooooooo*******************************************************************************a*****************oooooooo\n"
+                "oooooooo*                            *                                                                  *oooooooo\n"
+                "oooooooo*                            *                                                                  *oooooooo\n"
+                "oooooooo*                            *                                                                  *oooooooo\n"
+                "oooooooo*                 *****      *                          *        *                              *oooooooo\n"
+                "oooooooo*                 *   *      ****************      ******        *                              *oooooooo\n"
+                "oooooooo*                 g   *                     *      *             *                              *oooooooo\n"
+                "oooooooo*                 *   *                     *      *             *                              *oooooooo\n"                  
+                "oooooooo*                 *   *                     *      *             **********     *****************oooooooo\n"
+                "oooooooo*************     *   ***********           *      *                                            *oooooooo\n"
+                "oooooooo*                               *           *      *                                            *oooooooo\n"
+                "oooooooo*                               *           *                                                   *oooooooo\n"
+                "oooooooo*                               *           *                                                   *oooooooo\n"
+                "oooooooo*                               *           *                                                   *oooooooo\n"
+                "oooooooo*                                                  *         *******     *************          *oooooooo\n"
+                "oooooooo*                                                  *                                 *          *oooooooo\n"
+                "oooooooo*                                                  *                                 *          *oooooooo\n"
+                "oooooooo*      ******************       *           *      *                                 *          *oooooooo\n"
+                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
+                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
+                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
+                "oooooooo*                       *       ****     ****      *         ***************m*********          *oooooooo\n"
+                "oooooooo*                       *                                                                       *********\n"
+                "oooooooo*                       *                                                                       l        \n"
+                "oooooooo*                       *                                                                       r        \n"
+                "oooooooo*********************************************************************************************************\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
+                
     game::start();
 }

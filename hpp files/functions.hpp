@@ -9,7 +9,8 @@ namespace game{
     void restart(SDL_Rect &camera);
     void health_check();
     void open_fence();
-    void win();
+    void death(SDL_Event event,SDL_Renderer*renderer,SDL_Rect &camera);
+    void win(SDL_Event event,SDL_Renderer*renderer,SDL_Rect &camera);
 }
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
