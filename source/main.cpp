@@ -59,7 +59,7 @@ int main(int argc, char *argv[]){
                 // kill zombie
                 while (SDL_PollEvent(&event)) death_events(event);
                 death_menu(renderer);
-                if(game_state==RESTART) game::death(camera);
+                if(game_state==RESTART) game::restart(camera);
             }
         }
         

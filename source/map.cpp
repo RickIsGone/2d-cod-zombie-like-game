@@ -6,46 +6,10 @@
 #include "../hpp files/g_variables.hpp"
 using namespace std;
 
-string game_map=        "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                        "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                        "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                        "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                        "oooooooo*******************************************************************************a*****************oooooooo\n"
-                        "oooooooo*                            *                                                                  *oooooooo\n"
-                        "oooooooo*                            *                                                                  *oooooooo\n"
-                        "oooooooo*                            *                                                                  *oooooooo\n"
-                        "oooooooo*                 *****      *                          *        *                              *oooooooo\n"
-                        "oooooooo*                 *   *      ****************      ******        *                              *oooooooo\n"
-                        "oooooooo*                 g   *                     *      *             *                              *oooooooo\n"
-                        "oooooooo*                 *   *                     *      *             *                              *oooooooo\n"                  
-                        "oooooooo*                 *   *                     *      *             **********     *****************oooooooo\n"
-                        "oooooooo*************     *   ***********           *      *                                            *oooooooo\n"
-                        "oooooooo*                               *           *      *                                            *oooooooo\n"
-                        "oooooooo*                               *           *                                                   *oooooooo\n"
-                        "oooooooo*                               *           *                                                   *oooooooo\n"
-                        "oooooooo*                               *           *                                                   *oooooooo\n"
-                        "oooooooo*                                                  *         *******     *************          *oooooooo\n"
-                        "oooooooo*                                                  *                                 *          *oooooooo\n"
-                        "oooooooo*                                                  *                                 *          *oooooooo\n"
-                        "oooooooo*      ******************       *           *      *                                 *          *oooooooo\n"
-                        "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                        "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                        "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                        "oooooooo*                       *       ****     ****      *         ***************m*********          *oooooooo\n"
-                        "oooooooo*                       *                                                                       *oooooooo\n"
-                        "oooooooo*                       *                                                                       *oooooooo\n"
-                        "oooooooo*                       *                                                                       *oooooooo\n"
-                        "oooooooo*************************************************************************************************oooooooo\n"
-                        "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                        "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                        "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                        "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
-
-extern SDL_Texture * wall_texture,*ground_texture,*outside_texture,*glock18_outline_texture,*ak_outline_texture,*mp5_outline_texture;
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera){
     
-    int dimensione = 101; 
+    int block_size = 101; 
 
     int x = 0;
     int y = 0;
@@ -58,7 +22,7 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
             continue;
         }
 
-        SDL_Rect destRect = { x * dimensione - camera.x, y * dimensione - camera.y, dimensione, dimensione };
+        SDL_Rect destRect = { x * block_size - camera.x, y * block_size - camera.y, block_size, block_size };
         switch(tile){
             case '*':
                 SDL_RenderCopy(renderer, wall_texture, NULL, &destRect);
@@ -78,12 +42,14 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
             case 'g':
                 SDL_RenderCopy(renderer,glock18_outline_texture,NULL,&destRect);
                 break;
+            case 'l':
+                SDL_RenderCopy(renderer,left_fence_texture,NULL,&destRect);
+                break;
+            case 'r':
+                SDL_RenderCopy(renderer,right_fence_texture,NULL,&destRect);
+                break;
         }
         x++;
     }
-
-    
-
-    
 
 }
