@@ -53,17 +53,6 @@ void menu(SDL_Renderer* renderer){
 
 }
 
-void pause(SDL_Event event){
-    switch(event.type){
-        case SDL_MOUSEBUTTONDOWN: 
-            if (event.button.button == SDL_BUTTON_LEFT) 
-                game_state = RUNNING;
-            break;
-        case SDL_QUIT:
-            game_state=CLOSED;
-            break;
-    }
-}
 
 void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer){
     while (SDL_PollEvent(&event)) pause(event);

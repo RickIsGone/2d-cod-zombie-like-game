@@ -49,6 +49,18 @@ void death_events(SDL_Event event){
     }
 }
 
+void pause(SDL_Event event){
+    switch(event.type){
+        case SDL_MOUSEBUTTONDOWN: 
+            if (event.button.button == SDL_BUTTON_LEFT) 
+                game_state = RUNNING;
+            break;
+        case SDL_QUIT:
+            game_state=CLOSED;
+            break;
+    }
+}
+
 static Uint32 s_reloadStartTime = 0;
 static const Uint32 s_reloadDelay = 1500;
 static Uint32 s_lastStepTime = 0;
@@ -57,7 +69,6 @@ static Uint32 s_stepDelay = 325;
 
 void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no_clip){
     int x, y;
-    bool automatic=false;
     extern Mix_Chunk *step,*reload;
     const Uint8* state = SDL_GetKeyboardState(NULL);
     Uint32 buttons = SDL_GetMouseState(&x, &y);
@@ -65,9 +76,10 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
     bool leftButton = (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0;
 
     if (state[SDL_SCANCODE_W]) {
+
         camera.y -= player.speed;
-        player.x=camera.x/101;
         player.y=camera.y/101;
+
         if (SDL_GetTicks() - s_lastStepTime > s_stepDelay) {
             Mix_VolumeChunk(step, MIX_MAX_VOLUME / 4);
             Mix_PlayChannel(-1, step, 0);
@@ -76,9 +88,10 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
     }
     
     if (state[SDL_SCANCODE_A]){
+
         camera.x -= player.speed;
         player.x=camera.x/101;
-        player.y=camera.y/101;
+
         if (SDL_GetTicks() - s_lastStepTime > s_stepDelay) {
             Mix_VolumeChunk(step, MIX_MAX_VOLUME / 4);
             Mix_PlayChannel(-1, step, 0);
@@ -87,9 +100,10 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
     }
     
     if (state[SDL_SCANCODE_S]) {
+
         camera.y += player.speed;
-        player.x=camera.x/101;
         player.y=camera.y/101;
+
         if (SDL_GetTicks() - s_lastStepTime > s_stepDelay) {
             Mix_VolumeChunk(step, MIX_MAX_VOLUME / 4);
             Mix_PlayChannel(-1, step, 0);
@@ -98,9 +112,10 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
     }
     
     if (state[SDL_SCANCODE_D]) {
+
         camera.x += player.speed;
         player.x=camera.x/101;
-        player.y=camera.y/101;
+
         if (SDL_GetTicks() - s_lastStepTime > s_stepDelay) {
             Mix_VolumeChunk(step, MIX_MAX_VOLUME / 4);
             Mix_PlayChannel(-1, step, 0);
@@ -109,19 +124,24 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
     }
     
     if (state[SDL_SCANCODE_R]&&player.WeaponInHand.ammo!=player.WeaponInHand.ammo_max&&player.WeaponInHand.ammo_left>0&&s_reloadStartTime==0){
+
         Mix_PlayChannel(-1, reload, 0);
         s_reloadStartTime=SDL_GetTicks();
     } 
 
     if(s_reloadStartTime!=0&&SDL_GetTicks()-s_reloadStartTime>=s_reloadDelay){ 
+
         if(player.WeaponInHand.ammo_left<player.WeaponInHand.ammo_max){
+
             player.WeaponInHand.ammo+=player.WeaponInHand.ammo_left;
             player.WeaponInHand.ammo_left=0;
         }
+
         else{
             player.WeaponInHand.ammo_left-=player.WeaponInHand.ammo_max-player.WeaponInHand.ammo;
             player.WeaponInHand.ammo=player.WeaponInHand.ammo_max;
         }
+
         s_reloadStartTime=0;
     }
 
@@ -137,11 +157,9 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
         
     }
     
-    if (leftButton && s_reloadStartTime == 0 && player.WeaponInHand.name != "glock18" && player.WeaponInHand.name != "knife"&&player.WeaponInHand.ammo>0) {
-        automatic=true;
-        player.WeaponInHand.shoot(automatic);
-    }
-    else if (leftButton && !mouseState.leftButton && s_reloadStartTime==0) player.WeaponInHand.shoot(automatic);
+    if (leftButton && s_reloadStartTime == 0 && player.WeaponInHand.name != "glock18" && player.WeaponInHand.name != "knife"&&player.WeaponInHand.ammo>0) player.WeaponInHand.shoot(1);
+    
+    else if (leftButton && !mouseState.leftButton && s_reloadStartTime==0) player.WeaponInHand.shoot(0);
 
     mouseState.x = x;
     mouseState.y = y;
