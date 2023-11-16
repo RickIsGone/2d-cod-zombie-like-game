@@ -62,7 +62,7 @@ void game::restart(SDL_Rect &camera){
                 "oooooooo*      ******************       *           *      *                                 *          *oooooooo\n"
                 "oooooooo*                               *           *      *         *                                  *oooooooo\n"
                 "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
+                "oooooooow                               *           *      *         *                                  *oooooooo\n"
                 "oooooooo*                       *       ****     ****      *         ***************m*********          *oooooooo\n"
                 "oooooooo*                       *                                                                       *********\n"
                 "oooooooo*                       *                                                                       l        \n"

@@ -12,6 +12,7 @@ namespace game{
     void health_check();
     void open_fence();
 }
+
 namespace sdl{
     void quick_text(std::string writing,int size, int r,int g,int b,int y,SDL_Renderer* renderer);
 }

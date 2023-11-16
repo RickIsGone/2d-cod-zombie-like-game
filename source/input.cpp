@@ -6,7 +6,6 @@
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
 
-
 void events(SDL_Event event){
  
     switch(event.type){  
