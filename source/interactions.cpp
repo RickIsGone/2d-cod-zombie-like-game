@@ -9,6 +9,7 @@
 Uint32 g_time;
 
 void interactions(SDL_Renderer* renderer){
+
     // fence
     if((player.x==94||player.x==93)&&(player.y==22||player.y==21||player.y==23)){
 
@@ -16,25 +17,7 @@ void interactions(SDL_Renderer* renderer){
 
         else{
             g_time=SDL_GetTicks();
-            if(SDL_GetTicks() - g_time <=3000){
-                TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 50);
-                std::string death_str="you need wire cuters to escape";
-
-                SDL_Surface* surface = TTF_RenderText_Solid(font, death_str.c_str(), {0, 0, 0}); 
-                SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-                int text_width = surface->w;
-                int text_height = surface->h;
-                SDL_FreeSurface(surface); 
-
-                SDL_Rect dstrect = { (1920 - text_width) / 2, (1080 - text_height) / 3, text_width, text_height };
-
-                
-                SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-                SDL_DestroyTexture(texture);
-                TTF_CloseFont(font);
-                SDL_RenderPresent(renderer);
-            }
-            
+            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need wire cuters to escape",50,0,0,0,renderer);            
         }
     } 
 
@@ -59,30 +42,34 @@ void interactions(SDL_Renderer* renderer){
         }
         else{
             g_time=SDL_GetTicks();
-            if(SDL_GetTicks() - g_time <=3000){
-                TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 50);
-                std::string death_str="you need 4500$ to buy the ak";
-
-                SDL_Surface* surface = TTF_RenderText_Solid(font, death_str.c_str(), {0, 0, 0}); 
-                SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-                int text_width = surface->w;
-                int text_height = surface->h;
-                SDL_FreeSurface(surface); 
-
-                SDL_Rect dstrect = { (1920 - text_width) / 2, (1080 - text_height) / 3, text_width, text_height };
-
-                
-                SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-                SDL_DestroyTexture(texture);
-                TTF_CloseFont(font);
-                SDL_RenderPresent(renderer);
-            }
-            
+            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need 4500$ to buy the ak47",50,0,0,0,renderer);
         }
     }
 
     // mp5
+    if((player.x==74||player.x==75)&&player.y>=19&&player.y<=21){
 
+        if(player.WeaponInHand.name=="mp5") {
+            if(player.money>=250&&player.WeaponInHand.ammo_left!=200){
+                player.WeaponInHand.ammo_left=200;
+                player.money-=250;
+            } 
+        }
+        else if(player.WeaponInInventory.name=="mp5"){
+            if(player.money>=250&&player.WeaponInInventory.ammo_left!=200){ 
+                player.WeaponInInventory.ammo_left=200;
+                player.money-=250;
+            }
+        }
+        else if(player.money>=3700){
+            player.WeaponInHand=mp5;
+            player.money-=3700;
+        }
+        else{
+            g_time=SDL_GetTicks();
+            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need 3700$ to buy the mp5",50,0,0,0,renderer);
+        }
+    }
     // glock 
 
     // wire cutters

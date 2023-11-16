@@ -74,41 +74,9 @@ void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer){
 }
 
 void death_menu(SDL_Renderer*renderer){
-
-    TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 60);
-    std::string death_str="you died, press r to restart";
-
-    SDL_Surface* surface = TTF_RenderText_Solid(font, death_str.c_str(), {0, 0, 0}); 
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-    int text_width = surface->w;
-    int text_height = surface->h;
-    SDL_FreeSurface(surface); 
-
-    SDL_Rect dstrect = { (1920 - text_width) / 2, (1080 - text_height) / 3, text_width, text_height };
-
-    
-    SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-    SDL_DestroyTexture(texture);
-    TTF_CloseFont(font);
-    SDL_RenderPresent(renderer);
+    sdl::quick_text("you died, press r to restart",50,0,0,0,renderer);
 }
 
 void win_menu(SDL_Renderer*renderer){
-
-    TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 60);
-    std::string death_str="you won, press r to restart";
-
-    SDL_Surface* surface = TTF_RenderText_Solid(font, death_str.c_str(), {0, 0, 0}); 
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-    int text_width = surface->w;
-    int text_height = surface->h;
-    SDL_FreeSurface(surface); 
-
-    SDL_Rect dstrect = { (1920 - text_width) / 2, (1080 - text_height) / 3, text_width, text_height };
-
-    
-    SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-    SDL_DestroyTexture(texture);
-    TTF_CloseFont(font);
-    SDL_RenderPresent(renderer);
+    sdl::quick_text("you won, press r to restart",50,0,0,0,renderer);
 }
