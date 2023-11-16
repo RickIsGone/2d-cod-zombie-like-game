@@ -17,7 +17,7 @@ void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer){
     
     while(loop){
         
-        std::cout<<"comands:\nplayer_money (value)\nplayer_health (value)\nplayer_speed (value)\ngun_ammo (value)\nexit\nplayer_weapon (value)\ngun_damage\nfire_rate\nno_clip\nammo_left (value)\nrestart\nopen\ncoord\n";
+        std::cout<<"comands:\nplayer_money (value)\nplayer_health (value)\nplayer_speed (value)\ngun_ammo (value)\nexit\nplayer_weapon (value)\ngun_damage\nfire_rate\nno_clip\nammo_left (value)\nrestart\nopen\ncoord\ncutters\ntp (x y)\n\n";
         std::cin>>comand;
         if(comand=="exit") loop=0;
         else if(comand=="gun_damage") cout<<player.WeaponInHand.damage<<"\n\n";
@@ -25,12 +25,13 @@ void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer){
         else if(comand=="restart") game::restart(camera);
         else if(comand=="open") game::open_fence();
         else if(comand=="coord") cout<<player.x<<";"<<player.y<<"\n\n";
+        else if(comand=="cutters")player.has_cutters=1;
         else if (comand=="no_clip"){
             if(!no_clip) no_clip=true;
             else no_clip=false;
         }
-        else if (comand!="player_money"&&comand!="player_health"&&comand!="player_speed"&&comand!="gun_ammo"&&comand!="player_money"&&comand!="player_weapon"&&comand!="ammo_left")cout<<"syntax error\n\n";
-        else{
+        else if (comand!="player_money"&&comand!="player_health"&&comand!="player_speed"&&comand!="gun_ammo"&&comand!="player_money"&&comand!="player_weapon"&&comand!="ammo_left"&&comand!="tp")cout<<"syntax error\n\n";
+        else if(comand!="tp"){
         
             cin>>value;
             if(comand=="player_money") player.money=value;
@@ -53,6 +54,12 @@ void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer){
                         player.WeaponInHand=knife;
                         break;
                 }
+        }
+        else{
+            cin>>player.x;
+            cin>>player.y;
+            camera.x=player.x*101;
+            camera.y=player.y*101;
         }
     }
 }

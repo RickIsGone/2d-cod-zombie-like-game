@@ -15,7 +15,7 @@ namespace game{
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
 void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no_clip);
-void interactions();
+void interactions(SDL_Renderer* renderer);
 void events(SDL_Event event);
 void niga(SDL_Renderer* renderer);
 void mouse(SDL_Renderer* renderer);
