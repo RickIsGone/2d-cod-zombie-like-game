@@ -74,6 +74,7 @@ void interactions(SDL_Renderer* renderer){
             if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need $3700 to buy the mp5",40,0,0,0,670,renderer);
         }
     }
+    
     // glock 
     if((player.x==16||player.x==17)&&(player.y==4||player.y==5)){
 
