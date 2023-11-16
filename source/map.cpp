@@ -4,7 +4,6 @@
 #include "../hpp files/classes.hpp"
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
-using namespace std;
 
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera){
