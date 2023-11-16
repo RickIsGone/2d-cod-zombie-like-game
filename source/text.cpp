@@ -22,6 +22,5 @@ void sdl::quick_text(std::string writing,int size, int r,int g,int b,SDL_Rendere
 
     SDL_RenderCopy(renderer, texture, NULL, &dstrect);
     SDL_DestroyTexture(texture);
-    TTF_CloseFont(font_f);
     SDL_RenderPresent(renderer);
 }
