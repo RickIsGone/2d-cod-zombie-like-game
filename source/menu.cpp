@@ -74,9 +74,9 @@ void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer){
 }
 
 void death_menu(SDL_Renderer*renderer){
-    sdl::quick_text("you died, press r to restart",50,0,0,0,renderer);
+    sdl::quick_text("you died, press r to restart",60,0,0,0,345,renderer);
 }
 
 void win_menu(SDL_Renderer*renderer){
-    sdl::quick_text("you won, press r to restart",50,0,0,0,renderer);
+    sdl::quick_text("you escaped, press r to restart",60,0,0,0,345,renderer);
 }

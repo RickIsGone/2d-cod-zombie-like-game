@@ -8,7 +8,7 @@
 #include "../hpp files/g_variables.hpp"
 
 Mix_Chunk *step,*ak47_fire,*mp5_fire,*glock18_fire,*reload,*empty_mag;
-SDL_Texture* wall_texture,*ground_texture,*outside_texture,*glock18_outline_texture,*ak_outline_texture,*mp5_outline_texture,*zombie_texture,*left_fence_texture,*right_fence_texture;
+SDL_Texture* wall_texture,*ground_texture,*outside_texture,*glock18_outline_texture,*ak_outline_texture,*mp5_outline_texture,*zombie_texture,*left_fence_texture,*right_fence_texture,*w_cutters_texture;
 std::string game_map;
 
 void game::texturensound_initiation(SDL_Renderer* renderer){
@@ -28,7 +28,8 @@ void game::texturensound_initiation(SDL_Renderer* renderer){
     zombie_texture=IMG_LoadTexture(renderer,"../texture/zombie.png");
     left_fence_texture=IMG_LoadTexture(renderer,"../texture/l_fence.png");
     right_fence_texture=IMG_LoadTexture(renderer,"../texture/r_fence.png");
-
+    w_cutters_texture=IMG_LoadTexture(renderer,"../texture/w_cutters.png");
+    
     game_map=   "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
@@ -53,7 +54,7 @@ void game::texturensound_initiation(SDL_Renderer* renderer){
                 "oooooooo*      ******************       *           *      *                                 *          *oooooooo\n"
                 "oooooooo*                               *           *      *         *                                  *oooooooo\n"
                 "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
+                "oooooooow                               *           *      *         *                                  *oooooooo\n"
                 "oooooooo*                       *       ****     ****      *         ***************m*********          *oooooooo\n"
                 "oooooooo*                       *                                                                       *********\n"
                 "oooooooo*                       *                                                                       l        \n"

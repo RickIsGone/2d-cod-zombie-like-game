@@ -48,6 +48,9 @@ void map(SDL_Renderer* renderer,const SDL_Rect &camera){
             case 'r':
                 SDL_RenderCopy(renderer,right_fence_texture,NULL,&destRect);
                 break;
+            case 'w':
+                SDL_RenderCopy(renderer,w_cutters_texture,NULL,&destRect);
+                break;
         }
         x++;
     }

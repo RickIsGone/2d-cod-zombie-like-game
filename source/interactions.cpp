@@ -17,7 +17,7 @@ void interactions(SDL_Renderer* renderer){
 
         else{
             g_time=SDL_GetTicks();
-            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need wire cuters to escape",50,0,0,0,renderer);            
+            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need wire cuters to escape",40,0,0,0,670,renderer);            
         }
     } 
 
@@ -29,12 +29,14 @@ void interactions(SDL_Renderer* renderer){
                 player.WeaponInHand.ammo_left=240;
                 player.money-=250;
             } 
+            else if(player.money<250) sdl::quick_text("you need $250 to buy ammo",40,0,0,0,670,renderer); 
         }
         else if(player.WeaponInInventory.name=="ak47"){
             if(player.money>=250&&player.WeaponInInventory.ammo_left!=240){ 
                 player.WeaponInInventory.ammo_left=240;
                 player.money-=250;
             }
+            else if(player.money<250) sdl::quick_text("you need $250 to buy ammo",40,0,0,0,670,renderer); 
         }
         else if(player.money>=4500){
             player.WeaponInHand=ak47;
@@ -42,7 +44,7 @@ void interactions(SDL_Renderer* renderer){
         }
         else{
             g_time=SDL_GetTicks();
-            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need 4500$ to buy the ak47",50,0,0,0,renderer);
+            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need $4500 to buy the ak47",40,0,0,0,670,renderer);
         }
     }
 
@@ -54,12 +56,14 @@ void interactions(SDL_Renderer* renderer){
                 player.WeaponInHand.ammo_left=200;
                 player.money-=250;
             } 
+            else if(player.money<250) sdl::quick_text("you need $250 to buy ammo",40,0,0,0,670,renderer); 
         }
         else if(player.WeaponInInventory.name=="mp5"){
             if(player.money>=250&&player.WeaponInInventory.ammo_left!=200){ 
                 player.WeaponInInventory.ammo_left=200;
                 player.money-=250;
             }
+            else if(player.money<250) sdl::quick_text("you need $250 to buy ammo",40,0,0,0,670,renderer); 
         }
         else if(player.money>=3700){
             player.WeaponInHand=mp5;
@@ -67,10 +71,40 @@ void interactions(SDL_Renderer* renderer){
         }
         else{
             g_time=SDL_GetTicks();
-            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need 3700$ to buy the mp5",50,0,0,0,renderer);
+            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need $3700 to buy the mp5",40,0,0,0,670,renderer);
         }
     }
     // glock 
+    if((player.x==16||player.x==17)&&(player.y==4||player.y==5)){
+
+        if(player.WeaponInHand.name=="glock18") {
+            if(player.money>=150&&player.WeaponInHand.ammo_left!=200){
+                player.WeaponInHand.ammo_left=200;
+                player.money-=150;
+            } 
+            else if(player.money<150) sdl::quick_text("you need $150 to buy ammo",40,0,0,0,670,renderer); 
+        }
+        else if(player.WeaponInInventory.name=="mp5"){
+            if(player.money>=250&&player.WeaponInInventory.ammo_left!=200){ 
+                player.WeaponInInventory.ammo_left=200;
+                player.money-=250;
+            }
+            else if(player.money<150) sdl::quick_text("you need $150 to buy ammo",40,0,0,0,670,renderer); 
+        }
+        else if(player.money>=700){
+            player.WeaponInHand=glock18;
+            player.money-=700;
+        }
+        else{
+            g_time=SDL_GetTicks();
+            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need $700 to buy the mp5",40,0,0,0,670,renderer);
+        }
+    }
 
     // wire cutters
+    if((player.x==0||player.x==1)&&(player.y==18||player.y==19)){
+
+        if(!player.has_cutters) if(player.money>=10000) player.has_cutters=1;
+        else sdl::quick_text("you need $10000 to buy the wire cutters",40,0,0,0,670,renderer);
+    }
 }
