@@ -3,7 +3,7 @@ name: Bug report
 about: Describe this issue here.
 title: Bug
 labels: bug
-assignees: ''
+assignees: 'RickIsGone'
 
 ---
 
