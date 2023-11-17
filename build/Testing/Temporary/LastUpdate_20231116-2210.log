@@ -1,0 +1,26 @@
+--- Begin Cleanup ---
+--- End Cleanup ---
+"C:/Program Files/Git/cmd/git.exe" "rev-list" "-n" "1" "HEAD" "--"
+rl-out> 5af3eb46613d28568f04f183d8a9b75fb2a66aae
+--- Begin Update ---
+"C:/Program Files/Git/cmd/git.exe" "fetch"
+"C:/Program Files/Git/cmd/git.exe" "rev-parse" "--git-dir"
+rev-parse-out> .git
+FETCH_HEAD> 5af3eb46613d28568f04f183d8a9b75fb2a66aae		branch 'main' of https://github.com/RickIsGone/cod-zombie-like-game
+"C:/Program Files/Git/cmd/git.exe" "reset" "--hard" "5af3eb46613d28568f04f183d8a9b75fb2a66aae"
+reset-out> HEAD is now at 5af3eb4 rimosso namespace std
+"C:/Program Files/Git/cmd/git.exe" "rev-parse" "--show-cdup"
+rev-parse-out> 
+"C:/Program Files/Git/cmd/git.exe" "--version"
+version-out> git version 2.42.0.windows.2
+"C:/Program Files/Git/cmd/git.exe" "submodule" "sync" "--recursive"
+"C:/Program Files/Git/cmd/git.exe" "submodule" "update" "--recursive"
+--- End Update ---
+"C:/Program Files/Git/cmd/git.exe" "rev-list" "-n" "1" "HEAD" "--"
+rl-out> 5af3eb46613d28568f04f183d8a9b75fb2a66aae
+--- Begin Revisions ---
+"C:/Program Files/Git/cmd/git.exe" "rev-list" "--reverse" "5af3eb46613d28568f04f183d8a9b75fb2a66aae..5af3eb46613d28568f04f183d8a9b75fb2a66aae" "--" | "C:/Program Files/Git/cmd/git.exe" "diff-tree" "--stdin" "--always" "-z" "-r" "--pretty=raw" "--encoding=utf-8"
+dt-out> 
+"C:/Program Files/Git/cmd/git.exe" "update-index" "--refresh"
+"C:/Program Files/Git/cmd/git.exe" "diff-index" "-z" "HEAD" "--"
+--- End Revisions ---

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Update mode="Client" Generator="ctest-3.28.0-rc1">
+	<Site>Riccardo</Site>
+	<BuildName>Win32-mingw32-make</BuildName>
+	<BuildStamp>20231116-2210-Continuous</BuildStamp>
+	<StartDateTime>Nov 16 23:10 ora solare Europa occidentale</StartDateTime>
+	<StartTime>1700172611</StartTime>
+	<UpdateCommand>"C:/Program Files/Git/cmd/git.exe" "fetch"</UpdateCommand>
+	<UpdateType>GIT</UpdateType>
+	<Revision>5af3eb46613d28568f04f183d8a9b75fb2a66aae</Revision>
+	<EndDateTime>Nov 16 23:10 ora solare Europa occidentale</EndDateTime>
+	<EndTime>1700172614</EndTime>
+	<ElapsedMinutes>0</ElapsedMinutes>
+	<UpdateReturnStatus/>
+</Update>
