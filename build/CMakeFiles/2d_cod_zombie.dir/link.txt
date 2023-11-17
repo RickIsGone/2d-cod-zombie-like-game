@@ -1,3 +1,0 @@
-C:\cmake-3.28.0-rc1-windows-x86_64\bin\cmake.exe -E rm -f CMakeFiles\2d_cod_zombie.dir/objects.a
-C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\2d_cod_zombie.dir/objects.a @CMakeFiles\2d_cod_zombie.dir\objects1.rsp
-C:\msys64\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\2d_cod_zombie.dir/objects.a -Wl,--no-whole-archive -o 2d_cod_zombie.exe -Wl,--out-implib,lib2d_cod_zombie.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\2d_cod_zombie.dir\linkLibs.rsp
