@@ -27,7 +27,7 @@ void menu(SDL_Renderer* renderer){
     int text_height = surface->h;
     SDL_FreeSurface(surface); 
 
-    SDL_Rect dstrect = { (1920 - text_width) / 2, (1080 - text_height) / 3, text_width, text_height };
+    SDL_Rect dstrect = { (1920 - text_width) / 2, 345, text_width, text_height };
 
 
     if (s_opacity==0){

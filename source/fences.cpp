@@ -31,7 +31,7 @@ void game::open_fence(){
                 "oooooooo*      ******************       *           *      *                                 *          *oooooooo\n"
                 "oooooooo*                               *           *      *         *                                  *oooooooooooo\n"
                 "oooooooo*                               *           *      *         *                                  *oooooooooooo\n"
-                "oooooooo*                               *           *      *         *                                  *oooooooooooo\n"
+                "oooooooow                               *           *      *         *                                  *oooooooooooo\n"
                 "oooooooo*                       *       ****     ****      *         ***************m*********          *oooooooooooo\n"
                 "oooooooo*                       *                                                                       *************\n"
                 "oooooooo*                       *                                                                                    \n" // al quarto asterisco vinci e si apre menu 95,73

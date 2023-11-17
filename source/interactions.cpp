@@ -17,7 +17,7 @@ void interactions(SDL_Renderer* renderer){
 
         else{
             g_time=SDL_GetTicks();
-            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need wire cuters to escape",40,0,0,0,670,renderer);            
+            if(SDL_GetTicks() - g_time <=1500) sdl::quick_text("you need wire cuters to escape",40,0,0,0,670,renderer);            
         }
     }
 
@@ -44,7 +44,7 @@ void interactions(SDL_Renderer* renderer){
         }
         else{
             g_time=SDL_GetTicks();
-            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need $4500 to buy the ak47",40,0,0,0,670,renderer);
+            if(SDL_GetTicks() - g_time <=1500) sdl::quick_text("you need $4500 to buy the ak47",40,0,0,0,670,renderer);
         }
     }
 
@@ -71,7 +71,7 @@ void interactions(SDL_Renderer* renderer){
         }
         else{
             g_time=SDL_GetTicks();
-            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need $3700 to buy the mp5",40,0,0,0,670,renderer);
+            if(SDL_GetTicks() - g_time <=1500) sdl::quick_text("you need $3700 to buy the mp5",40,0,0,0,670,renderer);
         }
     }
 
@@ -98,7 +98,7 @@ void interactions(SDL_Renderer* renderer){
         }
         else{
             g_time=SDL_GetTicks();
-            if(SDL_GetTicks() - g_time <=3000) sdl::quick_text("you need $700 to buy the mp5",40,0,0,0,670,renderer);
+            if(SDL_GetTicks() - g_time <=1500) sdl::quick_text("you need $700 to buy the mp5",40,0,0,0,670,renderer);
         }
     }
 
