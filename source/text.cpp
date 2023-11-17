@@ -1,13 +1,9 @@
-#include <iostream>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_mixer.h>
 #include "../hpp files/classes.hpp"
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
 
-TTF_Font* font_f;
 
 void sdl::quick_text(std::string writing,int size, int r,int g,int b,int y,SDL_Renderer* renderer){
     font_f = TTF_OpenFont("../texture/hud_font.otf", size);

@@ -1,8 +1,6 @@
 #include <SDL2/SDL.h>
-#include <iostream>
 #include "../hpp files/classes.hpp"
 #include "../hpp files/functions.hpp"
-#include "../hpp files/g_variables.hpp"
 
 static Uint32 s_last_hit = 0;
 static Uint32 s_heal_delay = 7500;

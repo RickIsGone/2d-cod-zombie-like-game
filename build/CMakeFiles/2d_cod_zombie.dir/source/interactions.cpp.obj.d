@@ -186,10 +186,8 @@ CMakeFiles/2d_cod_zombie.dir/source/interactions.cpp.obj: \
  C:/Users/ricca/Desktop/INFORM~1/CODZOM~1/libs/include/SDL2/SDL_version.h \
  C:/Users/ricca/Desktop/INFORM~1/CODZOM~1/libs/include/SDL2/SDL_locale.h \
  C:/Users/ricca/Desktop/INFORM~1/CODZOM~1/libs/include/SDL2/SDL_misc.h \
- C:/Users/ricca/Desktop/INFORM~1/CODZOM~1/libs/include/SDL2/SDL_image.h \
- C:/Users/ricca/Desktop/INFORM~1/CODZOM~1/libs/include/SDL2/SDL.h \
  C:/Users/ricca/Desktop/INFORM~1/CODZOM~1/libs/include/SDL2/SDL_ttf.h \
- C:/Users/ricca/Desktop/INFORM~1/CODZOM~1/libs/include/SDL2/SDL_mixer.h \
+ C:/Users/ricca/Desktop/INFORM~1/CODZOM~1/libs/include/SDL2/SDL.h \
  C:/Users/ricca/Desktop/informatica/cod\ zombie\ like\ game/hpp\ files/classes.hpp \
  C:/msys64/mingw64/include/c++/13.2.0/iostream \
  C:/msys64/mingw64/include/c++/13.2.0/bits/requires_hosted.h \
@@ -302,4 +300,6 @@ CMakeFiles/2d_cod_zombie.dir/source/interactions.cpp.obj: \
  C:/msys64/mingw64/include/c++/13.2.0/istream \
  C:/msys64/mingw64/include/c++/13.2.0/bits/istream.tcc \
  C:/Users/ricca/Desktop/informatica/cod\ zombie\ like\ game/hpp\ files/functions.hpp \
- C:/Users/ricca/Desktop/informatica/cod\ zombie\ like\ game/hpp\ files/g_variables.hpp
+ C:/Users/ricca/Desktop/informatica/cod\ zombie\ like\ game/hpp\ files/g_variables.hpp \
+ C:/Users/ricca/Desktop/INFORM~1/CODZOM~1/libs/include/SDL2/SDL_image.h \
+ C:/Users/ricca/Desktop/INFORM~1/CODZOM~1/libs/include/SDL2/SDL_mixer.h

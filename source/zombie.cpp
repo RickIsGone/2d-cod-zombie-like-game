@@ -7,7 +7,6 @@
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
 
-extern SDL_Texture *zombie_texture;
 
 void game::spawn_zombie(){
     // spawn degli zombie
