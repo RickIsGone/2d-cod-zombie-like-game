@@ -59,8 +59,9 @@ void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer){
         SDL_RenderPresent(renderer);
 }
 
-void death_menu(SDL_Renderer*renderer,SDL_Rect camera){
 
+void win_death_menu(SDL_Renderer*renderer,SDL_Rect camera){
+ 
     SDL_RenderClear(renderer);
     map(renderer,camera);
     
@@ -72,26 +73,14 @@ void death_menu(SDL_Renderer*renderer,SDL_Rect camera){
     rect.h = 500; 
     SDL_RenderFillRect(renderer, &rect);
 
-    sdl::quick_text("you died, press r to restart",60,0,0,0,345,renderer);
-    sdl::v_quick_text("rounds lasted    ",game_round.round_number,50,0,0,0,430,renderer);
-    SDL_RenderPresent(renderer);
-}
-
-void win_menu(SDL_Renderer*renderer,SDL_Rect camera){
-
-    SDL_RenderClear(renderer);
-    map(renderer,camera);
-    
-    SDL_SetRenderDrawColor(renderer, 92, 92, 92, 255);
-    SDL_Rect rect;
-    rect.x = 520; 
-    rect.y = 320; 
-    rect.w = 880; 
-    rect.h = 500; 
-    SDL_RenderFillRect(renderer, &rect);
-
-    sdl::quick_text("you escaped, press r to restart",60,0,0,0,345,renderer);
-    sdl::v_quick_text("rounds before escaping    ",game_round.round_number,50,0,0,0,430,renderer);
+    if(player.health>0){
+        sdl::quick_text("you escaped, press r to restart",60,0,0,0,345,renderer);
+        sdl::v_quick_text("rounds before escaping    ",game_round.round_number,50,0,0,0,430,renderer);
+    }
+    else{
+        sdl::quick_text("you died, press r to restart", 60, 0, 0, 0, 345, renderer);
+        sdl::v_quick_text("rounds lasted    ", game_round.round_number, 50, 0, 0, 0, 430, renderer);
+    }
     SDL_RenderPresent(renderer);
 
 }

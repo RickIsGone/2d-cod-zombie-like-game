@@ -6,8 +6,7 @@ namespace game{
     void won_round();
     void spawn_zombie();
     void texturensound_initiation(SDL_Renderer* renderer);
-    void death(SDL_Event event,SDL_Renderer*renderer,SDL_Rect &camera);
-    void win(SDL_Event event,SDL_Renderer*renderer,SDL_Rect &camera);
+    void win_death(SDL_Event event,SDL_Renderer*renderer,SDL_Rect &camera);
     void restart(SDL_Rect &camera);
     void health_check();
     void open_fence();
@@ -28,8 +27,7 @@ void mouse(SDL_Renderer* renderer);
 void menu(SDL_Renderer* renderer);
 void pause(SDL_Event event);
 void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer);
-void death_menu(SDL_Renderer*renderer,SDL_Rect camera);
-void win_menu(SDL_Renderer*renderer,SDL_Rect camera);
+void win_death_menu(SDL_Renderer*renderer,SDL_Rect camera);
 
 void round_display(SDL_Renderer* renderer,SDL_Rect camera);
 void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);
