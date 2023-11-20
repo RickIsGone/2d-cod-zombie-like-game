@@ -15,6 +15,7 @@ namespace game{
 
 namespace sdl{
     void quick_text(std::string writing,int size, int r,int g,int b,int y,SDL_Renderer* renderer);
+    void v_quick_text(std::string writing,int var,int size, int r,int g,int b,int y,SDL_Renderer* renderer);
 }
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);

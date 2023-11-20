@@ -35,10 +35,11 @@ int main(int argc, char *argv[]){
 
     start=false;
 
+    mouse(renderer);
+
     do{
         if(game_state==RESTART) game_state=RUNNING;
         game::start();
-        mouse(renderer);
         
         while (game_state==RUNNING){
             
@@ -55,9 +56,9 @@ int main(int argc, char *argv[]){
 
             if (game_round.zombie_number==0) game::won_round();
             
-            while((player.x==98&&player.y==22)||(player.x==102&&player.y==23)) game::win(event,renderer,camera);
+            while(((player.x==98&&player.y==22)||(player.x==102&&player.y==23)) && game_state==RUNNING) game::win(event,renderer,camera);
 
-            while (player.health<=0) game::death(event,renderer,camera);
+            while (player.health<=0 && game_state==RUNNING) game::death(event,renderer,camera);
         }
         
     }while (game_state==RESTART);

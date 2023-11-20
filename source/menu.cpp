@@ -60,9 +60,11 @@ void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer){
 }
 
 void death_menu(SDL_Renderer*renderer){
+    sdl::v_quick_text("rounds lasted    ",game_round.round_number,50,0,0,0,430,renderer);
     sdl::quick_text("you died, press r to restart",60,0,0,0,345,renderer);
 }
 
 void win_menu(SDL_Renderer*renderer){
+    sdl::v_quick_text("rounds before escaping    ",game_round.round_number,50,0,0,0,430,renderer);
     sdl::quick_text("you escaped, press r to restart",60,0,0,0,345,renderer);
 }
