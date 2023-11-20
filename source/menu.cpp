@@ -74,8 +74,8 @@ void win_death_menu(SDL_Renderer*renderer,SDL_Rect camera){
     SDL_RenderFillRect(renderer, &rect);
 
     if(player.health>0){
-        sdl::quick_text("you escaped, press r to restart",60,0,0,0,345,renderer);
-        sdl::v_quick_text("rounds before escaping    ",game_round.round_number,50,0,0,0,430,renderer);
+        sdl::quick_text("you escaped, press r to restart", 60, 0, 0, 0, 345, renderer);
+        sdl::v_quick_text("rounds before escaping    ", game_round.round_number, 50, 0, 0, 0, 430, renderer);
     }
     else{
         sdl::quick_text("you died, press r to restart", 60, 0, 0, 0, 345, renderer);
