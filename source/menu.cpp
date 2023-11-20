@@ -64,7 +64,7 @@ void death_menu(SDL_Renderer*renderer,SDL_Rect camera){
     SDL_RenderClear(renderer);
     map(renderer,camera);
     
-    SDL_SetRenderDrawColor(renderer, 113, 113, 113, 255);
+    SDL_SetRenderDrawColor(renderer, 92, 92, 92, 255);
     SDL_Rect rect;
     rect.x = 520; 
     rect.y = 320; 
@@ -82,7 +82,7 @@ void win_menu(SDL_Renderer*renderer,SDL_Rect camera){
     SDL_RenderClear(renderer);
     map(renderer,camera);
     
-    SDL_SetRenderDrawColor(renderer, 30, 30, 30, 255);
+    SDL_SetRenderDrawColor(renderer, 92, 92, 92, 255);
     SDL_Rect rect;
     rect.x = 520; 
     rect.y = 320; 
