@@ -14,8 +14,8 @@ namespace game{
 }
 
 namespace sdl{
-    void quick_text(std::string writing,int size, int r,int g,int b,int y,SDL_Renderer* renderer);
-    void v_quick_text(std::string writing,int var,int size, int r,int g,int b,int y,SDL_Renderer* renderer);
+    void quick_text(std::string writing,int size, Uint8 r,Uint8 g,Uint8 b,int y,SDL_Renderer* renderer);
+    void v_quick_text(std::string writing,int var,int size, Uint8 r,Uint8 g,Uint8 b,int y,SDL_Renderer* renderer);
 }
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
@@ -28,8 +28,8 @@ void mouse(SDL_Renderer* renderer);
 void menu(SDL_Renderer* renderer);
 void pause(SDL_Event event);
 void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer);
-void death_menu(SDL_Renderer* renderer);
-void win_menu(SDL_Renderer*renderer);
+void death_menu(SDL_Renderer*renderer,SDL_Rect camera);
+void win_menu(SDL_Renderer*renderer,SDL_Rect camera);
 
 void round_display(SDL_Renderer* renderer,SDL_Rect camera);
 void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);

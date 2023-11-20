@@ -106,4 +106,8 @@ void interactions(SDL_Renderer* renderer){
         if(!player.has_cutters) if(player.money>=10000) player.has_cutters=1;
         else sdl::quick_text("you need $10000 to buy the wire cutters",40,0,0,0,670,renderer);
     }
+
+
+    SDL_RenderPresent(renderer);
+    
 }

@@ -5,18 +5,20 @@
 #include "../hpp files/g_variables.hpp"
 
 
-using namespace std;
+
 // to use the consolle remove WIN32 from the CmakeLists and always use exit to stop consolle execution
 
 void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer){
+    using std::cin, std::string, std::cout;
+
     string comand;
     int value;
     bool loop=true;
     
     while(loop){
         
-        std::cout<<"comands:\nplayer_money (value)\nplayer_health (value)\nplayer_speed (value)\ngun_ammo (value)\nexit\nplayer_weapon (value)\ngun_damage\nfire_rate\nno_clip\nammo_left (value)\nrestart\nopen\ncoord\ncutters\ntp (x y)\n\n";
-        std::cin>>comand;
+        cout<<"comands:\nplayer_money (value)\nplayer_health (value)\nplayer_speed (value)\ngun_ammo (value)\nexit\nplayer_weapon (value)\ngun_damage\nfire_rate\nno_clip\nammo_left (value)\nrestart\nopen\ncoord\ncutters\ntp (x y)\n\n";
+        cin>>comand;
         if(comand=="exit") loop=0;
         else if(comand=="gun_damage") cout<<player.WeaponInHand.damage<<"\n\n";
         else if (comand=="fire_rate") cout<<player.WeaponInHand.fire_rate<<"\n\n";
@@ -48,8 +50,11 @@ void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer){
                     case 3:
                         player.WeaponInHand=glock18;
                         break;
-                    default:
+                    case 4:
                         player.WeaponInHand=knife;
+                        break;
+                    default:
+                        cout<<"non existent weapon\n\n";
                         break;
                 }
         }

@@ -7,13 +7,13 @@
 void game::win(SDL_Event event,SDL_Renderer* renderer,SDL_Rect &camera){
     // kill zombie
     while (SDL_PollEvent(&event)) death_events(event);
-    win_menu(renderer);
+    win_menu(renderer,camera);
     if(game_state==RESTART) game::restart(camera);
 }
 
 void game::death(SDL_Event event,SDL_Renderer*renderer,SDL_Rect &camera){
     // kill zombie
     while (SDL_PollEvent(&event)) death_events(event);
-    death_menu(renderer);
+    death_menu(renderer,camera);
     if(game_state==RESTART) game::restart(camera);
 }
