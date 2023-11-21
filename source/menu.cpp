@@ -83,8 +83,8 @@ void win_death_menu(SDL_Renderer*renderer,SDL_Rect camera){
     SDL_RenderFillRect(renderer, &rect);
 
 
-    sdl::button("restart", 30, 900, 555, 120, 40, 92, 92, 92, 80, 80, 80,renderer,RESTART);
-    sdl::button("exit", 30, 900, 605, 120, 40, 92, 92, 92, 80, 80, 80,renderer,CLOSED);
+    sdl::button("restart", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RESTART);
+    sdl::button("exit", 30, 900, 605, 120, 40, 92, 92, 92,renderer,CLOSED);
 
     if(player.health>0){
         sdl::quick_text("you escaped", 60, 0, 0, 0, 345, renderer);
