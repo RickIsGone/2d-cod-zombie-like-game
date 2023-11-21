@@ -38,7 +38,6 @@ void mouse(SDL_Renderer* renderer);
 void mouse_update();
 
 void menu(SDL_Renderer* renderer);
-void pause(SDL_Event event);
 void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer);
 void win_death_menu(SDL_Renderer*renderer,SDL_Rect camera);
 

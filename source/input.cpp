@@ -32,18 +32,6 @@ void consolle_events(SDL_Event consolle_event, bool &consolle_state){
 }
 
 
-void pause(SDL_Event event){
-    switch(event.type){
-        case SDL_MOUSEBUTTONDOWN: 
-            if (event.button.button == SDL_BUTTON_LEFT) 
-                game_state = RUNNING;
-            break;
-        case SDL_QUIT:
-            game_state=CLOSED;
-            break;
-    }
-}
-
 static Uint32 s_reloadStartTime = 0;
 static const Uint32 s_reloadDelay = 1500;
 static Uint32 s_lastStepTime = 0;

@@ -13,12 +13,35 @@ void menu(SDL_Renderer* renderer){
     TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 60);
     std::string round_str;
 
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_Rect rect2;
+    rect2.x = 518; 
+    rect2.y = 318; 
+    rect2.w = 884; 
+    rect2.h = 504; 
+    SDL_RenderFillRect(renderer, &rect2);
+
+    SDL_SetRenderDrawColor(renderer, 92, 92, 92, 255);
+    SDL_Rect rect;
+    rect.x = 520; 
+    rect.y = 320; 
+    rect.w = 880; 
+    rect.h = 500; 
+    SDL_RenderFillRect(renderer, &rect);
+
     if(start){
         round_str = "press LMB to start";
-        sdl::v_quick_text("highest round reached    ", game::save::loadTopRound(), 40, 0, 0, 0, 670, renderer);
+        sdl::v_quick_text("highest round reached    ", game::save::loadTopRound(), 50, 0, 0, 0, 430, renderer);
+        sdl::button("start", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RUNNING);
     } 
-    else round_str = "press LMB to resume";
-    
+    else{
+        round_str = "game paused";
+        sdl::button("resume", 30, 900, 505, 120, 40, 92, 92, 92,renderer,RUNNING);
+        sdl::button("restart", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RESTART);
+    }
+
+    sdl::button("exit", 30, 900, 605, 120, 40, 92, 92, 92,renderer,CLOSED);
+
     SDL_Surface* surface = TTF_RenderText_Solid(font, round_str.c_str(), {0, 0, 0}); 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
     int text_width = surface->w;
@@ -53,11 +76,12 @@ void menu(SDL_Renderer* renderer){
 
 
 void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer){
-    while (SDL_PollEvent(&event)) pause(event);
-        SDL_RenderClear(renderer);
-        map(renderer, camera);
-        menu(renderer);  
-        SDL_RenderPresent(renderer);
+    while (SDL_PollEvent(&event)) events(event);
+    SDL_RenderClear(renderer);
+    map(renderer, camera);
+    menu(renderer);  
+    SDL_RenderPresent(renderer);
+    if(game_state==RESTART) game::restart(camera);
 }
 
 
