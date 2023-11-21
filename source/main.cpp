@@ -30,12 +30,12 @@ int main(int argc, char *argv[]){
     SDL_Rect camera={500,300,1920,1080};
     
     game::texturensound_initiation(renderer);
-    
+
+    mouse(renderer);
+
     while(game_state==PAUSED) pause_menu(camera,event,renderer);
 
     start=false;
-
-    mouse(renderer);
 
     do{
         if(game_state==RESTART) game_state=RUNNING;
