@@ -15,22 +15,22 @@ void menu(SDL_Renderer* renderer){
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_Rect rect2;
-    rect2.x = 518; 
+    rect2.x = 618; 
     rect2.y = 318; 
-    rect2.w = 884; 
+    rect2.w = 684; 
     rect2.h = 504; 
     SDL_RenderFillRect(renderer, &rect2);
 
     SDL_SetRenderDrawColor(renderer, 92, 92, 92, 255);
     SDL_Rect rect;
-    rect.x = 520; 
+    rect.x = 620; 
     rect.y = 320; 
-    rect.w = 880; 
+    rect.w = 680; 
     rect.h = 500; 
     SDL_RenderFillRect(renderer, &rect);
 
     if(start){
-        round_str = "press LMB to start";
+        round_str = "cod zombie 2d";
         sdl::v_quick_text("highest round reached    ", game::save::loadTopRound(), 50, 0, 0, 0, 430, renderer);
         sdl::button("start", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RUNNING);
     } 
@@ -93,17 +93,17 @@ void win_death_menu(SDL_Renderer*renderer,SDL_Rect camera){
     
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_Rect rect2;
-    rect2.x = 518; 
+    rect2.x = 618; 
     rect2.y = 318; 
-    rect2.w = 884; 
+    rect2.w = 684; 
     rect2.h = 504; 
     SDL_RenderFillRect(renderer, &rect2);
 
     SDL_SetRenderDrawColor(renderer, 92, 92, 92, 255);
     SDL_Rect rect;
-    rect.x = 520; 
+    rect.x = 620; 
     rect.y = 320; 
-    rect.w = 880; 
+    rect.w = 680; 
     rect.h = 500; 
     SDL_RenderFillRect(renderer, &rect);
 
