@@ -1,6 +1,10 @@
 #ifndef FUNCTIONS_HPP
 #define FUNCTIONS_HPP
-
+#include <iostream>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 namespace game{
     void start();
     void won_round();
@@ -10,6 +14,11 @@ namespace game{
     void restart(SDL_Rect &camera);
     void health_check();
     void open_fence();
+    
+    namespace save{
+        void saveTopRound();
+        int loadTopRound();
+    }
 }
 
 namespace sdl{
@@ -17,6 +26,8 @@ namespace sdl{
     void v_quick_text(std::string writing,int var,int size, Uint8 r,Uint8 g,Uint8 b,int y,SDL_Renderer* renderer);
     void button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,SDL_Renderer* renderer,int value);
 }
+
+
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
 void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no_clip);

@@ -15,7 +15,7 @@ void interactions(SDL_Renderer* renderer){
 
         else{
             g_time=SDL_GetTicks();
-            if(SDL_GetTicks() - g_time <=1500) sdl::quick_text("you need wire cuters to escape",40,0,0,0,670,renderer);            
+            if(SDL_GetTicks() - g_time <=1500) sdl::quick_text("you need wire cuters to open",40,0,0,0,670,renderer);            
         }
     }
 
@@ -103,7 +103,10 @@ void interactions(SDL_Renderer* renderer){
     // wire cutters
     if((player.x==0||player.x==1)&&(player.y==18||player.y==19)){
 
-        if(!player.has_cutters) if(player.money>=10000) player.has_cutters=1;
+        if(!player.has_cutters) if(player.money>=10000){
+            player.has_cutters=1;
+            player.money-=10000;
+        }
         else sdl::quick_text("you need $10000 to buy the wire cutters",40,0,0,0,670,renderer);
     }
 

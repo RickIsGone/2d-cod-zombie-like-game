@@ -55,10 +55,11 @@ int main(int argc, char *argv[]){
             SDL_RenderPresent(renderer);
 
             if (game_round.zombie_number==0) game::won_round();
-            
-            while((player.x==98&&(player.y==22||player.y==23)) && game_state==RUNNING) game::win_death(event,renderer,camera);
 
-            while (player.health<=0 && game_state==RUNNING) game::win_death(event,renderer,camera);
+            while(((player.health<=0)||(player.x==98&&(player.y==22||player.y==23))) && game_state==RUNNING){
+                game::win_death(event,renderer,camera);
+                game::save::saveTopRound();
+            }
         }
         
     }while (game_state==RESTART);

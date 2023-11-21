@@ -15,6 +15,7 @@ void menu(SDL_Renderer* renderer){
 
     if(start){
         round_str = "press LMB to start";
+        sdl::v_quick_text("highest round reached    ", game::save::loadTopRound(), 40, 0, 0, 0, 670, renderer);
     } 
     else round_str = "press LMB to resume";
     
