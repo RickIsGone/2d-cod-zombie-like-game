@@ -37,7 +37,7 @@ void sdl::v_quick_text(std::string writing, int var,int size, Uint8 r,Uint8 g,Ui
 }
 
 
-void sdl::button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,Uint8 r_h,Uint8 g_h,Uint8 b_h,SDL_Renderer* renderer,SDL_Rect &camera, void (*function)(SDL_Rect &)){
+void sdl::button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,Uint8 r_h,Uint8 g_h,Uint8 b_h,SDL_Renderer* renderer,int value){
 
     mouse_update();
 
@@ -51,7 +51,7 @@ void sdl::button(std::string text,int size, int x,int y,int width, int height,Ui
     SDL_RenderFillRect(renderer, &rect2);
 
     if((mouseState.x>=x&&mouseState.x<=x+width)&&(mouseState.y>=y&&mouseState.y<=y+height)){
-        if(mouseState.leftButton) function(camera);
+        if(mouseState.leftButton) game_state=value;
         else SDL_SetRenderDrawColor(renderer, r_h, g_h, b_h, 255);
     }
     else SDL_SetRenderDrawColor(renderer, r, g, b, 255);

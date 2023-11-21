@@ -16,7 +16,7 @@ namespace game{
 namespace sdl{
     void quick_text(std::string writing,int size, Uint8 r,Uint8 g,Uint8 b,int y,SDL_Renderer* renderer);
     void v_quick_text(std::string writing,int var,int size, Uint8 r,Uint8 g,Uint8 b,int y,SDL_Renderer* renderer);
-    void button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,Uint8 r_h,Uint8 g_h,Uint8 b_h,SDL_Renderer* renderer,SDL_Rect &camera, void (*function)(SDL_Rect &));
+    void button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,Uint8 r_h,Uint8 g_h,Uint8 b_h,SDL_Renderer* renderer,int value);
 }
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);

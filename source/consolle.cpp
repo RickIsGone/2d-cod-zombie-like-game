@@ -17,7 +17,7 @@ void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer){
     
     while(loop){
         
-        cout<<"comands:\nplayer_money (value)\nplayer_health (value)\nplayer_speed (value)\ngun_ammo (value)\nexit\nplayer_weapon (value)\ngun_damage\nfire_rate\nno_clip\nammo_left (value)\nrestart\nopen\ncoord\ncutters\ntp (x y)\n\n";
+        cout<<"comands:\nplayer_money (value)\nplayer_health (value)\nplayer_speed (value)\ngun_ammo (value)\nexit\nplayer_weapon (value)\ngun_damage\nfire_rate\nno_clip\nammo_left (value)\nrestart\nopen\ncoord\ncutters\ntp (x y)\nround (value)\n\n";
         cin>>comand;
         if(comand=="exit") loop=0;
         else if(comand=="gun_damage") cout<<player.WeaponInHand.damage<<"\n\n";
@@ -30,7 +30,7 @@ void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer){
             if(!no_clip) no_clip=true;
             else no_clip=false;
         }
-        else if (comand!="player_money"&&comand!="player_health"&&comand!="player_speed"&&comand!="gun_ammo"&&comand!="player_money"&&comand!="player_weapon"&&comand!="ammo_left"&&comand!="tp")cout<<"syntax error\n\n";
+        else if (comand!="player_money"&&comand!="player_health"&&comand!="player_speed"&&comand!="gun_ammo"&&comand!="player_money"&&comand!="player_weapon"&&comand!="ammo_left"&&comand!="tp"&&comand!="round")cout<<"syntax error\n\n";
         else if(comand!="tp"){
         
             cin>>value;
@@ -39,6 +39,7 @@ void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer){
             else if(comand=="player_speed") player.speed=value;
             else if(comand=="gun_ammo") player.WeaponInHand.ammo=value;
             else if(comand=="ammo_left") player.WeaponInHand.ammo_left=value;
+            else if(comand=="round") game_round.round_number=value;
             else if (comand=="player_weapon")
                 switch (value){
                     case 1:
