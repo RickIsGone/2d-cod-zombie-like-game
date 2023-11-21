@@ -15,3 +15,13 @@ void mouse(SDL_Renderer* renderer){
     SDL_Rect destrect = { mouseState.x - 64 / 2, mouseState.y - 32 / 2, 64, 32 };
     
 }
+
+void mouse_update(){
+    int mouse_x, mouse_y;
+    Uint32 buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
+    bool leftButton = (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0;
+
+    mouseState.x = mouse_x;
+    mouseState.y = mouse_y;
+    mouseState.leftButton = leftButton;
+}

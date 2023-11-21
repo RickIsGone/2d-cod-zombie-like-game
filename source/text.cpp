@@ -37,32 +37,43 @@ void sdl::v_quick_text(std::string writing, int var,int size, Uint8 r,Uint8 g,Ui
 }
 
 
-// void sdl::v_quick_text(std::string writing,int size, int r,int g,int b,int y, std::string writing2, int var,int size2, int r2,int g2,int b2,int y2,SDL_Renderer* renderer){
+void sdl::button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,Uint8 r_h,Uint8 g_h,Uint8 b_h,SDL_Renderer* renderer,SDL_Rect &camera, void (*function)(SDL_Rect &)){
 
-//     font_f = TTF_OpenFont("../texture/hud_font.otf", size);
+    mouse_update();
 
-//     SDL_Surface* surface = TTF_RenderText_Solid(font_f, writing.c_str(), {r, g, b}); 
-//     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-//     int text_width = surface->w;
-//     int text_height = surface->h;
-//     SDL_FreeSurface(surface); 
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_Rect rect2;
+    rect2.x = x-2; 
+    rect2.y = y-2; 
+    rect2.w = width+4; 
+    rect2.h = height+4; 
 
-//     SDL_Rect dstrect = {(1920 - text_width) / 2, y, text_width, text_height };
+    SDL_RenderFillRect(renderer, &rect2);
 
-//     SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-//     SDL_DestroyTexture(texture);
-//     SDL_RenderPresent(renderer);
+    if((mouseState.x>=x&&mouseState.x<=x+width)&&(mouseState.y>=y&&mouseState.y<=y+height)){
+        if(mouseState.leftButton) function(camera);
+        else SDL_SetRenderDrawColor(renderer, r_h, g_h, b_h, 255);
+    }
+    else SDL_SetRenderDrawColor(renderer, r, g, b, 255);
 
-//     std::string text =writing2+std::to_string(var);        
-//     SDL_Surface* surface2 = TTF_RenderText_Solid(font_f, text.c_str(), {r2, g2, b2}); 
-//     SDL_Texture* texture2 = SDL_CreateTextureFromSurface(renderer, surface);
-//     int text_width2 = surface->w;
-//     int text_height2 = surface->h;
-//     SDL_FreeSurface(surface); 
+    SDL_Rect rect;
+    rect.x = x; 
+    rect.y = y; 
+    rect.w = width; 
+    rect.h = height;  
+    
+    SDL_RenderFillRect(renderer, &rect);
 
-//     SDL_Rect dstrect = {(1920 - text_width2) / 2, y, text_width2, text_height2 };
+    font_f = TTF_OpenFont("../texture/hud_font.otf", size);
+            
+    SDL_Surface* surface = TTF_RenderText_Solid(font_f, text.c_str(), {0, 0, 0}); 
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+    int text_width = surface->w;
+    int text_height = surface->h;
+    SDL_FreeSurface(surface); 
 
-//     SDL_RenderCopy(renderer, texture2, NULL, &dstrect);
-//     SDL_DestroyTexture(texture2);
-//     SDL_RenderPresent(renderer);
-// }
+    SDL_Rect dstrect = {(1920 - text_width) / 2, y+2, text_width, text_height };
+
+    SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+    SDL_DestroyTexture(texture);
+}

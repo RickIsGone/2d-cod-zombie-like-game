@@ -31,21 +31,6 @@ void consolle_events(SDL_Event consolle_event, bool &consolle_state){
     }
 }
 
-void death_events(SDL_Event event){
-    switch(event.type){
-        case SDL_KEYDOWN:
-            switch(event.key.keysym.sym) {
-                case SDLK_r:
-                    game_state=RESTART;
-                    break;
-                
-            }
-            break;
-        case SDL_QUIT:
-            game_state=CLOSED;
-            break;
-    }
-}
 
 void pause(SDL_Event event){
     switch(event.type){
