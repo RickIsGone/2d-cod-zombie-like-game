@@ -65,6 +65,7 @@ void win_death_menu(SDL_Renderer*renderer,SDL_Rect camera){
     SDL_RenderClear(renderer);
     map(renderer,camera);
 
+    
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_Rect rect2;
     rect2.x = 518; 
@@ -80,6 +81,7 @@ void win_death_menu(SDL_Renderer*renderer,SDL_Rect camera){
     rect.w = 880; 
     rect.h = 500; 
     SDL_RenderFillRect(renderer, &rect);
+
 
     sdl::button("restart", 30, 900, 555, 120, 40, 92, 92, 92, 80, 80, 80,renderer,RESTART);
     sdl::button("exit", 30, 900, 605, 120, 40, 92, 92, 92, 80, 80, 80,renderer,CLOSED);
