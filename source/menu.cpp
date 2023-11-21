@@ -4,7 +4,7 @@
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
 
-extern bool start;
+
 static int s_opacity=255;
 static bool s_down=true;
 
