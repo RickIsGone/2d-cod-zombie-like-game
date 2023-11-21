@@ -29,15 +29,18 @@ void menu(SDL_Renderer* renderer){
     rect.h = 500; 
     SDL_RenderFillRect(renderer, &rect);
 
-    if(start){
-        round_str = "2d cod zombie ";
-        sdl::v_quick_text("highest round reached    ", game::save::loadTopRound(), 50, 0, 0, 0, 430, renderer);
-        sdl::button("start", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RUNNING);
-    } 
-    else{
-        round_str = "game paused";
-        sdl::button("resume", 30, 900, 505, 120, 40, 92, 92, 92,renderer,RUNNING);
-        sdl::button("restart", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RESTART);
+    switch(start){
+        case true:
+            round_str = "2d cod zombie ";
+            sdl::v_quick_text("highest round reached    ", game::save::loadTopRound(), 50, 0, 0, 0, 430, renderer);
+            sdl::button("start", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RUNNING);
+            break;
+
+        case false:
+            round_str = "game paused";
+            sdl::button("resume", 30, 900, 505, 120, 40, 92, 92, 92,renderer,RUNNING);
+            sdl::button("restart", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RESTART);
+            break;
     }
 
     sdl::button("exit", 30, 900, 605, 120, 40, 92, 92, 92,renderer,CLOSED);
