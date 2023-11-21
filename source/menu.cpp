@@ -59,9 +59,6 @@ void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer){
         SDL_RenderPresent(renderer);
 }
 
-void game::close(SDL_Rect &camera){
-    game_state=CLOSED;
-};
 
 void win_death_menu(SDL_Renderer*renderer,SDL_Rect camera){
  

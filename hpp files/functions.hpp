@@ -10,7 +10,6 @@ namespace game{
     void restart(SDL_Rect &camera);
     void health_check();
     void open_fence();
-    void close(SDL_Rect &camera);
 }
 
 namespace sdl{
