@@ -18,6 +18,7 @@ void sdl::quick_text(std::string writing,int size, Uint8 r,Uint8 g,Uint8 b,int y
 
     SDL_RenderCopy(renderer, texture, NULL, &dstrect);
     SDL_DestroyTexture(texture);
+    TTF_CloseFont(font_f);
 }
 
 void sdl::v_quick_text(std::string writing, int var,int size, Uint8 r,Uint8 g,Uint8 b,int y,SDL_Renderer* renderer){
@@ -34,6 +35,7 @@ void sdl::v_quick_text(std::string writing, int var,int size, Uint8 r,Uint8 g,Ui
 
     SDL_RenderCopy(renderer, texture, NULL, &dstrect);
     SDL_DestroyTexture(texture);
+    TTF_CloseFont(font_f);
 }
 
 
@@ -76,4 +78,5 @@ void sdl::button(std::string text,int size, int x,int y,int width, int height,Ui
 
     SDL_RenderCopy(renderer, texture, NULL, &dstrect);
     SDL_DestroyTexture(texture);
+    TTF_CloseFont(font_f);
 }
