@@ -36,6 +36,7 @@ void sdl::v_quick_text(std::string writing, int var,int size, Uint8 r,Uint8 g,Ui
     SDL_RenderCopy(renderer, texture, NULL, &dstrect);
     SDL_DestroyTexture(texture);
     TTF_CloseFont(font_f);
+    
 }
 
 
