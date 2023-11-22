@@ -74,7 +74,7 @@ void sdl::button(std::string text,int size, int x,int y,int width, int height,Ui
     int text_height = surface->h;
     SDL_FreeSurface(surface); 
 
-    SDL_Rect dstrect = {(1920 - text_width) / 2, y+3, text_width, text_height };
+    SDL_Rect dstrect = {(x+width - text_width) / 2, (y+height-text_height)/2, text_width, text_height };
 
     SDL_RenderCopy(renderer, texture, NULL, &dstrect);
     SDL_DestroyTexture(texture);
