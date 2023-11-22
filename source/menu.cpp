@@ -32,7 +32,7 @@ void menu(SDL_Renderer* renderer){
     switch(start){
         case true:
             round_str = "2d cod zombie ";
-            sdl::v_quick_text("highest round reached    ", game::save::loadTopRound(), 50, 0, 0, 0, 430, renderer);
+            sdl::v_quick_text("highest round reached    ", game::save::loadTopRound(), 45, 0, 0, 0, 430, renderer);
             sdl::button("start", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RUNNING);
             break;
 
