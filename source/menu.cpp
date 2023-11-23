@@ -114,6 +114,7 @@ void win_death_menu(SDL_Renderer*renderer,SDL_Rect camera){
     sdl::button("restart", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RESTART);
     sdl::button("exit", 30, 900, 605, 120, 40, 92, 92, 92,renderer,CLOSED);
 
+
     if(player.health>0){
         sdl::quick_text("you escaped", 60, 0, 0, 0, 345, renderer);
         sdl::v_quick_text("rounds before escaping    ", game_round.round_number, 50, 0, 0, 0, 430, renderer);
