@@ -100,6 +100,7 @@ void sdl::load_button(std::string text,int size, int x,int y,int width, int heig
                 camera.y=player.y*101;
                 game_state=value;
             }
+            else SDL_SetRenderDrawColor(renderer, r-24, g-24, b-24, 255);
         }
         else SDL_SetRenderDrawColor(renderer, r-12, g-12, b-12, 255);
         
