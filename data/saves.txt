@@ -1,1 +1,23 @@
-1
+topround: 1
+issaved:0
+
+round:1
+
+health:150
+
+money:0
+
+hascutters:0
+
+primary:glock18
+primary_ammo:20
+primary_ammo_left:160
+
+secondary:knife
+secondary_ammo:1
+secondary_ammo_left:1
+
+x:15
+y:9
+
+zombie alive:0

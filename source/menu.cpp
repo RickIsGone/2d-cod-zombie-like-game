@@ -8,7 +8,7 @@
 static int s_opacity=255;
 static bool s_down=true;
 
-void menu(SDL_Renderer* renderer){
+void menu(SDL_Renderer* renderer,SDL_Rect &camera){
 
     TTF_Font* font = TTF_OpenFont("../texture/hud_font.otf", 60);
     std::string round_str;
@@ -33,17 +33,21 @@ void menu(SDL_Renderer* renderer){
         case true:
             round_str = "2d cod zombie ";
             sdl::v_quick_text("highest round reached    ", game::save::loadTopRound(), 45, 0, 0, 0, 430, renderer);
-            sdl::button("start", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RUNNING);
+            sdl::button("new game", 30, 900, 505, 120, 40, 92, 92, 92,renderer,RUNNING);
+            sdl::load_button("load game",30,900,555,120, 40, 92, 92, 92,renderer,camera,game::save::loadGame,RUNNING);
+            sdl::button("exit", 30, 900, 605, 120, 40, 92, 92, 92,renderer,CLOSED);
             break;
 
         case false:
             round_str = "game paused";
             sdl::button("resume", 30, 900, 505, 120, 40, 92, 92, 92,renderer,RUNNING);
             sdl::button("restart", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RESTART);
+            sdl::save_button("save", 30, 900, 605, 120, 40, 92, 92, 92,renderer,game::save::saveGame,PAUSED);
+            sdl::button("exit", 30, 900, 655, 120, 40, 92, 92, 92,renderer,CLOSED);
             break;
     }
 
-    sdl::button("exit", 30, 900, 605, 120, 40, 92, 92, 92,renderer,CLOSED);
+    
 
     SDL_Surface* surface = TTF_RenderText_Solid(font, round_str.c_str(), {0, 0, 0}); 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
@@ -82,7 +86,7 @@ void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer){
     while (SDL_PollEvent(&event)) events(event);
     SDL_RenderClear(renderer);
     map(renderer, camera);
-    menu(renderer);  
+    menu(renderer,camera);  
     SDL_RenderPresent(renderer);
     if(game_state==RESTART) game::restart(camera);
 }

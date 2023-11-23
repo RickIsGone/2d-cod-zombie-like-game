@@ -80,3 +80,96 @@ void sdl::button(std::string text,int size, int x,int y,int width, int height,Ui
     SDL_DestroyTexture(texture);
     TTF_CloseFont(font_f);
 }
+
+void sdl::load_button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,SDL_Renderer* renderer,SDL_Rect &camera,bool (*function)(),int value){
+    mouse_update();
+
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_Rect rect2;
+    rect2.x = x-2; 
+    rect2.y = y-2; 
+    rect2.w = width+4; 
+    rect2.h = height+4; 
+
+    SDL_RenderFillRect(renderer, &rect2);
+
+    if((mouseState.x>=x&&mouseState.x<=x+width)&&(mouseState.y>=y&&mouseState.y<=y+height)){
+        if(mouseState.leftButton){
+            if(function()){
+                camera.x=player.x*101;
+                camera.y=player.y*101;
+                game_state=value;
+            }
+        }
+        else SDL_SetRenderDrawColor(renderer, r-12, g-12, b-12, 255);
+        
+    }
+    else SDL_SetRenderDrawColor(renderer, r, g, b, 255);
+
+    SDL_Rect rect;
+    rect.x = x; 
+    rect.y = y; 
+    rect.w = width; 
+    rect.h = height;  
+    
+    SDL_RenderFillRect(renderer, &rect);
+
+    font_f = TTF_OpenFont("../texture/hud_font.otf", size);
+            
+    SDL_Surface* surface = TTF_RenderText_Solid(font_f, text.c_str(), {0, 0, 0}); 
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+    int text_width = surface->w;
+    int text_height = surface->h;
+    SDL_FreeSurface(surface); 
+ 
+    SDL_Rect dstrect = {x+(width - text_width) / 2, y+(height - text_height) / 2, text_width, text_height };
+
+    SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+    SDL_DestroyTexture(texture);
+    TTF_CloseFont(font_f);
+}
+
+void sdl::save_button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,SDL_Renderer* renderer,void (*function)(),int value){
+    mouse_update();
+
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_Rect rect2;
+    rect2.x = x-2; 
+    rect2.y = y-2; 
+    rect2.w = width+4; 
+    rect2.h = height+4; 
+
+    SDL_RenderFillRect(renderer, &rect2);
+
+    if((mouseState.x>=x&&mouseState.x<=x+width)&&(mouseState.y>=y&&mouseState.y<=y+height)){
+        if(mouseState.leftButton){
+            function();
+            game_state=value;
+        }
+        else SDL_SetRenderDrawColor(renderer, r-12, g-12, b-12, 255);
+        
+    }
+    else SDL_SetRenderDrawColor(renderer, r, g, b, 255);
+
+    SDL_Rect rect;
+    rect.x = x; 
+    rect.y = y; 
+    rect.w = width; 
+    rect.h = height;  
+    
+    SDL_RenderFillRect(renderer, &rect);
+
+    font_f = TTF_OpenFont("../texture/hud_font.otf", size);
+            
+    SDL_Surface* surface = TTF_RenderText_Solid(font_f, text.c_str(), {0, 0, 0}); 
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+    int text_width = surface->w;
+    int text_height = surface->h;
+    SDL_FreeSurface(surface); 
+ 
+    SDL_Rect dstrect = {x+(width - text_width) / 2, y+(height - text_height) / 2, text_width, text_height };
+
+    SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+    SDL_DestroyTexture(texture);
+    TTF_CloseFont(font_f);
+}

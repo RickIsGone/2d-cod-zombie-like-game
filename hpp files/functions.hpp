@@ -18,6 +18,8 @@ namespace game{
     namespace save{
         void saveTopRound();
         int loadTopRound();
+        void saveGame();
+        bool loadGame();
     }
 }
 
@@ -25,6 +27,8 @@ namespace sdl{
     void quick_text(std::string writing,int size, Uint8 r,Uint8 g,Uint8 b,int y,SDL_Renderer* renderer);
     void v_quick_text(std::string writing,int var,int size, Uint8 r,Uint8 g,Uint8 b,int y,SDL_Renderer* renderer);
     void button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,SDL_Renderer* renderer,int value);
+    void load_button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,SDL_Renderer* renderer,SDL_Rect &camera,bool (*function)(),int value);
+    void save_button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,SDL_Renderer* renderer,void (*function)(),int value);
 }
 
 
@@ -37,7 +41,7 @@ void niga(SDL_Renderer* renderer);
 void mouse(SDL_Renderer* renderer);
 void mouse_update();
 
-void menu(SDL_Renderer* renderer);
+void menu(SDL_Renderer* renderer,SDL_Rect &camera);
 void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer);
 void win_death_menu(SDL_Renderer*renderer,SDL_Rect camera);
 
