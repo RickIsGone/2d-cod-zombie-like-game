@@ -31,8 +31,13 @@ void gun::shoot(bool automatic){
         Mix_VolumeChunk(glock18_fire, MIX_MAX_VOLUME / 2.5);
         Mix_PlayChannel(-1, glock18_fire, 0);;
     }
-    else if(player.WeaponInHand.name!="knife"){
+    else if(player.WeaponInHand.name=="knife"){
+        Mix_VolumeChunk(knife_swoosh, MIX_MAX_VOLUME );
+        Mix_PlayChannel(-1, knife_swoosh, 0);;
+    }
+    else {
         Mix_VolumeChunk(empty_mag, MIX_MAX_VOLUME / 2.5);
         Mix_PlayChannel(-1, empty_mag, 0);
     }
+    
 }
