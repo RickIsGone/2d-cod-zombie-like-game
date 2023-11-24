@@ -17,7 +17,7 @@ void game::save::saveTopRound() {
 
     if (game_round.round_number > TopRound) TopRound = game_round.round_number;
 
-    lines[0] = "topround: " + std::to_string(TopRound);
+    lines[0] = "topround:" + std::to_string(TopRound);
     if (lines.size() > 1) lines[1] = "issaved:0";
     
 
