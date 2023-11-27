@@ -53,7 +53,10 @@ void sdl::button(std::string text,int size, int x,int y,int width, int height,Ui
     SDL_RenderFillRect(renderer, &rect2);
 
     if((mouseState.x>=x&&mouseState.x<=x+width)&&(mouseState.y>=y&&mouseState.y<=y+height)){
-        if(mouseState.leftButton) game_state=value;
+        if(mouseState.leftButton) {
+            SDL_SetRenderDrawColor(renderer, r-24, g-24, b-24, 255);
+            game_state=value;
+        }
         else SDL_SetRenderDrawColor(renderer, r-12, g-12, b-12, 255);
     }
     else SDL_SetRenderDrawColor(renderer, r, g, b, 255);
@@ -146,6 +149,7 @@ void sdl::save_button(std::string text,int size, int x,int y,int width, int heig
         if(mouseState.leftButton){
             function();
             game_state=value;
+            SDL_SetRenderDrawColor(renderer, r-24, g-24, b-24, 255);
         }
         else SDL_SetRenderDrawColor(renderer, r-12, g-12, b-12, 255);
         

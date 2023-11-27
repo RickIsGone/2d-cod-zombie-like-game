@@ -27,7 +27,7 @@ int main(int argc, char *argv[]){
     SDL_Event event;
     SDL_Event WindowEvent;
     
-    SDL_Rect camera={500,300,1920,1080};
+    SDL_Rect camera={505,303,1920,1080};
     
     game::texturensound_initiation(renderer);
 

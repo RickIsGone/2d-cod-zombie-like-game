@@ -21,6 +21,13 @@ namespace game{
         void saveGame();
         bool loadGame();
     }
+
+    namespace hitbox{
+        bool w(SDL_Rect camera);
+        bool a(SDL_Rect camera);
+        bool s(SDL_Rect camera);
+        bool d(SDL_Rect camera);
+    }
 }
 
 namespace sdl{

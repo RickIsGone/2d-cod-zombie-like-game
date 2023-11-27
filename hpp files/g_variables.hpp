@@ -6,6 +6,8 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
+#include <vector>
+#include <utility>
 
 
 enum GameState{
@@ -24,4 +26,6 @@ extern SDL_Texture* wall_texture,*ground_texture,*outside_texture,*glock18_outli
 extern TTF_Font* font_f;
 extern std::string game_map;
 extern Uint32 g_time;
+
+extern std::vector<std::pair<int,int>> hitboxes;
 #endif
