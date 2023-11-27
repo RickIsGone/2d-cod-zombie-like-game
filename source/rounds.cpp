@@ -73,5 +73,24 @@ void game::restart(SDL_Rect &camera){
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
 
+    hitboxes.clear();
+
+    int x = 0;
+    int y = 0;
+
+    for (char tile : game_map) {
+        if (tile == '\n') {
+            y++;
+            x = 0;
+            continue;
+        }
+
+        if (tile != ' '&& tile!='o') {
+            hitboxes.push_back(std::make_pair(x*101, y*101));
+        }
+
+        x++;
+    }
+
     game::start();
 }
