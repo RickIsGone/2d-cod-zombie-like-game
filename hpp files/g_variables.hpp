@@ -26,7 +26,6 @@ extern TTF_Font* font_f;
 extern std::string game_map;
 extern Uint32 g_time;
 
-extern SDL_Rect playerHitbox;
 extern std::vector<SDL_Rect> hitboxes;
 extern std::vector<zombies> zombie_alive;
 extern std::vector<bullets> bullets_alive;

@@ -45,6 +45,7 @@ struct players {
     gun WeaponInInventory;
     int money;
     bool has_cutters;
+    SDL_Rect Hitbox;
 };
 
 struct zombies{
