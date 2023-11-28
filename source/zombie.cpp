@@ -13,7 +13,7 @@ void game::spawn_zombie(){
     zombie_alive.clear();
 
     for(int i=0;i<game_round.zombie_number;i++){
-        zombies zombie={20,18,game_round.zombie_health,game_round.zombie_speed,game_round.zombie_damage};
+        zombies zombie={47,18,game_round.zombie_health,game_round.zombie_speed,game_round.zombie_damage};
 
         zombie.Hitbox.x = zombie.x-20;
         zombie.Hitbox.y = zombie.y-20;

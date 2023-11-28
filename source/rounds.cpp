@@ -37,9 +37,9 @@ void game::won_round(){
 
 void game::restart(SDL_Rect &camera){
     
-    camera={505,303,1920,1080};     
+    camera={3737,1414,1920,1080};     
     mouseState = {0, 0, false, false};
-    player={15,9,150,150,4,glock18,knife,0,0};
+    player={37,14,150,150,4,glock18,knife,0,0};
     game_map=   "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
