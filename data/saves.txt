@@ -17,7 +17,7 @@ secondary:knife
 secondary_ammo:1
 secondary_ammo_left:1
 
-x:15
-y:9
+x:37
+y:14
 
 zombie alive:0

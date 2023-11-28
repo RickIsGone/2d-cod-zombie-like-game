@@ -47,7 +47,7 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
     bool leftButton = (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0;
 
     if (state[SDL_SCANCODE_W]&& game::hitbox::w(camera)) {
-
+        
         camera.y -= player.speed;
         player.y=camera.y/101;
 
@@ -95,7 +95,7 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
     }
     
     if (state[SDL_SCANCODE_R]&&player.WeaponInHand.ammo!=player.WeaponInHand.ammo_max&&player.WeaponInHand.ammo_left>0&&s_reloadStartTime==0){
-
+        
         Mix_PlayChannel(-1, reload, 0);
         s_reloadStartTime=SDL_GetTicks();
     } 

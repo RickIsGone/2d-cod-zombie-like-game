@@ -73,9 +73,9 @@ void game::texturensound_initiation(SDL_Renderer* renderer){
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
 
-    playerHitbox.x = player.x;
-    playerHitbox.y = player.y;
-    playerHitbox.w = 90; 
+    playerHitbox.x = player.x-20;
+    playerHitbox.y = player.y-20;
+    playerHitbox.w = 80; 
     playerHitbox.h = 80;
 
     int x = 0;

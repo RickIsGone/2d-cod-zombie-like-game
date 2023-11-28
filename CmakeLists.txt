@@ -5,7 +5,7 @@ include(CTest)
 enable_testing()
 
 file(GLOB SOURCES "source/*.cpp")
-add_executable(2d_cod_zombie  ${SOURCES}) 
+add_executable(2d_cod_zombie  ${SOURCES}) #WIN32
 
 set(SDL2_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/lib/cmake/SDL2")
 set(SDL2_IMAGE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/lib/cmake/SDL2_image")
