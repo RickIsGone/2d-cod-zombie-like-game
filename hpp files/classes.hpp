@@ -32,7 +32,7 @@ struct bullets{
     int speed;
     int x;
     int y;
-    SDL_Rect hitbox;
+    SDL_Rect Hitbox;
 };
 
 struct players {
@@ -54,7 +54,7 @@ struct zombies{
     float health;
     int speed;
     float damage;
-    SDL_Rect hitbox;
+    SDL_Rect Hitbox;
 };
 
 struct rounds {

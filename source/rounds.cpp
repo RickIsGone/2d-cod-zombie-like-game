@@ -16,7 +16,7 @@ rounds game_round;
 void game::start(){
 
     game_round.round_number=1;
-    game_round.zombie_number=10;
+    game_round.zombie_number=1; //10
     
     game::spawn_zombie();
 }

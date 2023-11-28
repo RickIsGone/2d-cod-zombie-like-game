@@ -9,7 +9,6 @@
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
 
-
 bool start=true;
 int game_state=PAUSED;
 
@@ -49,6 +48,7 @@ int main(int argc, char *argv[]){
             SDL_RenderClear(renderer);
             map(renderer, camera);
             niga(renderer);
+            zombie_display(renderer,camera);
             game::health_check();
             hud_display(renderer,camera);
 

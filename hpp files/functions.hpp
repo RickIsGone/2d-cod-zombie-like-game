@@ -58,6 +58,7 @@ void ammo_display(SDL_Renderer* renderer,SDL_Rect camera);
 void health_display(SDL_Renderer* renderer,SDL_Rect camera);
 void money_display(SDL_Renderer* renderer,SDL_Rect camera);
 void hud_display(SDL_Renderer* renderer,SDL_Rect camera);
+void zombie_display(SDL_Renderer* renderer,SDL_Rect camera);
 
 void consolle(bool &no_clip,SDL_Rect &camera,SDL_Renderer* renderer);
 void consolle_events(SDL_Event consolle_events, bool &consolle_state);
