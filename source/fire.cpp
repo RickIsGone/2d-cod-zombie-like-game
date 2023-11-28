@@ -4,8 +4,19 @@
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
 
-static Uint32 s_FireRate = 0;
 
+void bullet_generation(){
+    bullets bullet={player.WeaponInHand.damage,30,player.x,player.y};
+    bullet.Hitbox.x=player.x;
+    bullet.Hitbox.y=player.y;
+    bullet.Hitbox.h=10;
+    bullet.Hitbox.w=5;
+    bullet.isalive=true;
+    bullets_alive.push_back(bullet);
+}
+
+
+static Uint32 s_FireRate = 0;
 
 void gun::shoot(bool automatic){
 
@@ -39,5 +50,5 @@ void gun::shoot(bool automatic){
         Mix_VolumeChunk(empty_mag, MIX_MAX_VOLUME / 2.5);
         Mix_PlayChannel(-1, empty_mag, 0);
     }
-    
+    if(player.WeaponInHand.name!="knife") bullet_generation();
 }

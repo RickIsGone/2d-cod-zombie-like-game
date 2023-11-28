@@ -48,6 +48,7 @@ void events(SDL_Event event);
 void niga(SDL_Renderer* renderer);
 void mouse(SDL_Renderer* renderer);
 void mouse_update();
+void bullet_generation();
 
 void menu(SDL_Renderer* renderer,SDL_Rect &camera);
 void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer);
