@@ -3,7 +3,6 @@
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
 #include <vector>
-#include <utility>
 
 void game::open_fence(){
     game_map=   "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
@@ -55,7 +54,12 @@ void game::open_fence(){
         }
 
         if (tile != ' '&& tile!='o') {
-            hitboxes.push_back(std::make_pair(x*101, y*101));
+            SDL_Rect newHitbox;
+            newHitbox.x = (x-9)*101; 
+            newHitbox.y = (y-5)*101;
+            newHitbox.w = 101;
+            newHitbox.h = 101;
+            hitboxes.push_back(newHitbox);
         }
 
         x++;

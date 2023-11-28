@@ -7,7 +7,6 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
 #include <vector>
-#include <utility>
 
 
 enum GameState{
@@ -27,5 +26,8 @@ extern TTF_Font* font_f;
 extern std::string game_map;
 extern Uint32 g_time;
 
-extern std::vector<std::pair<int,int>> hitboxes;
+extern SDL_Rect playerHitbox;
+extern std::vector<SDL_Rect> hitboxes;
+extern std::vector<zombies> zombie_alive;
+extern std::vector<bullets> bullets_alive;
 #endif

@@ -28,6 +28,7 @@ namespace game{
         bool s(SDL_Rect camera);
         bool d(SDL_Rect camera);
     }
+
 }
 
 namespace sdl{

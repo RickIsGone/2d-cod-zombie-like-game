@@ -2,36 +2,43 @@
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
 #include <vector>
-#include <utility>
 
 bool game::hitbox::w(SDL_Rect camera){
-    for (const auto& coord : hitboxes) if (coord.first == camera.x && coord.second == camera.y-player.speed){
-        std::cout<<"hit";
-        return false;
+    for (const SDL_Rect& hitbox : hitboxes) {
+        SDL_Rect screenHitbox = hitbox;
+        screenHitbox.x -= camera.x;
+        screenHitbox.y -= camera.y-player.speed;
+        if (SDL_HasIntersection(&playerHitbox, &screenHitbox)) return false;
     }
-    return true; 
+    return true;
 }
 
 bool game::hitbox::a(SDL_Rect camera){
-    for (const auto& coord : hitboxes) if (coord.first == camera.x-player.speed && coord.second == camera.y){
-        std::cout<<"hit";
-        return false;
+    for (const SDL_Rect& hitbox : hitboxes) {
+        SDL_Rect screenHitbox = hitbox;
+        screenHitbox.x -= camera.x-player.speed;
+        screenHitbox.y -= camera.y;
+        if (SDL_HasIntersection(&playerHitbox, &screenHitbox)) return false;
     }
-    return true;    
+    return true;
 }
 
 bool game::hitbox::s(SDL_Rect camera){
-    for (const auto& coord : hitboxes) if (coord.first == camera.x && coord.second == camera.y+player.speed){
-        std::cout<<"hit";
-        return false;
+    for (const SDL_Rect& hitbox : hitboxes) {
+        SDL_Rect screenHitbox = hitbox;
+        screenHitbox.x -= camera.x;
+        screenHitbox.y -= camera.y+player.speed;
+        if (SDL_HasIntersection(&playerHitbox, &screenHitbox)) return false;
     }
-    return true;  
+    return true;
 }
 
 bool game::hitbox::d(SDL_Rect camera){
-    for (const auto& coord : hitboxes) if (coord.first == camera.x+player.speed && coord.second == camera.y){
-        std::cout<<"hit";
-        return false;
+    for (const SDL_Rect& hitbox : hitboxes) {
+        SDL_Rect screenHitbox = hitbox;
+        screenHitbox.x -= camera.x+player.speed;
+        screenHitbox.y -= camera.y;
+        if (SDL_HasIntersection(&playerHitbox, &screenHitbox)) return false;
     }
-    return true;    
+    return true;
 }

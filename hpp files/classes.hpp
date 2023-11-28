@@ -2,6 +2,10 @@
 #define CLASSES_HPP
 
 #include <iostream>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 
 struct MouseState {
     int x, y; 
@@ -23,6 +27,14 @@ struct gun {
     
 };
 
+struct bullets{
+    int damage;
+    int speed;
+    int x;
+    int y;
+    SDL_Rect hitbox;
+};
+
 struct players {
     int x;
     int y;
@@ -35,10 +47,22 @@ struct players {
     bool has_cutters;
 };
 
+struct zombies{
+    int x;
+    int y;
+    float health;
+    int speed;
+    float damage;
+    SDL_Rect hitbox;
+};
+
 struct rounds {
     int round_number;
     int zombie_number;
     int zombie_left;
+    int zombie_health;
+    int zombie_speed;
+    int zombie_damage;
 };
 
 extern gun ak47;

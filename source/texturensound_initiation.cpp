@@ -6,14 +6,17 @@
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
 #include <vector>
-#include <utility>
 
 Mix_Chunk *step,*ak47_fire,*mp5_fire,*glock18_fire,*knife_swoosh,*reload,*empty_mag;
 SDL_Texture* wall_texture,*ground_texture,*outside_texture,*glock18_outline_texture,*ak_outline_texture,*mp5_outline_texture,*zombie_texture,*left_fence_texture,*right_fence_texture,*w_cutters_texture;
 std::string game_map;
 TTF_Font* font_f;
+SDL_Rect playerHitbox;
+    
 
-std::vector<std::pair<int,int>> hitboxes;
+std::vector<SDL_Rect> hitboxes;
+std::vector<zombies> zombie_alive;
+std::vector<bullets> bullets_alive;
 
 void game::texturensound_initiation(SDL_Renderer* renderer){
     step = Mix_LoadWAV("../texture/step.wav");
@@ -70,8 +73,15 @@ void game::texturensound_initiation(SDL_Renderer* renderer){
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
 
+    playerHitbox.x = player.x;
+    playerHitbox.y = player.y;
+    playerHitbox.w = 90; 
+    playerHitbox.h = 80;
+
     int x = 0;
     int y = 0;
+
+    
 
     for (char tile : game_map) {
         if (tile == '\n') {
@@ -81,11 +91,14 @@ void game::texturensound_initiation(SDL_Renderer* renderer){
         }
 
         if (tile != ' '&& tile!='o') {
-            hitboxes.push_back(std::make_pair((x-8)*101,(y-4)*101));
-            std::cout<<(x-8)*101<<':'<<(y-4)*101<<"\n";
-            x++;
+            SDL_Rect newHitbox;
+            newHitbox.x = (x-9)*101; 
+            newHitbox.y = (y-5)*101;
+            newHitbox.w = 101;
+            newHitbox.h = 101;
+            hitboxes.push_back(newHitbox);
         }
 
-        
+        x++;
     }
 } 

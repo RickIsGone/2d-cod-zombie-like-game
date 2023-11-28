@@ -53,7 +53,7 @@ int main(int argc, char *argv[]){
             hud_display(renderer,camera);
 
             SDL_RenderPresent(renderer);
-
+            
             if (game_round.zombie_number==0) game::won_round();
 
             while(((player.health<=0)||(player.x==98&&(player.y==22||player.y==23))) && game_state==RUNNING){
@@ -70,5 +70,5 @@ int main(int argc, char *argv[]){
     TTF_Quit();
     Mix_Quit();
     return EXIT_SUCCESS;
-
+    
 }

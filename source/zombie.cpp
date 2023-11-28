@@ -10,5 +10,9 @@
 
 void game::spawn_zombie(){
     // spawn degli zombie
-    
+    for(int i=0;i<game_round.zombie_number;i++){
+        // zombies zombie={20,30,game_round.zombie_health,game_round.zombie_speed,game_round.zombie_damage};
+
+        
+    }
 }
