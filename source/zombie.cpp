@@ -9,7 +9,7 @@
 
 
 void game::spawn_zombie(){
-    // spawn degli zombie
+    
     zombie_alive.clear();
 
     for(int i=0;i<game_round.zombie_number;i++){
@@ -26,20 +26,31 @@ void game::spawn_zombie(){
     }
 }
 
+static int zombie_round;
+
 void zombie_display(SDL_Renderer* renderer,SDL_Rect camera){ 
+    zombie_round=game_round.zombie_number;
+
     for(auto& current: zombie_alive){
         if(current.isalive){
             SDL_Rect destRect = { current.x*101-camera.x, current.y*101-camera.y, current.Hitbox.w, current.Hitbox.h };
             SDL_Rect textureRect = { current.x*101-camera.x, current.y*101-camera.y, 140, 140 };
             SDL_RenderCopy(renderer, zombie_texture, NULL, &textureRect);  
 
-            if(SDL_HasIntersection(&current.Hitbox, &player.Hitbox)) player.health-=current.damage;
+            if(SDL_HasIntersection(&current.Hitbox, &player.Hitbox)) std::cout<<'h';
         }
+        else zombie_round--;
         
-        for(auto& bullet:bullets_alive) if(bullet.isalive){ 
+        game_round.zombie_left=zombie_round;
+        
+        for(auto& bullet:bullets_alive) if(bullet.isalive){
+            // if (bullet.x*101-camera.x<0||bullet.x*101-camera.x>1920||bullet.y*101-camera.y<0||bullet.y*101-camera.y>1080) bullet.isalive=false; 
             if(SDL_HasIntersection(&current.Hitbox, &bullet.Hitbox)){
                 current.health-=bullet.damage;
-                if(current.health<=0)player.money+=50;
+                if(current.health<=0){
+                    player.money+=50;
+                    current.isalive=false;
+                }
                 else player.money+=10;
                 bullet.isalive=false;
             }

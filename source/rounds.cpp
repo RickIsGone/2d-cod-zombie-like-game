@@ -17,6 +17,9 @@ void game::start(){
 
     game_round.round_number=1;
     game_round.zombie_number=1; //10
+    game_round.zombie_health=80;
+    game_round.zombie_damage=50;
+    game_round.zombie_speed=3;
     
     game::spawn_zombie();
 }
