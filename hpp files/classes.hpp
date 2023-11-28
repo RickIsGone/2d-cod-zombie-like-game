@@ -60,9 +60,9 @@ struct rounds {
     int round_number;
     int zombie_number;
     int zombie_left;
-    int zombie_health;
+    float zombie_health;
     int zombie_speed;
-    int zombie_damage;
+    float zombie_damage;
 };
 
 extern gun ak47;
