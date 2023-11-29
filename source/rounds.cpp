@@ -105,12 +105,12 @@ void game::restart(SDL_Rect &camera){
         }
 
         if (tile != ' '&& tile!='o') {
-            SDL_Rect newHitbox;
-            newHitbox.x = (x-9)*101; 
-            newHitbox.y = (y-5)*101;
-            newHitbox.w = 101;
-            newHitbox.h = 101;
-            hitboxes.push_back(newHitbox);
+            SDL_Rect wall;
+            wall.x = (x-9)*101; 
+            wall.y = (y-5)*101;
+            wall.w = 101;
+            wall.h = 101;
+            hitboxes.push_back(wall);
         }
 
         x++;
