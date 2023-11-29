@@ -3,6 +3,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
+#include <cmath>
 #include "../hpp files/classes.hpp"
 #include "../hpp files/functions.hpp"
 #include "../hpp files/g_variables.hpp"
@@ -33,9 +34,13 @@ void zombie_display(SDL_Renderer* renderer,SDL_Rect camera){
 
     for(auto& current: zombie_alive){
         if(current.isalive){
+            // pathfind(current);  richiede troppe risorse, da cambiare
             SDL_Rect destRect = { current.x*101-camera.x, current.y*101-camera.y, current.Hitbox.w, current.Hitbox.h };
             SDL_Rect textureRect = { current.x*101-camera.x, current.y*101-camera.y, 140, 140 };
-            SDL_RenderCopy(renderer, zombie_texture, NULL, &textureRect);  
+            double angle = atan2(540 - (current.y*101-camera.y), 940 - (current.x*101-camera.x));
+            angle = angle * (180.0 / M_PI); 
+            
+            SDL_RenderCopyEx(renderer, zombie_texture, NULL, &textureRect, angle, NULL, SDL_FLIP_NONE);  
 
             // if(SDL_HasIntersection(&player.Hitbox, &current.Hitbox)) player.health-=current.damage;  da sistemare
         }

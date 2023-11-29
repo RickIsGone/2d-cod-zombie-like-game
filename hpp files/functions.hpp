@@ -5,6 +5,8 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
+#include "../hpp files/classes.hpp"
+
 namespace game{
     void start();
     void won_round();
@@ -39,7 +41,7 @@ namespace sdl{
     void save_button(std::string text,int size, int x,int y,int width, int height,Uint8 r,Uint8 g,Uint8 b,SDL_Renderer* renderer,void (*function)(),int value);
 }
 
-
+void pathfind(zombies &current);
 
 void map(SDL_Renderer* renderer,const SDL_Rect &camera);
 void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no_clip);
