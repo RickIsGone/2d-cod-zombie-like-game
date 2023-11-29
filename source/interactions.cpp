@@ -83,7 +83,7 @@ void interactions(SDL_Renderer* renderer){
             } 
             else if(player.money<150) sdl::quick_text("you need $150 to buy ammo",40,0,0,0,670,renderer); 
         }
-        else if(player.WeaponInInventory.name=="mp5"){
+        else if(player.WeaponInInventory.name=="glock18"){
             if(player.money>=250&&player.WeaponInInventory.ammo_left!=200){ 
                 player.WeaponInInventory.ammo_left=200;
                 player.money-=250;
