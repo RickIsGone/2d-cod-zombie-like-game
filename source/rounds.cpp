@@ -18,7 +18,7 @@ void game::start(){
     game_round.round_number=1;
     game_round.zombie_number=1; //10
     game_round.zombie_health=80;
-    game_round.zombie_damage=50;
+    game_round.zombie_damage=1;
     game_round.zombie_speed=3;
     
     game::spawn_zombie();
@@ -28,13 +28,15 @@ static Uint32 s_RoundWon = 0;
 static const Uint32 s_ZombieDelay = 10000;
 
 void game::won_round(){
-    game_round.round_number++;
-    game_round.zombie_number+=2;
-    game_round.zombie_health+=0,2;
-    game_round.zombie_damage++;
-    
     s_RoundWon=SDL_GetTicks();
-    if(s_RoundWon!=0 && SDL_GetTicks()-s_RoundWon>=s_ZombieDelay) game::spawn_zombie();
+    if(s_RoundWon!=0 && SDL_GetTicks()-s_RoundWon>=s_ZombieDelay){
+        game_round.round_number++;
+        game_round.zombie_number+=2;
+        game_round.zombie_health+=0,2;
+        game_round.zombie_damage++;
+        game::spawn_zombie();
+        s_RoundWon=0;
+    }
     
 }
 
@@ -77,6 +79,18 @@ void game::restart(SDL_Rect &camera){
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
                 "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
+
+
+    player.Hitbox.x = player.x-20;
+    player.Hitbox.y = player.y-20;
+    player.Hitbox.w = 80; 
+    player.Hitbox.h = 80;
+
+    game_round.round_number=1;
+    game_round.zombie_number=1; //10
+    game_round.zombie_health=80;
+    game_round.zombie_damage=1;
+    game_round.zombie_speed=3;
 
     hitboxes.clear();
 

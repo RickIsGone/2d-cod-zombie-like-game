@@ -42,7 +42,7 @@ void menu(SDL_Renderer* renderer,SDL_Rect &camera){
             round_str = "game paused";
             sdl::button("resume", 30, 900, 505, 120, 40, 92, 92, 92,renderer,RUNNING);
             sdl::button("restart", 30, 900, 555, 120, 40, 92, 92, 92,renderer,RESTART);
-            sdl::save_button("save", 30, 900, 605, 120, 40, 92, 92, 92,renderer,game::save::saveGame,PAUSED);
+            sdl::save_button("save", 30, 900, 605, 120, 40, 92, 92, 92,renderer,game::save::saveGame,PAUSED); // DA SISTEMARE
             sdl::button("exit", 30, 900, 655, 120, 40, 92, 92, 92,renderer,CLOSED);
             break;
     }

@@ -13,7 +13,7 @@ void game::spawn_zombie(){
     zombie_alive.clear();
 
     for(int i=0;i<game_round.zombie_number;i++){
-        zombies zombie={47,18,game_round.zombie_health,game_round.zombie_speed,game_round.zombie_damage};
+        zombies zombie={47, 18, game_round.zombie_health, game_round.zombie_speed, game_round.zombie_damage};
 
         zombie.Hitbox.x = zombie.x-20;
         zombie.Hitbox.y = zombie.y-20;
@@ -37,23 +37,23 @@ void zombie_display(SDL_Renderer* renderer,SDL_Rect camera){
             SDL_Rect textureRect = { current.x*101-camera.x, current.y*101-camera.y, 140, 140 };
             SDL_RenderCopy(renderer, zombie_texture, NULL, &textureRect);  
 
-            if(SDL_HasIntersection(&current.Hitbox, &player.Hitbox)) std::cout<<'h';
+            // if(SDL_HasIntersection(&player.Hitbox, &current.Hitbox)) player.health-=current.damage;  da sistemare
         }
         else zombie_round--;
         
         game_round.zombie_left=zombie_round;
         
-        for(auto& bullet:bullets_alive) if(bullet.isalive){
-            // if (bullet.x*101-camera.x<0||bullet.x*101-camera.x>1920||bullet.y*101-camera.y<0||bullet.y*101-camera.y>1080) bullet.isalive=false; 
-            if(SDL_HasIntersection(&current.Hitbox, &bullet.Hitbox)){
-                current.health-=bullet.damage;
-                if(current.health<=0){
-                    player.money+=50;
-                    current.isalive=false;
-                }
-                else player.money+=10;
-                bullet.isalive=false;
-            }
-        }
+        // for(auto& bullet:bullets_alive) if(bullet.isalive){
+        //     // if (bullet.x*101-camera.x<0||bullet.x*101-camera.x>1920||bullet.y*101-camera.y<0||bullet.y*101-camera.y>1080) bullet.isalive=false; 
+        //     if(SDL_HasIntersection(&current.Hitbox, &bullet.Hitbox)){
+        //         current.health-=bullet.damage;
+        //         if(current.health<=0){
+        //             player.money+=50;
+        //             current.isalive=false;
+        //         }
+        //         else player.money+=10;
+        //         bullet.isalive=false;
+        //     }
+        // }
     }
 }
