@@ -74,7 +74,7 @@ void interactions(SDL_Renderer* renderer){
     }
 
     // glock 
-    if((player.x==15||player.x==18)&&(player.y==4||player.y==5)){
+    if((player.x>=15 && player.x<=18)&&(player.y==4 || player.y==5)){
 
         if(player.WeaponInHand.name=="glock18") {
             if(player.money>=150&&player.WeaponInHand.ammo_left!=200){
