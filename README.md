@@ -2,6 +2,7 @@
 This is my first project using SDL so it might be written badly. I'm still actively working on it trying to improve it.  
 The game is currently in a very raw state and only has some features, but it'll be completed over time.  
 if you have any problem with the game in its current state or you'd like to see some particular feature open an issue and I'll look at it as fast as possible  
+
 ![A screenshot from the game](https://i.imgur.com/GZMaZIT.png)
 
 # Compiling and running the game
