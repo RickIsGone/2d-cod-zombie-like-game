@@ -43,13 +43,15 @@ void gun::shoot(bool automatic){
         Mix_PlayChannel(-1, glock18_fire, 0);;
     }
     else if(player.WeaponInHand.name=="knife"){
-        for(auto& zombie:zombie_alive)
-            if(zombie.isalive){
-                if(SDL_HasIntersection(&player.Hitbox,&zombie.Hitbox)) zombie.health-=player.WeaponInHand.damage;
-                if(zombie.health>0) player.money+=25;
-                else {
-                    player.money+=75;
-                    zombie.isalive=false;
+        for(auto& current:zombie_alive)
+            if(current.isalive){
+                if(SDL_HasIntersection(&player.Hitbox,&current.Hitbox)){
+                    current.health-=player.WeaponInHand.damage;
+                    if(current.health>0) player.money+=25;
+                    else {
+                        player.money+=75;
+                        current.isalive=false;
+                    }
                 }
             }
             

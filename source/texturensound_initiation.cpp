@@ -38,43 +38,43 @@ void game::texturensound_initiation(SDL_Renderer* renderer){
     right_fence_texture=IMG_LoadTexture(renderer,"../texture/r_fence.png");
     w_cutters_texture=IMG_LoadTexture(renderer,"../texture/w_cutters.png");
     
-    game_map=   "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "oooooooo*******************************************************************************a*****************oooooooo\n"
-                "oooooooo*                            *                                                                  *oooooooo\n"
-                "oooooooo*                            *                                                                  *oooooooo\n"
-                "oooooooo*                            *                                                                  *oooooooo\n"
-                "oooooooo*                 *****      *                          *        *                              *oooooooo\n"
-                "oooooooo*                 *   *      ****************      ******        *                              *oooooooo\n"
-                "oooooooo*                 g   *                     *      *             *                              *oooooooo\n"
-                "oooooooo*                 *   *                     *      *             *                              *oooooooo\n"                  
-                "oooooooo*                 *   *                     *      *             **********     *****************oooooooo\n"
-                "oooooooo*************     *   ***********           *      *                                            *oooooooo\n"
-                "oooooooo*                               *           *      *                                            *oooooooo\n"
-                "oooooooo*                               *           *                                                   *oooooooo\n"
-                "oooooooo*                               *           *                                                   *oooooooo\n"
-                "oooooooo*                               *           *                                                   *oooooooo\n"
-                "oooooooo*                                                  *         *******     *************          *oooooooo\n"
-                "oooooooo*                                                  *                                 *          *oooooooo\n"
-                "oooooooo*                                                  *                                 *          *oooooooo\n"
-                "oooooooo*      ******************       *           *      *                                 *          *oooooooo\n"
-                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                "oooooooow                               *           *      *         *                                  *oooooooo\n"
-                "oooooooo*                       *       ****     ****      *         ***************m*********          *oooooooo\n"
-                "oooooooo*                       *                                                                       *********\n"
-                "oooooooo*                       *                                                                       l        \n"
-                "oooooooo*                       *                                                                       r        \n"
-                "oooooooo*********************************************************************************************************\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
+    game_map=   "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooo*******************************************************************************a*****************ooooooooo\n"
+                "ooooooooo*                            *                                                                  *ooooooooo\n"
+                "ooooooooo*                            *                                                                  *ooooooooo\n"
+                "ooooooooo*                            *                                                                  *ooooooooo\n"
+                "ooooooooo*                 *****      *                          *        *                              *ooooooooo\n"
+                "ooooooooo*                 *   *      ****************      ******        *                              *ooooooooo\n"
+                "ooooooooo*                 g   *                     *      *             *                              *ooooooooo\n"
+                "ooooooooo*                 *   *                     *      *             *                              *ooooooooo\n"                  
+                "ooooooooo*                 *   *                     *      *             **********     *****************ooooooooo\n"
+                "ooooooooo*************     *   ***********           *      *                                            *ooooooooo\n"
+                "ooooooooo*                               *           *      *                                            *ooooooooo\n"
+                "ooooooooo*                               *           *                                                   *ooooooooo\n"
+                "ooooooooo*                               *           *                                                   *ooooooooo\n"
+                "ooooooooo*                               *           *                                                   *ooooooooo\n"
+                "ooooooooo*                                                  *         *******     *************          *ooooooooo\n"
+                "ooooooooo*                                                  *                                 *          *ooooooooo\n"
+                "ooooooooo*                                                  *                                 *          *ooooooooo\n"
+                "ooooooooo*      ******************       *           *      *                                 *          *ooooooooo\n"
+                "ooooooooo*                               *           *      *         *                                  *ooooooooo\n"
+                "ooooooooo*                               *           *      *         *                                  *ooooooooo\n"
+                "ooooooooow                               *           *      *         *                                  *ooooooooo\n"
+                "ooooooooo*                       *       ****     ****      *         ***************m*********          *ooooooooo\n"
+                "ooooooooo*                       *                                                                       **********\n"
+                "ooooooooo*                       *                                                                       l         \n" 
+                "ooooooooo*                       *                                                                       r         \n"
+                "ooooooooo**********************************************************************************************************\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
 
-    player.Hitbox.x = player.x-20;
-    player.Hitbox.y = player.y-20;
+    player.Hitbox.x = 920;
+    player.Hitbox.y = 500;
     player.Hitbox.w = 80; 
     player.Hitbox.h = 80;
 
@@ -91,8 +91,8 @@ void game::texturensound_initiation(SDL_Renderer* renderer){
 
         if (tile != ' '&& tile!='o') {
             SDL_Rect wall;
-            wall.x = (x-9)*101; 
-            wall.y = (y-5)*101;
+            wall.x = x*101; 
+            wall.y = y*101;
             wall.w = 101;
             wall.h = 101;
             hitboxes.push_back(wall);

@@ -45,46 +45,42 @@ void game::restart(SDL_Rect &camera){
     camera={3737,1414,1920,1080};     
     mouseState = {0, 0, false, false};
     player={37,14,150,150,4,glock18,knife,0,0};
-    game_map=   "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "oooooooo*******************************************************************************a*****************oooooooo\n"
-                "oooooooo*                            *                                                                  *oooooooo\n"
-                "oooooooo*                            *                                                                  *oooooooo\n"
-                "oooooooo*                            *                                                                  *oooooooo\n"
-                "oooooooo*                 *****      *                          *        *                              *oooooooo\n"
-                "oooooooo*                 *   *      ****************      ******        *                              *oooooooo\n"
-                "oooooooo*                 g   *                     *      *             *                              *oooooooo\n"
-                "oooooooo*                 *   *                     *      *             *                              *oooooooo\n"                  
-                "oooooooo*                 *   *                     *      *             **********     *****************oooooooo\n"
-                "oooooooo*************     *   ***********           *      *                                            *oooooooo\n"
-                "oooooooo*                               *           *      *                                            *oooooooo\n"
-                "oooooooo*                               *           *                                                   *oooooooo\n"
-                "oooooooo*                               *           *                                                   *oooooooo\n"
-                "oooooooo*                               *           *                                                   *oooooooo\n"
-                "oooooooo*                                                  *         *******     *************          *oooooooo\n"
-                "oooooooo*                                                  *                                 *          *oooooooo\n"
-                "oooooooo*                                                  *                                 *          *oooooooo\n"
-                "oooooooo*      ******************       *           *      *                                 *          *oooooooo\n"
-                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                "oooooooo*                               *           *      *         *                                  *oooooooo\n"
-                "oooooooow                               *           *      *         *                                  *oooooooo\n"
-                "oooooooo*                       *       ****     ****      *         ***************m*********          *oooooooo\n"
-                "oooooooo*                       *                                                                       *********\n"
-                "oooooooo*                       *                                                                       l        \n"
-                "oooooooo*                       *                                                                       r        \n"
-                "oooooooo*********************************************************************************************************\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
-                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
+    game_map=   "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooo*******************************************************************************a*****************ooooooooo\n"
+                "ooooooooo*                            *                                                                  *ooooooooo\n"
+                "ooooooooo*                            *                                                                  *ooooooooo\n"
+                "ooooooooo*                            *                                                                  *ooooooooo\n"
+                "ooooooooo*                 *****      *                          *        *                              *ooooooooo\n"
+                "ooooooooo*                 *   *      ****************      ******        *                              *ooooooooo\n"
+                "ooooooooo*                 g   *                     *      *             *                              *ooooooooo\n"
+                "ooooooooo*                 *   *                     *      *             *                              *ooooooooo\n"                  
+                "ooooooooo*                 *   *                     *      *             **********     *****************ooooooooo\n"
+                "ooooooooo*************     *   ***********           *      *                                            *ooooooooo\n"
+                "ooooooooo*                               *           *      *                                            *ooooooooo\n"
+                "ooooooooo*                               *           *                                                   *ooooooooo\n"
+                "ooooooooo*                               *           *                                                   *ooooooooo\n"
+                "ooooooooo*                               *           *                                                   *ooooooooo\n"
+                "ooooooooo*                                                  *         *******     *************          *ooooooooo\n"
+                "ooooooooo*                                                  *                                 *          *ooooooooo\n"
+                "ooooooooo*                                                  *                                 *          *ooooooooo\n"
+                "ooooooooo*      ******************       *           *      *                                 *          *ooooooooo\n"
+                "ooooooooo*                               *           *      *         *                                  *ooooooooo\n"
+                "ooooooooo*                               *           *      *         *                                  *ooooooooo\n"
+                "ooooooooow                               *           *      *         *                                  *ooooooooo\n"
+                "ooooooooo*                       *       ****     ****      *         ***************m*********          *ooooooooo\n"
+                "ooooooooo*                       *                                                                       **********\n"
+                "ooooooooo*                       *                                                                       l         \n" 
+                "ooooooooo*                       *                                                                       r         \n"
+                "ooooooooo**********************************************************************************************************\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n"
+                "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n";
 
 
-    player.Hitbox.x = player.x-20;
-    player.Hitbox.y = player.y-20;
-    player.Hitbox.w = 80; 
-    player.Hitbox.h = 80;
 
     game_round.round_number=1;
     game_round.zombie_number=10; 
@@ -94,8 +90,14 @@ void game::restart(SDL_Rect &camera){
 
     hitboxes.clear();
 
+    player.Hitbox.x = 920;
+    player.Hitbox.y = 500;
+    player.Hitbox.w = 80; 
+    player.Hitbox.h = 80;
+
     int x = 0;
     int y = 0;
+
 
     for (char tile : game_map) {
         if (tile == '\n') {
@@ -106,8 +108,8 @@ void game::restart(SDL_Rect &camera){
 
         if (tile != ' '&& tile!='o') {
             SDL_Rect wall;
-            wall.x = (x-9)*101; 
-            wall.y = (y-5)*101;
+            wall.x = x*101; 
+            wall.y = y*101;
             wall.w = 101;
             wall.h = 101;
             hitboxes.push_back(wall);

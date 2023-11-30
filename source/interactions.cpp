@@ -9,7 +9,7 @@ Uint32 g_time;
 void interactions(SDL_Renderer* renderer){
 
     // fence
-    if((player.x==94||player.x==93)&&(player.y==22||player.y==21||player.y==23)){
+    if((player.x==94||player.x==95)&&(player.y==22||player.y==21||player.y==23)){
 
         if(player.has_cutters) game::open_fence();
 
@@ -20,7 +20,7 @@ void interactions(SDL_Renderer* renderer){
     }
 
     // ak
-    if((player.x==77||player.x==78)&&player.y==0){
+    if((player.x==79||player.x==78)&&player.y==0){
 
         if(player.WeaponInHand.name=="ak47") {
             if(player.money>=250&&player.WeaponInHand.ammo_left!=240){
@@ -47,7 +47,7 @@ void interactions(SDL_Renderer* renderer){
     }
 
     // mp5
-    if((player.x==74||player.x==75)&&player.y>=19&&player.y<=21){
+    if((player.x==76||player.x==75)&&player.y>=19&&player.y<=21){
 
         if(player.WeaponInHand.name=="mp5") {
             if(player.money>=250&&player.WeaponInHand.ammo_left!=200){
@@ -74,7 +74,7 @@ void interactions(SDL_Renderer* renderer){
     }
 
     // glock 
-    if((player.x>=15 && player.x<=18)&&(player.y==4 || player.y==5)){
+    if((player.x>=16 && player.x<=19)&&(player.y==4 || player.y==5)){
 
         if(player.WeaponInHand.name=="glock18") {
             if(player.money>=150&&player.WeaponInHand.ammo_left!=200){

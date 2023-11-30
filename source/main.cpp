@@ -54,7 +54,7 @@ int main(int argc, char *argv[]){
             zombie_display(renderer,camera);
             game::health_check();
             hud_display(renderer,camera);
-
+            SDL_RenderDrawRect(renderer,&player.Hitbox);  // solo per debug
             SDL_RenderPresent(renderer);
             
             if (game_round.zombie_number==0) game::won_round();
