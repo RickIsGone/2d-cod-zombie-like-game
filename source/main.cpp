@@ -37,7 +37,10 @@ int main(int argc, char *argv[]){
     start=false;
 
     do{
-        if(game_state==RESTART) game_state=RUNNING;
+        if(game_state==RESTART){
+            game::restart(camera);
+            game_state=RUNNING;
+        }
         game::start();
         
         while (game_state==RUNNING){

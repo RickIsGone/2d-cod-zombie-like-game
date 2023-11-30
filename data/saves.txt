@@ -20,4 +20,4 @@ secondary_ammo_left:1
 x:37
 y:14
 
-zombie alive:0
+zombie alive:10

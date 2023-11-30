@@ -88,7 +88,6 @@ void pause_menu(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer){
     map(renderer, camera);
     menu(renderer,camera);  
     SDL_RenderPresent(renderer);
-    if(game_state==RESTART) game::restart(camera);
 }
 
 

@@ -16,7 +16,7 @@ rounds game_round;
 void game::start(){
 
     game_round.round_number=1;
-    game_round.zombie_number=1; //10
+    game_round.zombie_number=10; 
     game_round.zombie_health=80;
     game_round.zombie_damage=1;
     game_round.zombie_speed=3;
@@ -87,7 +87,7 @@ void game::restart(SDL_Rect &camera){
     player.Hitbox.h = 80;
 
     game_round.round_number=1;
-    game_round.zombie_number=1; //10
+    game_round.zombie_number=10; 
     game_round.zombie_health=80;
     game_round.zombie_damage=1;
     game_round.zombie_speed=3;
@@ -117,5 +117,4 @@ void game::restart(SDL_Rect &camera){
     }
 
 
-    game::start();
 }

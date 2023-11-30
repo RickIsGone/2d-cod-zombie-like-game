@@ -35,14 +35,15 @@ void zombie_display(SDL_Renderer* renderer,SDL_Rect camera){
     for(auto& current: zombie_alive){
         if(current.isalive){
             // pathfind(current);  richiede troppe risorse, da cambiare
-            SDL_Rect destRect = { current.x*101-camera.x, current.y*101-camera.y, current.Hitbox.w, current.Hitbox.h };
+            SDL_Rect destRect = { current.Hitbox.x*101-camera.x, current.Hitbox.y*101-camera.y, current.Hitbox.w, current.Hitbox.h };
             SDL_Rect textureRect = { current.x*101-camera.x, current.y*101-camera.y, 140, 140 };
             double angle = atan2(540 - (current.y*101-camera.y), 940 - (current.x*101-camera.x));
             angle = angle * (180.0 / M_PI); 
-            
+            SDL_SetRenderDrawColor(renderer,255,0,0,255);
+            SDL_RenderDrawRect(renderer,&current.Hitbox);
             SDL_RenderCopyEx(renderer, zombie_texture, NULL, &textureRect, angle, NULL, SDL_FLIP_NONE);  
 
-            // if(SDL_HasIntersection(&player.Hitbox, &current.Hitbox)) player.health-=current.damage;  da sistemare
+            // if(SDL_HasIntersection(&player.Hitbox, &current.Hitbox)) player.health-=current.damage;  //da sistemare
         }
         else zombie_round--;
         
