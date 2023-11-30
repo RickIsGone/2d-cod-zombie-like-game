@@ -11,6 +11,7 @@
 
 bool start=true;
 int game_state=PAUSED;
+float deltaTime; 
 
 int main(int argc, char *argv[]){
     
@@ -42,8 +43,12 @@ int main(int argc, char *argv[]){
             game_state=RUNNING;
         }
         game::start();
-        
+
+        Uint32 lastTime = SDL_GetTicks();
+
         while (game_state==RUNNING){
+            Uint32 currentTime = SDL_GetTicks();
+            deltaTime = (currentTime - lastTime) / 1000.0f;
             
             while (SDL_PollEvent(&event)) events(event);
 
@@ -63,6 +68,7 @@ int main(int argc, char *argv[]){
                 game::win_death(event,renderer,camera);
                 game::save::saveTopRound();
             }
+            lastTime = currentTime;
         }
         
     }while (game_state==RESTART);

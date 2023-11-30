@@ -46,10 +46,10 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
     Mix_Chunk *sound;
     bool leftButton = (buttons & SDL_BUTTON(SDL_BUTTON_LEFT)) != 0;
 
-    if (state[SDL_SCANCODE_W]&& game::hitbox::w(camera)) {
+    if (state[SDL_SCANCODE_W] && game::hitbox::w(camera)) {
         
-        camera.y -= player.speed;
-        player.y=camera.y/101;
+        camera.y -= player.speed*deltaTime;
+        player.y = camera.y/101;
 
         if (SDL_GetTicks() - s_lastStepTime > s_stepDelay) {
             Mix_VolumeChunk(step, MIX_MAX_VOLUME / 4);
@@ -58,10 +58,10 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
         }
     }
     
-    if (state[SDL_SCANCODE_A]&& game::hitbox::a(camera)){
+    if (state[SDL_SCANCODE_A] && game::hitbox::a(camera)){
 
-        camera.x -= player.speed;
-        player.x=camera.x/101;
+        camera.x -= player.speed*deltaTime;
+        player.x = camera.x/101;
           
         if (SDL_GetTicks() - s_lastStepTime > s_stepDelay) {
             Mix_VolumeChunk(step, MIX_MAX_VOLUME / 4);
@@ -70,10 +70,10 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
         }
     }
     
-    if (state[SDL_SCANCODE_S]&& game::hitbox::s(camera)) {
+    if (state[SDL_SCANCODE_S] && game::hitbox::s(camera)) {
 
-        camera.y += player.speed;
-        player.y=camera.y/101;
+        camera.y += player.speed*deltaTime;
+        player.y = camera.y/101;
 
         if (SDL_GetTicks() - s_lastStepTime > s_stepDelay) {
             Mix_VolumeChunk(step, MIX_MAX_VOLUME / 4);
@@ -82,10 +82,10 @@ void mnk_events(SDL_Rect &camera,SDL_Event event,SDL_Renderer* renderer,bool &no
         }
     }
     
-    if (state[SDL_SCANCODE_D]&& game::hitbox::d(camera)) {
+    if (state[SDL_SCANCODE_D] && game::hitbox::d(camera)) {
 
-        camera.x += player.speed;
-        player.x=camera.x/101;
+        camera.x += player.speed*deltaTime;
+        player.x = camera.x/101;
 
         if (SDL_GetTicks() - s_lastStepTime > s_stepDelay) {
             Mix_VolumeChunk(step, MIX_MAX_VOLUME / 4);

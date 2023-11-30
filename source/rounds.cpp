@@ -9,7 +9,7 @@ gun ak47={"ak47",35,30,30,240,150};
 gun mp5={"mp5",25,25,25,200,100};
 gun knife{"knife",85,1,1,1,200};
 gun glock18{"glock18",20,20,20,160,0};
-players player={37,14,150,150,4,glock18,knife,0,0};     // hitbox initialization in texturensoundinitialization.cpp
+players player={37,14,150,150,500,glock18,knife,0,0};     // hitbox initialization in texturensoundinitialization.cpp
 MouseState mouseState = {0, 0, false, false};
 rounds game_round;
 
